@@ -39,8 +39,8 @@ public class TitleState extends BasicGameState{
 			   ScrRes.getHeight(2)+ScrRes.getHeight(3) , "PRESS ENTER",
 			   ca.getColor());
 	   
-	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*29),
-			   ScrRes.getHeight()-75, "\u00a9 2017 TeamHaircutDigiNet.com", Color.white);
+	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*22),
+			   ScrRes.getHeight()-75, "\u00a9 2017 TeamHaircut.org", Color.white);
 	   
 	   titleAnimation.draw((ScrRes.getWidth(4))+65,(ScrRes.getHeight(5))-15);
 	   

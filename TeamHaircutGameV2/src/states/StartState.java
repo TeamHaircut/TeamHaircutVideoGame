@@ -42,6 +42,7 @@ public class StartState extends BasicGameState{
 	   if (counter >= 1000) {
 		   counter = 0;
 		   if (Hero.currentState == 4){
+			   sbg.getState(GameState.LEVEL1).init(gc, sbg);
 			   sbg.enterState(GameState.LEVEL1, new EmptyTransition(), 
 					   new EmptyTransition());}//enterstate 4 not 5
 		   else {sbg.enterState(GameState.LEVEL2, new EmptyTransition(), 

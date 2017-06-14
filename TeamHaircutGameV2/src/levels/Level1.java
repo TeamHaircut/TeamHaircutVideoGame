@@ -185,7 +185,7 @@ public class Level1 extends BasicGameState {
 	private RectangleList mySolids;//plus 1 from goal//temp
 	//private RectangleList myBadGuys = new RectangleList(b0 + b1 + b2 + b3 + b4 + b5 + b6 + b7 +b8);//temp
 	Hero hero;
-	Goal levelGoal;
+	//Goal levelGoal;
 	Header hd;
 	
 	public Level1(){
@@ -217,7 +217,7 @@ public class Level1 extends BasicGameState {
 		bgFirerod = new BadGuyFirerod(bgfrx,bgfry,myBounds, mySolids);
 		*/
 		hero = new Hero();
-		levelGoal = new Goal(new float[] {204},new float[] {7});
+		//levelGoal = new Goal(new float[] {204},new float[] {7});
 		hd = new Header();
 	}
    
@@ -252,6 +252,8 @@ public class Level1 extends BasicGameState {
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
 		bi.init(gc, sbg);
+		
+		Platform.count = 0;
 		level1_Platforms = new LevelPlatformBuilder(new Platform[]{
 				new Platform(0,toFloor(1),69,2,Strings.PLATFORM_BRICK),
 				new Platform(73,toFloor(1),15,2,Strings.PLATFORM_BRICK),
@@ -286,9 +288,14 @@ public class Level1 extends BasicGameState {
 				new Platform(204,toFloor(1),3,2,Strings.PLATFORM_TELE),
 				});
 		
+		Tile.count = 0;
 		level1_Tiles = new LevelTileBuilder(new Tile[] {
 				new Tile(10,toFloor(5),Strings.TILE_BREAK,Strings.TILE_BOX),
-				new Tile(13,toFloor(5),Strings.TILE_BREAK,Strings.TILE_BOX)
+				new Tile(13,toFloor(5),Strings.TILE_BREAK,Strings.TILE_BOX),
+				new Tile(10,toFloor(8),Strings.TILE_BREAK,Strings.TILE_BOX),
+				new Tile(13,toFloor(8),Strings.TILE_BREAK,Strings.TILE_BOX),
+				new Tile(10,toFloor(11),Strings.TILE_BREAK,Strings.TILE_BOX),
+				new Tile(13,toFloor(11),Strings.TILE_BREAK,Strings.TILE_BOX)
 				
 		}); 
 		
@@ -299,7 +306,7 @@ public class Level1 extends BasicGameState {
 //		private String[] cbmyResource2 = {"res/specialItems/emptyBox.png"};
 //		private int c3 = cbx.length;
 
-		mySolids = new RectangleList(Platform.count+1+Tile.count);
+		mySolids = new RectangleList(Platform.count + Tile.count);
 		level1_Platforms.init(gc, sbg);
 		level1_Tiles.init(gc, sbg);
 			mySolids.addSolid(level1_Platforms.rec);
@@ -354,8 +361,8 @@ public class Level1 extends BasicGameState {
 		coins.init(gc, sbg);
 		*/
 		hero.init(gc, sbg);
-		levelGoal.init(gc, sbg);
-			mySolids.addSolid(levelGoal.rec2);
+		//levelGoal.init(gc, sbg);
+			//mySolids.addSolid(levelGoal.rec2);
 		hd.init(gc, sbg);
 	 }
    
@@ -396,7 +403,7 @@ public class Level1 extends BasicGameState {
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	   hero.render(gc, sbg, g);//hero
 	   //hiddenstarman.render(gc, sbg, g);
-	   levelGoal.render(gc, sbg, g);//goal
+	   //levelGoal.render(gc, sbg, g);//goal
 	   hd.render(gc, sbg, g);//header
 	}
    
@@ -439,7 +446,7 @@ public class Level1 extends BasicGameState {
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	   hero.update(gc, sbg, delta);//hero
-	   levelGoal.update(gc, sbg, delta);//goal
+	   //levelGoal.update(gc, sbg, delta);//goal
 	   hd.update(gc, sbg, delta);//header
 	  
 	    
@@ -450,11 +457,11 @@ public class Level1 extends BasicGameState {
 	   if (Hero.downAHole||PowerState.getPowerUpState() <= 0)
 	   {
 		  //sbg.enterState(3);
-		  resetLevel(gc,sbg);
+		  //resetLevel(gc,sbg);
 	   }
 	   Hero.downAHole = false;
 	   
-	   if (levelGoal.rec[0].intersects(Hero.rec5)){Hero.reachedGoal = true;Hero.currentState = 5;Hero.world = "1-2";resetLevel(gc,sbg);}
+	   //if (levelGoal.rec[0].intersects(Hero.rec5)){Hero.reachedGoal = true;Hero.currentState = 5;Hero.world = "1-2";resetLevel(gc,sbg);}
 	   
 	   /*******************************************************************************************************************/
 	   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

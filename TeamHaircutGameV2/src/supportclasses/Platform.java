@@ -1,7 +1,20 @@
 package supportclasses;
 
+import javagame.Hero;
+
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
+import org.newdawn.slick.state.StateBasedGame;
+
+import dansLibrary.GameFunc;
+import dimensions.Dimensions;
+
 public class Platform {
 	public static int count;
+	private Rectangle rec;
 	
 	private float x;
 	private float y;
@@ -9,53 +22,50 @@ public class Platform {
 	private int row;
 	private String res;
 	
+	private float nx;
+	private Image image;
+	
 	public Platform(float x, float y, int col, int row, String res) {
 		count++;
-		this.x = x;
-		this.y = y;
+	
+		this.x = x*Dimensions.D;
+		this.y = y*Dimensions.D;
 		this.col = col;
 		this.row = row;
 		this.res = res;
+		
+		nx = -((x*Dimensions.D)-350);
+	}
+	
+	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
+	{
+		image = new Image(res);
+		rec = new Rectangle(x,y,col*Dimensions.D,row*Dimensions.D);
+	}
+	
+	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
+	{
+		for(int r = 0; r < row; r++) {
+			for(int c = 0; c < col; c++) {
+				g.drawImage(image,x+(Dimensions.D*c),y+(Dimensions.D*r));
+			}
+		}
+		rec.setX(x);
+		
+	}
+	
+	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
+	{
+		x = GameFunc.scrollImage(x, nx, Hero.wall, Hero.nx);
 	}
 
-	public float getX() {
-		return x;
+	public Rectangle getRec() {
+		return rec;
 	}
 
-	public void setX(float x) {
-		this.x = x;
+	public void setRec(Rectangle rec) {
+		this.rec = rec;
 	}
-
-	public float getY() {
-		return y;
-	}
-
-	public void setY(float y) {
-		this.y = y;
-	}
-
-	public int getCol() {
-		return col;
-	}
-
-	public void setCol(int col) {
-		this.col = col;
-	}
-
-	public int getRow() {
-		return row;
-	}
-
-	public void setRow(int row) {
-		this.row = row;
-	}
-
-	public String getRes() {
-		return res;
-	}
-
-	public void setRes(String res) {
-		this.res = res;
-	}
-
+	
+	
 }

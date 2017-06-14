@@ -1,7 +1,6 @@
 package states;
 
 import levels.Level1;
-import levels.Level2;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
@@ -28,6 +27,7 @@ public class GameDriver extends StateBasedGame{
       this.getState(GameState.SELECTSTATE).init(gc, this);
       this.getState(GameState.STARTSTATE).init(gc, this);
       this.getState(GameState.GAMEOVERSTATE).init(gc, this);
+      this.getState(GameState.LEVEL1).init(gc, this);
 
       /*
        * use GameState.INTROSTATE, to start at beginning

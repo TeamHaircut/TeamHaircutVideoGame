@@ -31,8 +31,8 @@ public class IntroState extends BasicGameState{
    
    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
 	   g.setBackground(Color.black);
-	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*22), 
-			   ScrRes.getHeight(2), "TEAMHAIRCUTDIGINET.COM", ca.getColor()); 
+	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*15), 
+			   ScrRes.getHeight(2), "TEAMHAIRCUT.ORG", ca.getColor()); 
 	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*10), 
 			   (ScrRes.getHeight(2))+FONTSIZE+1, " PRESENTS ", ca.getColor());
    }

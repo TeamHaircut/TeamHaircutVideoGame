@@ -6,7 +6,6 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
-
 public class LevelTileBuilder {
 
 	public Rectangle[] rec;
@@ -20,7 +19,6 @@ public class LevelTileBuilder {
 		for(int i = 0; i < size; i++) {
 			myArray[i] = tileArray[i];
 		}
-
 	}
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
