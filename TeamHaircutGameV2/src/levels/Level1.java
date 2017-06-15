@@ -34,6 +34,7 @@ import javagame.MysteryStarMan;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
+import animations.Animations;
 import dimensions.Dimensions;
 import states.Header;
 import states.ScrRes;
@@ -47,6 +48,8 @@ import supportclasses.PowerState;
 import supportclasses.Tile;
 //make change in prepstate to start on level1
 public class Level1 extends BasicGameState {
+	
+	private Animations ani;
 	
 	private BackGroundImage bi;
 	private LevelPlatformBuilder level1_Platforms;
@@ -191,6 +194,7 @@ public class Level1 extends BasicGameState {
 	public Level1(){
 		bi = new BackGroundImage(Strings.LEVEL1_BI);
 		
+		
 		/*
 		barriers = new Barriers(obx,oby,80,400,"res/objects/barriers/tube/tube.png");
 		breaks = new BreakTile(bbx,bby, bbmyResource1, bbmyResource2, new int[] {200} ,new int[] {100,100,100,100,100}, false);
@@ -251,6 +255,8 @@ public class Level1 extends BasicGameState {
 	   }
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
+		ani = new Animations();
+		
 		bi.init(gc, sbg);
 		
 		Platform.count = 0;
@@ -290,14 +296,13 @@ public class Level1 extends BasicGameState {
 		
 		Tile.count = 0;
 		level1_Tiles = new LevelTileBuilder(new Tile[] {
-				new Tile(10,toFloor(5),Strings.TILE_BREAK,Strings.TILE_BOX),
-				new Tile(13,toFloor(5),Strings.TILE_BREAK,Strings.TILE_BOX),
-				new Tile(10,toFloor(8),Strings.TILE_BREAK,Strings.TILE_BOX),
-				new Tile(13,toFloor(8),Strings.TILE_BREAK,Strings.TILE_BOX),
-				new Tile(10,toFloor(11),Strings.TILE_BREAK,Strings.TILE_BOX),
-				new Tile(13,toFloor(11),Strings.TILE_BREAK,Strings.TILE_BOX)
+				new Tile(10,toFloor(5),ani.getBrickBoxAni()),
+				new Tile(13,toFloor(5),ani.getBrickBoxAni()),
+				new Tile(11,toFloor(5),ani.getBrickBlankAni()),
+				new Tile(12,toFloor(5),ani.getCoinBoxAni())
 				
 		}); 
+		
 		
 //		private ChangeTile changetile;
 //		private float[] cbx = {103};
@@ -374,6 +379,8 @@ public class Level1 extends BasicGameState {
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	   level1_Platforms.render(gc, sbg, g);
 	   level1_Tiles.render(gc, sbg, g);
+	   
+	   
 	   /*
 	   breaks.render(gc, sbg, g);
 	   changetile.render(gc, sbg, g);
@@ -415,6 +422,8 @@ public class Level1 extends BasicGameState {
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	   level1_Platforms.update(gc, sbg, delta);
 	   level1_Tiles.update(gc, sbg, delta);
+	   
+	   
 //	   telePlatforms.update(gc, sbg, delta);
 //	   myVertPlatforms.update(gc, sbg, delta);
 	   /*

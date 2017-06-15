@@ -8,5 +8,10 @@ public class Strings {
 	public static final String PLATFORM_TELE = "res/objects/floors/teleportbrick.png";
 	public static final String TILE_BREAK = "res/objects/breakblocks/breakBlock.png";
 	public static final String TILE_BOX = "res/specialItems/emptyBox.png";
+	public static final String TILE_BLANK = "res/specialItems/40x40blank.png";
+	public static final String TILE_COIN1 = "res/objects/boxes/coinbox/coinbox1.png";
+	public static final String TILE_COIN2 = "res/objects/boxes/coinbox/coinbox2.png";
+	public static final String TILE_COIN3 = "res/objects/boxes/coinbox/coinbox3.png";
+	
 	
 }
