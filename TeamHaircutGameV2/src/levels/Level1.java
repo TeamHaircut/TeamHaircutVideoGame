@@ -34,7 +34,8 @@ import javagame.MysteryStarMan;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
-import animations.Animations;
+import animations.CustomAnimation;
+import arrays.ImageArrays;
 import dimensions.Dimensions;
 import states.Header;
 import states.ScrRes;
@@ -49,7 +50,7 @@ import supportclasses.Tile;
 //make change in prepstate to start on level1
 public class Level1 extends BasicGameState {
 	
-	private Animations ani;
+	private CustomAnimation ani;
 	
 	private BackGroundImage bi;
 	private LevelPlatformBuilder level1_Platforms;
@@ -255,13 +256,13 @@ public class Level1 extends BasicGameState {
 	   }
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
-		ani = new Animations();
+		//ani = new Animations();
 		
 		bi.init(gc, sbg);
 		
 		Platform.count = 0;
 		level1_Platforms = new LevelPlatformBuilder(new Platform[]{
-				new Platform(0,toFloor(1),69,2,Strings.PLATFORM_BRICK),
+				new Platform(0,toFloor(1),25,2,Strings.PLATFORM_BRICK),//69
 				new Platform(73,toFloor(1),15,2,Strings.PLATFORM_BRICK),
 				new Platform(92,toFloor(1),62,2,Strings.PLATFORM_BRICK),
 				new Platform(156,toFloor(1),48,2,Strings.PLATFORM_BRICK),
@@ -296,10 +297,23 @@ public class Level1 extends BasicGameState {
 		
 		Tile.count = 0;
 		level1_Tiles = new LevelTileBuilder(new Tile[] {
-				new Tile(10,toFloor(5),ani.getBrickBoxAni()),
-				new Tile(13,toFloor(5),ani.getBrickBoxAni()),
-				new Tile(11,toFloor(5),ani.getBrickBlankAni()),
-				new Tile(12,toFloor(5),ani.getCoinBoxAni())
+				//new Tile(10,toFloor(5),ani.getBrickBoxAni(),Strings.TILE_BLANK),
+				new Tile(9,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),200).getAni(),
+						new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),true),
+				new Tile(11,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),200).getAni(),
+						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false),
+				new Tile(15,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),200).getAni(),
+						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false),
+				new Tile(17,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),200).getAni(),
+						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false),
+				new Tile(19,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),200).getAni(),
+						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false),
+				new Tile(22,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),200).getAni(),
+						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false),
+//				new Tile(15,toFloor(5), new CustomAnimation(ImageArrays.getCoinBox()).getAni(),
+//						Strings.TILE_BOX),
+//				new Tile(17, toFloor(5), new CustomAnimation(ImageArrays.getCoinBox()).getAni(),
+//						Strings.TILE_BOX)
 				
 		}); 
 		

@@ -13,5 +13,10 @@ public class Strings {
 	public static final String TILE_COIN2 = "res/objects/boxes/coinbox/coinbox2.png";
 	public static final String TILE_COIN3 = "res/objects/boxes/coinbox/coinbox3.png";
 	
+	public static final String TILE_BREAK1 = "res/objects/breakblocks/postBreak1.png";
+	public static final String TILE_BREAK2 = "res/objects/breakblocks/postBreak2.png";
+	public static final String TILE_BREAK3 = "res/objects/breakblocks/postBreak3.png";
+	public static final String TILE_BREAK4 = "res/objects/breakblocks/postBreak4.png";
+	
 	
 }

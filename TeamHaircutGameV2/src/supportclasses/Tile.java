@@ -5,10 +5,14 @@ import javagame.Hero;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
+import animations.CustomAnimation;
+import arrays.ImageArrays;
+import strings.Strings;
 import dansLibrary.GameFunc;
 import dimensions.Dimensions;
 
@@ -21,9 +25,15 @@ public class Tile {
 	
 	private float nx;
 	private boolean isHit;
-	private Animation ani;
+	private Animation anin;
+	//private String post;
+	private Animation post;
+	private boolean looping;
 	
-	public Tile(float x, float y, Animation ani) {
+	private float xOffset;
+	private float yOffset;
+	
+	public Tile(float x, float y, Animation ani, Animation post, boolean looping) {
 		count++;
 		
 		this.x = x*Dimensions.D;
@@ -31,7 +41,28 @@ public class Tile {
 		
 		nx = -((x*Dimensions.D)-350);
 		this.isHit = false;
-		this.ani = ani.copy();
+		anin = new Animation();
+		anin = ani.copy();
+		this.post = post;
+		this.looping = looping;
+		this.xOffset = 0;
+		this.yOffset = 0;
+	}
+	
+	public Tile(float x, float y, Animation ani, Animation post, float xOffset, float yOffset, boolean looping) {
+		count++;
+		
+		this.x = x*Dimensions.D;
+		this.y = y*Dimensions.D;
+		
+		nx = -((x*Dimensions.D)-350);
+		this.isHit = false;
+		anin = new Animation();
+		anin = ani.copy();
+		this.post = post;
+		this.looping = looping;
+		this.xOffset = xOffset;
+		this.yOffset = yOffset;
 	}
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
@@ -41,7 +72,12 @@ public class Tile {
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
-		ani.draw(x, y);
+		if(isHit) {
+			anin.draw(x+xOffset,y+yOffset);
+		}
+		else {
+			anin.draw(x, y);
+		}
 		rec.setX(x);
 	}
 	
@@ -51,7 +87,12 @@ public class Tile {
 		isHit = GameFunc.isHitCheck(rec, Hero.rec3, isHit);
 		
 		if(isHit) {
-			ani.setAutoUpdate(true);
+			
+			//anin = new Animation();
+			//anin.addFrame(new Image(post), 200);
+			anin = post;
+			anin.setLooping(looping);
+			anin.start();
 		}
 		
 		
