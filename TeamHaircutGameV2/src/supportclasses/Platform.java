@@ -10,7 +10,7 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 import dansLibrary.GameFunc;
-import dimensions.Dimensions;
+import dimensions.Ints;
 
 public class Platform {
 	public static int count;
@@ -28,26 +28,26 @@ public class Platform {
 	public Platform(float x, float y, int col, int row, String res) {
 		count++;
 	
-		this.x = x*Dimensions.D;
-		this.y = y*Dimensions.D;
+		this.x = x*Ints.D;
+		this.y = y*Ints.D;
 		this.col = col;
 		this.row = row;
 		this.res = res;
 		
-		nx = -((x*Dimensions.D)-350);
+		nx = -((x*Ints.D)-350);
 	}
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
 		image = new Image(res);
-		rec = new Rectangle(x,y,col*Dimensions.D,row*Dimensions.D);
+		rec = new Rectangle(x,y,col*Ints.D,row*Ints.D);
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
 		for(int r = 0; r < row; r++) {
 			for(int c = 0; c < col; c++) {
-				g.drawImage(image,x+(Dimensions.D*c),y+(Dimensions.D*r));
+				g.drawImage(image,x+(Ints.D*c),y+(Ints.D*r));
 			}
 		}
 		rec.setX(x);

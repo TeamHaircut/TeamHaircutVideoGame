@@ -36,7 +36,7 @@ import org.newdawn.slick.state.*;
 
 import animations.CustomAnimation;
 import arrays.ImageArrays;
-import dimensions.Dimensions;
+import dimensions.Ints;
 import states.Header;
 import states.ScrRes;
 import strings.Strings;
@@ -262,7 +262,7 @@ public class Level1 extends BasicGameState {
 		
 		Platform.count = 0;
 		level1_Platforms = new LevelPlatformBuilder(new Platform[]{
-				new Platform(0,toFloor(1),25,2,Strings.PLATFORM_BRICK),//69
+				new Platform(0,toFloor(1),35,2,Strings.PLATFORM_BRICK),//69
 				new Platform(73,toFloor(1),15,2,Strings.PLATFORM_BRICK),
 				new Platform(92,toFloor(1),62,2,Strings.PLATFORM_BRICK),
 				new Platform(156,toFloor(1),48,2,Strings.PLATFORM_BRICK),
@@ -297,19 +297,22 @@ public class Level1 extends BasicGameState {
 		
 		Tile.count = 0;
 		level1_Tiles = new LevelTileBuilder(new Tile[] {
-				//new Tile(10,toFloor(5),ani.getBrickBoxAni(),Strings.TILE_BLANK),
 				new Tile(9,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),true),
+						new CustomAnimation(ImageArrays.getEmptyBox(),200).getAni(),false),
 				new Tile(11,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false),
+						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
 				new Tile(15,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false),
+						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
 				new Tile(17,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false),
+						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
 				new Tile(19,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false),
-				new Tile(22,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false),
+						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
+				new Tile(21,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),200).getAni(),
+						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
+				new Tile(23,toFloor(5), new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),
+						new CustomAnimation(ImageArrays.getEmptyBox(),100).getAni(),false),
+				new Tile(25,toFloor(5), new CustomAnimation(ImageArrays.getBlankBox(),200).getAni(),
+						new CustomAnimation(ImageArrays.getEmptyBox(),100).getAni(),false,Ints.TILE_ACTION_MAKE),
 //				new Tile(15,toFloor(5), new CustomAnimation(ImageArrays.getCoinBox()).getAni(),
 //						Strings.TILE_BOX),
 //				new Tile(17, toFloor(5), new CustomAnimation(ImageArrays.getCoinBox()).getAni(),
@@ -501,7 +504,7 @@ public class Level1 extends BasicGameState {
    }//end update
    
    private float toFloor(int floor) {
-	   return (ScrRes.getHeight()-(Dimensions.D*floor))/Dimensions.D;
+	   return (ScrRes.getHeight()-(Ints.D*floor))/Ints.D;
    }
    
    
