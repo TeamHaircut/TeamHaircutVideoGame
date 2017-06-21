@@ -3,21 +3,16 @@ package supportclasses;
 import javagame.Hero;
 
 import org.newdawn.slick.Animation;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
-
-import animations.CustomAnimation;
-import arrays.ImageArrays;
-import strings.Strings;
 import dansLibrary.GameFunc;
 import dimensions.Ints;
 
 public class Tile {
+	
 	public static int count;
 	private Rectangle rec;
 	
@@ -105,63 +100,43 @@ public class Tile {
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
-		if(action == Ints.TILE_ACTION_MAKE) {
-			rec = new Rectangle(-2000,y,Ints.D,Ints.D);
-		}
-		else {
-			rec = new Rectangle(x,y,Ints.D,Ints.D);
-		}
+		rec = new Rectangle(x,y,Ints.D,Ints.D);
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
 		if(isHit) {
-			anin.draw(x+xOffset,y+yOffset);
-			if(action == Ints.TILE_ACTION_BREAK) {
-				rec.setX(-2000);
-			}
-//			else if(action == Ints.TILE_ACTION_MAKE) {
-//				
-//			}
-			else {
-				rec.setX(x);
-			}
-			
-			
+			anin.draw(x+xOffset,y+yOffset);	
 		}
 		else {
 			anin.draw(x, y);
-			rec.setX(x);
 		}
-//		g.fill(rec);
-//		g.setColor(Color.white);
-		
-		
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
-		//this is a mess
 		x = GameFunc.scrollImage(x, nx, Hero.wall, Hero.nx);
-		if(action == Ints.TILE_ACTION_MAKE) {
-			if (Hero.jumpingUp) {
-				rec.setX(x);
-				isHit = GameFunc.isHitCheck(rec, Hero.rec3, isHit);
-			}
-			else {
-				if(isHit) {
-					rec.setX(x);
+		rec.setX(x);
+		switch (action){
+			case Ints.TILE_ACTION_MAKE:
+				if(Hero.jumpingUp && (Hero.dY <= (y+Ints.D) && Hero.dY >= (y+(Ints.D/2)))	) {
+					isHit = GameFunc.isHitCheck(rec, Hero.rec3, isHit);
 				}
-				else {
+				if(!isHit) {
 					rec.setX(-2000);
 				}
-			}
-		}
-		else {
-		
-		
-		isHit = GameFunc.isHitCheck(rec, Hero.rec3, isHit);
-		
+				break;
+			case Ints.TILE_ACTION_BREAK:
+				isHit = GameFunc.isHitCheck(rec, Hero.rec3, isHit);
+				if(isHit) {
+					rec.setX(-2000);
+				}
+				break;
+			case Ints.TILE_ACTION_NONE:
+				isHit = GameFunc.isHitCheck(rec, Hero.rec3, isHit);
+				break;
+			default:
+				break;
 		}
 		
 		if(isHit) {
@@ -169,10 +144,6 @@ public class Tile {
 			anin.setLooping(looping);
 			anin.start();
 		}
-		
-
-		
-		
 	}
 
 	public Rectangle getRec() {
