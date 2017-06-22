@@ -18,5 +18,7 @@ public class Strings {
 	public static final String TILE_BREAK3 = "res/objects/breakblocks/postBreak3.png";
 	public static final String TILE_BREAK4 = "res/objects/breakblocks/postBreak4.png";
 	
+	public static final String ITEM_COIN1 = "res/objects/duckcoins/duckcoin1.png";
+	public static final String ITEM_COIN2 = "res/objects/duckcoins/duckcoin2.png";
 	
 }

@@ -8,6 +8,8 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
+
+import states.ScrRes;
 import dansLibrary.GameFunc;
 import dimensions.Ints;
 
@@ -28,6 +30,17 @@ public class Tile {
 	
 	private float xOffset;
 	private float yOffset;
+	
+	public Tile(float x, int y) {
+		count++;
+		
+		this.x = x*Ints.D;
+		this.y = toFloor(y)*Ints.D;
+		
+		nx = -((x*Ints.D)-350);
+		this.isHit = false;
+		
+	}
 	
 	public Tile(float x, float y, Animation ani, Animation post, boolean looping) {
 		count++;
@@ -145,6 +158,10 @@ public class Tile {
 			anin.start();
 		}
 	}
+	
+   private float toFloor(int floor) {
+	   return (ScrRes.getHeight()-(Ints.D*floor))/Ints.D;
+   }
 
 	public Rectangle getRec() {
 		return rec;
@@ -152,6 +169,86 @@ public class Tile {
 
 	public void setRec(Rectangle rec) {
 		this.rec = rec;
+	}
+
+	public Animation getAnin() {
+		return anin;
+	}
+
+	public void setAnin(Animation anin) {
+		this.anin = anin;
+	}
+
+	public Animation getPost() {
+		return post;
+	}
+
+	public void setPost(Animation post) {
+		this.post = post;
+	}
+
+	public boolean isLooping() {
+		return looping;
+	}
+
+	public void setLooping(boolean looping) {
+		this.looping = looping;
+	}
+
+	public int getAction() {
+		return action;
+	}
+
+	public void setAction(int action) {
+		this.action = action;
+	}
+
+	public float getxOffset() {
+		return xOffset;
+	}
+
+	public void setxOffset(float xOffset) {
+		this.xOffset = xOffset;
+	}
+
+	public float getyOffset() {
+		return yOffset;
+	}
+
+	public void setyOffset(float yOffset) {
+		this.yOffset = yOffset;
+	}
+
+	public boolean isHit() {
+		return isHit;
+	}
+
+	public void setHit(boolean isHit) {
+		this.isHit = isHit;
+	}
+
+	public float getX() {
+		return x;
+	}
+
+	public void setX(float x) {
+		this.x = x;
+	}
+
+	public float getY() {
+		return y;
+	}
+
+	public void setY(float y) {
+		this.y = y;
+	}
+
+	public float getNx() {
+		return nx;
+	}
+
+	public void setNx(float nx) {
+		this.nx = nx;
 	}
 	
 }

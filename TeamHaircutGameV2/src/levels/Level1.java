@@ -40,6 +40,11 @@ import dimensions.Ints;
 import states.Header;
 import states.ScrRes;
 import strings.Strings;
+import supportclasses.BreakBox;
+import supportclasses.CoinBox;
+import supportclasses.HiddenBox;
+import supportclasses.HiddenCoin;
+import supportclasses.InvisibleBox;
 import supportclasses.LevelPlatformBuilder;
 import supportclasses.LevelTileBuilder;
 import supportclasses.Platform;
@@ -55,6 +60,8 @@ public class Level1 extends BasicGameState {
 	private BackGroundImage bi;
 	private LevelPlatformBuilder level1_Platforms;
 	private LevelTileBuilder level1_Tiles;
+	
+	private HiddenCoin coin;
 	/*
 	private Barriers barriers;
 	private float[] obx = {29,39,47,58,164,180};
@@ -205,7 +212,7 @@ public class Level1 extends BasicGameState {
 		
 		Platform.count = 0;
 		level1_Platforms = new LevelPlatformBuilder(new Platform[]{
-				new Platform(0,toFloor(1),69,2,Strings.PLATFORM_BRICK),
+				new Platform(0,toFloor(1),69,2,Strings.PLATFORM_BRICK),//69
 				new Platform(73,toFloor(1),15,2,Strings.PLATFORM_BRICK),
 				new Platform(92,toFloor(1),62,2,Strings.PLATFORM_BRICK),
 				new Platform(156,toFloor(1),48,2,Strings.PLATFORM_BRICK),
@@ -244,164 +251,42 @@ public class Level1 extends BasicGameState {
 				/*
 				 * BREAK BLOCKS
 				 */
-				new Tile(20,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(22,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(24,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(78,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(80,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(82,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(83,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(84,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(85,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(86,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(87,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(88,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(89,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-								
-				new Tile(90,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(91,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-								
-				new Tile(94,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(95,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-								
-				new Tile(96,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(97,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-								
-				new Tile(102,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(120,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(123,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(124,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-								
-				new Tile(125,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(130,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(131,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-								
-				new Tile(132,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(133,toFloor(9), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(168,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(169,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-				new Tile(171,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getBreakBox(),100).getAni(), -80, -120,false,Ints.TILE_ACTION_BREAK),
-						
-						
+				new BreakBox(20,5),new BreakBox(22,5),new BreakBox(24,5),new BreakBox(78,5),new BreakBox(80,5),
+				new BreakBox(82,9),new BreakBox(83,9),new BreakBox(84,9),new BreakBox(85,9),new BreakBox(86,9),
+				new BreakBox(87,9),new BreakBox(88,9),new BreakBox(89,9),new BreakBox(90,9),new BreakBox(91,9),
+				new BreakBox(94,9),new BreakBox(95,9),new BreakBox(96,9),new BreakBox(97,9),new BreakBox(102,5),
+				new BreakBox(120,5),new BreakBox(123,9),new BreakBox(124,9),new BreakBox(125,9),new BreakBox(130,9),
+				new BreakBox(131,5),new BreakBox(132,5),new BreakBox(133,9),new BreakBox(168,5),new BreakBox(169,5),
+				new BreakBox(171,5),
+	
 				/*
-				 * COIN BOX		
+				 * CHANGE TILES		
 				 */
-				new Tile(17,toFloor(5), new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false),
-						
-				new Tile(22,toFloor(9), new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false),
-						
-				new Tile(23,toFloor(5), new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false),
-								
-				new Tile(98,toFloor(9), new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false),
-						
-				new Tile(98,toFloor(5), new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false),
-						
-				new Tile(109,toFloor(5), new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false),
-								
-				new Tile(112,toFloor(5), new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false),
-						
-				new Tile(115,toFloor(5), new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false),
-						
-				new Tile(131,toFloor(9), new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false),
-						
-				new Tile(132,toFloor(9), new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false),
-						
-				new Tile(170,toFloor(5), new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false),
-						
+				new CoinBox(17,5),
+				new CoinBox(22,9),
+				new CoinBox(21,5),//powerup
+				new CoinBox(23,5),
+				new CoinBox(79,5),//powerup
+				new CoinBox(98,9),
+				new CoinBox(98,5),
+				new CoinBox(109,5),
+				new CoinBox(112,5),
+				new CoinBox(112,9),//powerup
+				new CoinBox(115,5),
+				new CoinBox(131,9),
+				new CoinBox(132,9),
+				new CoinBox(170,5),
+												
 				/*
-				 * POWER UP
+				 * MAKE TILES
 				 */
-						
-				new Tile(21,toFloor(5), new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false),
-						
-				new Tile(79,toFloor(5), new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false),
-						
-				new Tile(112,toFloor(9), new CustomAnimation(ImageArrays.getCoinBox(),200).getAni(),
-						new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false),
-						
-						
-				/*
-				 * MAKE TILE
-				 */
-				new Tile(64,toFloor(5), new CustomAnimation(ImageArrays.getBlankBox(),1000).getAni(),
-					new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false,Ints.TILE_ACTION_MAKE),								
+				new InvisibleBox(64,5),//1up							
 						
 				/*
 				 * STARMAN		
 				 */
-				new Tile(103,toFloor(5), new CustomAnimation(ImageArrays.getBrickBox(),1000).getAni(),
-						new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni(),false),
+				new HiddenBox(103,5),//starman
 						
-
-				
 		}); 
 
 		mySolids = new RectangleList(Platform.count + Tile.count);
