@@ -41,6 +41,7 @@ import states.Header;
 import states.ScrRes;
 import strings.Strings;
 import supportclasses.BreakBox;
+import supportclasses.Coin;
 import supportclasses.CoinBox;
 import supportclasses.HiddenBox;
 import supportclasses.HiddenCoin;
@@ -56,13 +57,12 @@ import supportclasses.Tile;
 //make change in prepstate to start on level1
 public class Level1 extends BasicGameState {
 	
-	private CustomAnimation ani;
+
 	
 	private BackGroundImage bi;
 	private LevelPlatformBuilder level1_Platforms;
 	private LevelTileBuilder level1_Tiles;
-	
-	private HiddenCoin coin;
+
 	/*
 	private Barriers barriers;
 	private float[] obx = {29,39,47,58,164,180};
@@ -276,6 +276,19 @@ public class Level1 extends BasicGameState {
 				 * STARMAN		
 				 */
 				new HiddenBox(103,5),//starman
+
+				
+				new Coin(87,5),
+				new Coin(89,10),
+				new Coin(199,10),
+				new Coin(200,9),
+				new Coin(200,8),
+				new Coin(200,7),
+				new Coin(201,6),
+				new Coin(201,5),
+				new Coin(201,4),
+				
+
 						
 		}); 
 

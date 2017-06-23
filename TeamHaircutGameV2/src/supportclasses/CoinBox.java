@@ -51,7 +51,7 @@ public class CoinBox extends Tile{
 		if(super.isHit()  && item instanceof HiddenCoin) {
 			item.render(gc, sbg, g);
 			if(	((HiddenCoin) item).isAvailable()) {
-				Coin.incrementCoin();
+				OldCoin.incrementCoin();
 				((HiddenCoin) item).setAvailable(false);
 			}
 		}

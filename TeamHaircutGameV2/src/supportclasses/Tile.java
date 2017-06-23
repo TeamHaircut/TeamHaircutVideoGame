@@ -41,76 +41,7 @@ public class Tile {
 		this.isHit = false;
 		
 	}
-	
-	public Tile(float x, float y, Animation ani, Animation post, boolean looping) {
-		count++;
 		
-		this.x = x*Ints.D;
-		this.y = y*Ints.D;
-		
-		nx = -((x*Ints.D)-350);
-		this.isHit = false;
-		anin = new Animation();
-		anin = ani.copy();
-		this.post = post;
-		this.looping = looping;
-		this.xOffset = 0;
-		this.yOffset = 0;
-		this.action = Ints.TILE_ACTION_NONE;
-	}
-	
-	public Tile(float x, float y, Animation ani, Animation post, boolean looping, int action) {
-		count++;
-		
-		this.x = x*Ints.D;
-		this.y = y*Ints.D;
-		
-		nx = -((x*Ints.D)-350);
-		this.isHit = false;
-		anin = new Animation();
-		anin = ani.copy();
-		this.post = post;
-		this.looping = looping;
-		this.xOffset = 0;
-		this.yOffset = 0;
-		this.action = action;
-	}
-	
-	
-	public Tile(float x, float y, Animation ani, Animation post, float xOffset, float yOffset, boolean looping) {
-		count++;
-		
-		this.x = x*Ints.D;
-		this.y = y*Ints.D;
-		
-		nx = -((x*Ints.D)-350);
-		this.isHit = false;
-		anin = new Animation();
-		anin = ani.copy();
-		this.post = post;
-		this.looping = looping;
-		this.xOffset = xOffset;
-		this.yOffset = yOffset;
-		this.action = Ints.TILE_ACTION_NONE;
-	}
-	
-	public Tile(float x, float y, Animation ani, Animation post, float xOffset, float yOffset, boolean looping, int action) {
-		count++;
-		
-		this.x = x*Ints.D;
-		this.y = y*Ints.D;
-		
-		nx = -((x*Ints.D)-350);
-		this.isHit = false;
-		anin = new Animation();
-		anin = ani.copy();
-		this.post = post;
-		this.looping = looping;
-		this.xOffset = xOffset;
-		this.yOffset = yOffset;
-		this.action = action;
-	}
-	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
 		rec = new Rectangle(x,y,Ints.D,Ints.D);
@@ -148,6 +79,14 @@ public class Tile {
 			case Ints.TILE_ACTION_NONE:
 				isHit = GameFunc.isHitCheck(rec, Hero.rec3, isHit);
 				break;
+			case Ints.TILE_ACTION_TAKE:
+				isHit = GameFunc.isHitCheck(rec, Hero.rec5, isHit);
+				if(isHit) {
+					rec.setX(-2000);
+				}
+				
+				break;
+				
 			default:
 				break;
 		}
