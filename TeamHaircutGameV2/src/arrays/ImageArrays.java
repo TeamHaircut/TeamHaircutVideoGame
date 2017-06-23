@@ -13,6 +13,7 @@ public class ImageArrays{
 	public static Image[] BlankBox;
 	
 	public static Image[] CoinItem;
+	public static Image[] PowerUpItem;
 	
 	
 	public static Image[] getCoinBox() throws SlickException {
@@ -57,6 +58,12 @@ public class ImageArrays{
 				new Image(Strings.ITEM_COIN2),
 				new Image(Strings.TILE_BLANK)};
 		return CoinItem;
+	}
+	
+	public static Image[] getPowerUpItem() throws SlickException {
+		PowerUpItem = new Image[]{ 
+				new Image(Strings.ITEM_POWERUP)};
+		return PowerUpItem;
 	}
 		
 }

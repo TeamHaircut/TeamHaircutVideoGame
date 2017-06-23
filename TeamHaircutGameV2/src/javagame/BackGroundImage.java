@@ -1,10 +1,8 @@
 package javagame;
 import org.newdawn.slick.*;
-import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.*;
 
 import dansLibrary.GameFunc;
-import supportclasses.BasicTileArray;
 
 public class BackGroundImage{
 	

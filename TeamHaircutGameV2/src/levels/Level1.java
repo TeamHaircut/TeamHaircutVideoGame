@@ -45,6 +45,7 @@ import supportclasses.CoinBox;
 import supportclasses.HiddenBox;
 import supportclasses.HiddenCoin;
 import supportclasses.InvisibleBox;
+import supportclasses.Item;
 import supportclasses.LevelPlatformBuilder;
 import supportclasses.LevelTileBuilder;
 import supportclasses.Platform;
@@ -68,9 +69,6 @@ public class Level1 extends BasicGameState {
 	private float[] oby = {9,8,7,7,9,9};
 	private int c2 = obx.length;
 
-
-	private MysteryCoins hiddencoins;
-	private MysteryPowerUp hiddenpowerups;
 	private MysteryOneUp hiddenoneup;
 	private MysteryStarMan hiddenstarman;
 	
@@ -153,14 +151,9 @@ public class Level1 extends BasicGameState {
 		
 		/*
 		barriers = new Barriers(obx,oby,80,400,"res/objects/barriers/tube/tube.png");
-		breaks = new BreakTile(bbx,bby, bbmyResource1, bbmyResource2, new int[] {200} ,new int[] {100,100,100,100,100}, false);
-		changetile = new ChangeTile(cbx,cby, cbmyResource1, cbmyResource2, new int[] {200} ,new int[] {200}, false);
-		coinbox = new ChangeTile(coinboxx,coinboxy, coinboxmyResource1, coinboxmyResource2, new int[] {200,200,200} ,new int[] {200}, false);
-		hiddencoins = new MysteryCoins(coinboxx,coinboxy,coinbox);
 		powerbox = new ChangeTile(powerx,powery, powermyResource1, powermyResource2, new int[] {200,200,200} ,new int[] {200}, false);
 		hiddenpowerups = new MysteryPowerUp(powerx,powery,powerbox);
 		coins = new Duckcoin(dcx,dcy);
-		maketile = new MakeTile(mtx,mty, mtmyResource1, mtmyResource2, new int[] {200} ,new int[] {200}, false);
 		hiddenoneup = new MysteryOneUp(mtx,mty,maketile,myBounds, mySolids);
 		hiddenstarman = new MysteryStarMan(cbx,cby,changetile,myBounds,mySolids);
 		bgBasic = new BadGuyBasic(bgx,bgy,myBounds, mySolids);
@@ -184,10 +177,7 @@ public class Level1 extends BasicGameState {
 	public void resetLevel(GameContainer gc, StateBasedGame sbg) throws SlickException
 	   {
 		/*
-		hiddencoins.reset(gc, sbg);
-		hiddenpowerups.reset(gc, sbg);
 		hiddenoneup.reset(gc, sbg);
-		maketile.reset(gc, sbg);
 		hiddenstarman.reset(gc, sbg);
 		coins.reset(gc, sbg);
 		bgBasic.reset(gc, sbg);
@@ -264,14 +254,14 @@ public class Level1 extends BasicGameState {
 				 */
 				new CoinBox(17,5),
 				new CoinBox(22,9),
-				new CoinBox(21,5),//powerup
+				new CoinBox(21,5,Ints.ITEM_POWERUP),
 				new CoinBox(23,5),
-				new CoinBox(79,5),//powerup
+				new CoinBox(79,5,Ints.ITEM_POWERUP),
 				new CoinBox(98,9),
 				new CoinBox(98,5),
 				new CoinBox(109,5),
 				new CoinBox(112,5),
-				new CoinBox(112,9),//powerup
+				new CoinBox(112,9,Ints.ITEM_POWERUP),
 				new CoinBox(115,5),
 				new CoinBox(131,9),
 				new CoinBox(132,9),
@@ -296,24 +286,14 @@ public class Level1 extends BasicGameState {
 			mySolids.addSolid(level1_Tiles.rec);
 //			myBounds.addSolid(myPlatforms.rec);
 		/*
-		breaks.init(gc, sbg);
-			mySolids.addSolid(breaks.rec);
-			myBounds.addSolid(breaks.getRec2());
-		changetile.init(gc, sbg);
-			mySolids.addSolid(changetile.rec);
-			myBounds.addSolid(changetile.getRec2());
-		coinbox.init(gc, sbg);
-			mySolids.addSolid(coinbox.rec);
-			myBounds.addSolid(coinbox.getRec2());
+
 		hiddencoins.init(gc, sbg);
 		powerbox.init(gc, sbg);
 			mySolids.addSolid(powerbox.rec);
 			myBounds.addSolid(powerbox.getRec2());
-		hiddenpowerups.init(gc, sbg);
+
 		hiddenoneup.init(gc, sbg);
-		maketile.init(gc, sbg);
-			mySolids.addSolid(maketile.getRec2());
-			myBounds.addSolid(maketile.rec3);
+
 		hiddenstarman.init(gc, sbg);
 		bgBasic.init(gc, sbg);
 			myBadGuys.addSolid(bgBasic.rec);
@@ -360,14 +340,9 @@ public class Level1 extends BasicGameState {
 	   
 	   
 	   /*
-	   breaks.render(gc, sbg, g);
-	   changetile.render(gc, sbg, g);
-	   coinbox.render(gc, sbg, g);
-	   hiddencoins.render(gc, sbg, g);
+
 	   powerbox.render(gc, sbg, g);
-	   hiddenpowerups.render(gc, sbg, g);
 	   hiddenoneup.render(gc, sbg, g);
-	   maketile.render(gc, sbg, g);
 	   bgBasic.render(gc, sbg, g);
 	   bgJump.render(gc, sbg, g);
 	   bgKnife.render(gc, sbg, g);
@@ -405,14 +380,8 @@ public class Level1 extends BasicGameState {
 //	   telePlatforms.update(gc, sbg, delta);
 //	   myVertPlatforms.update(gc, sbg, delta);
 	   /*
-	   breaks.update(gc, sbg, delta);
-	   changetile.update(gc, sbg, delta);
-	   coinbox.update(gc, sbg, delta);
-	   hiddencoins.update(gc, sbg, delta);
 	   powerbox.update(gc, sbg, delta);
-	   hiddenpowerups.update(gc, sbg, delta);
 	   hiddenoneup.update(gc, sbg, delta);
-	   maketile.update(gc, sbg, delta);
 	   hiddenstarman.update(gc, sbg, delta);
 	   bgBasic.update(gc, sbg, delta);
 	   bgJump.update(gc, sbg, delta);
