@@ -64,17 +64,9 @@ public class Level1 extends BasicGameState {
 	private LevelTileBuilder level1_Tiles;
 
 	/*
-	private Barriers barriers;
-	private float[] obx = {29,39,47,58,164,180};
-	private float[] oby = {9,8,7,7,9,9};
-	private int c2 = obx.length;
 
 	private MysteryOneUp hiddenoneup;
 	private MysteryStarMan hiddenstarman;
-	
-	private Duckcoin coins;
-	private float[] dcx = {87,89,199,200,200,200,201,201,201};
-	private float[] dcy = {2,2,2,3,4,5,6,7,8};
 	
 	private BadGuyBasic bgBasic;
 	private float[] bgx = {25,42,50,52,83,85,99,100,123,124,126,127,174,175};
@@ -202,7 +194,8 @@ public class Level1 extends BasicGameState {
 		
 		Platform.count = 0;
 		level1_Platforms = new LevelPlatformBuilder(new Platform[]{
-				new Platform(0,toFloor(1),69,2,Strings.PLATFORM_BRICK),//69
+				
+				new Platform(0,toFloor(1),69,2,Strings.PLATFORM_BRICK),
 				new Platform(73,toFloor(1),15,2,Strings.PLATFORM_BRICK),
 				new Platform(92,toFloor(1),62,2,Strings.PLATFORM_BRICK),
 				new Platform(156,toFloor(1),48,2,Strings.PLATFORM_BRICK),
@@ -233,7 +226,17 @@ public class Level1 extends BasicGameState {
 				new Platform(189,toFloor(9),1,8,Strings.PLATFORM_BLOCK),
 				new Platform(190,toFloor(9),1,8,Strings.PLATFORM_BLOCK),
 				new Platform(204,toFloor(1),3,2,Strings.PLATFORM_TELE),
+				
+				new Platform(29,toFloor(3),Strings.PLATFORM_TUBE),
+				new Platform(39,toFloor(4),Strings.PLATFORM_TUBE),
+				new Platform(47,toFloor(5),Strings.PLATFORM_TUBE),
+				new Platform(58,toFloor(5),Strings.PLATFORM_TUBE),
+				new Platform(164,toFloor(3),Strings.PLATFORM_TUBE),
+				new Platform(180,toFloor(3),Strings.PLATFORM_TUBE),
+				
 				});
+		
+		
 		
 		Tile.count = 0;
 		level1_Tiles = new LevelTileBuilder(new Tile[] {

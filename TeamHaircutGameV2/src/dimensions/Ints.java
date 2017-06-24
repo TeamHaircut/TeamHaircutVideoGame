@@ -9,5 +9,8 @@ public class Ints {
 	public static final int TILE_ACTION_TAKE = 3;
 	
 	public static final int ITEM_POWERUP = 1;
+	
+	public static final int PLATFORM = 0;
+	public static final int TUBE = 1;
 
 }

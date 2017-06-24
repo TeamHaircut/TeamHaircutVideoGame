@@ -8,6 +8,8 @@ public class Strings {
 	public static final String PLATFORM_BRICK = "res/objects/floors/brick.png";
 	public static final String PLATFORM_BLOCK ="res/objects/floors/block.png";
 	public static final String PLATFORM_TELE = "res/objects/floors/teleportbrick.png";
+	public static final String PLATFORM_TUBE = "res/objects/barriers/tube/tube.png";
+	
 	public static final String TILE_BREAK = "res/objects/breakblocks/breakBlock.png";
 	public static final String TILE_BOX = "res/specialItems/emptyBox.png";
 	public static final String TILE_BLANK = "res/specialItems/40x40blank.png";
@@ -23,6 +25,8 @@ public class Strings {
 	public static final String ITEM_COIN1 = "res/objects/duckcoins/duckcoin1.png";
 	public static final String ITEM_COIN2 = "res/objects/duckcoins/duckcoin2.png";
 	public static final String ITEM_POWERUP = "res/objects/powerups/spiderMan.png";
+	
+	
 	
 	
 	
