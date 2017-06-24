@@ -18,17 +18,11 @@ import javagame.BadGuyJump;
 import javagame.BadGuyJumpDouble;
 import javagame.BadGuyKnife;
 import javagame.BadGuySpiny;
-import javagame.Barriers;
-import javagame.BreakTile;
 import javagame.Bullet;
-import javagame.ChangeTile;
 import javagame.Duckcoin;
 import javagame.Goal;
 import javagame.Hero;
-import javagame.MakeTile;
-import javagame.MysteryCoins;
 import javagame.MysteryOneUp;
-import javagame.MysteryPowerUp;
 import javagame.MysteryStarMan;
 
 import org.newdawn.slick.*;
@@ -135,7 +129,7 @@ public class Level1 extends BasicGameState {
 	//private RectangleList myBadGuys = new RectangleList(b0 + b1 + b2 + b3 + b4 + b5 + b6 + b7 +b8);//temp
 	Hero hero;
 	//Goal levelGoal;
-	Header hd;
+	private Header hd;
 	
 	public Level1(){
 		bi = new BackGroundImage(Strings.LEVEL1_BI);
@@ -163,7 +157,7 @@ public class Level1 extends BasicGameState {
 		*/
 		hero = new Hero();
 		//levelGoal = new Goal(new float[] {204},new float[] {7});
-		hd = new Header();
+		hd = new Header(400);
 	}
    
 	public void resetLevel(GameContainer gc, StateBasedGame sbg) throws SlickException
@@ -185,7 +179,7 @@ public class Level1 extends BasicGameState {
 		bgFireball.reset(gc,sbg);
 		bgFirerod.reset(gc,sbg);
 		*/
-		hd.reset(gc, sbg);
+		//hd.reset(gc, sbg);
 	   }
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{

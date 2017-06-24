@@ -1,0 +1,64 @@
+package states;
+import javagame.Hero;
+
+import org.newdawn.slick.*;
+import org.newdawn.slick.state.*;
+
+import supportclasses.OldCoin;
+
+public class Header{
+	private static final int FONTSIZE = 18;
+	
+	private Font font;
+	private int initialTime;
+	private int screenTime;
+	
+	private String name;
+	
+	public Header(int time)
+	{
+		this.initialTime = time*1000;
+	}
+   
+   public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
+   {
+       font = new TrueTypeFont(new java.awt.Font(GameState.FONTNAME, java.awt.Font.BOLD, FONTSIZE), false);
+       setTime(initialTime);
+       
+       switch(HeroState.getIndex()) {
+       		case 1:
+       			setName("DAMIAN");
+       			break;
+       		case 2:
+       			setName("DAN   ");
+       			break;
+       		default:
+       			break;
+       }
+   }
+   
+   public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
+   {
+	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*49), 0, getName() + "                        WORLD           TIME", Color.white);
+	   
+	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*49),25,"      "+ "        x "+OldCoin.getCoin() + "             " +Hero.world+"            "+String.valueOf(screenTime/1000), Color.white); 
+	   g.drawImage(new Image("res/setupImages/duckcoinicon.png"), (ScrRes.getWidth(2))-((FONTSIZE/2)*49)+(13*FONTSIZE), 25); 
+	 }
+   
+   public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
+	   screenTime = screenTime - delta;
+	}
+   
+   private void setTime(int time) {
+	   screenTime = time;
+   }
+   
+   private void setName(String name) {
+	   this.name = name; 
+   }
+   
+   private String getName() {
+	   return name;
+   }
+   
+ }
