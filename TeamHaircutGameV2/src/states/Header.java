@@ -5,6 +5,7 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
 import supportclasses.OldCoin;
+import strings.Strings;
 
 public class Header{
 	private static final int FONTSIZE = 18;
@@ -42,7 +43,7 @@ public class Header{
 	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*49), 0, getName() + "                        WORLD           TIME", Color.white);
 	   
 	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*49),25,"      "+ "        x "+OldCoin.getCoin() + "             " +Hero.world+"            "+String.valueOf(screenTime/1000), Color.white); 
-	   g.drawImage(new Image("res/setupImages/duckcoinicon.png"), (ScrRes.getWidth(2))-((FONTSIZE/2)*49)+(13*FONTSIZE), 25); 
+	   g.drawImage(new Image(Strings.ICON_COIN), (ScrRes.getWidth(2))-((FONTSIZE/2)*49)+(13*FONTSIZE), 25); 
 	 }
    
    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{

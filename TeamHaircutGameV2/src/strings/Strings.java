@@ -1,6 +1,5 @@
 package strings;
 
-import org.newdawn.slick.Image;
 
 public class Strings {
 
@@ -25,6 +24,8 @@ public class Strings {
 	public static final String ITEM_COIN1 = "res/objects/duckcoins/duckcoin1.png";
 	public static final String ITEM_COIN2 = "res/objects/duckcoins/duckcoin2.png";
 	public static final String ITEM_POWERUP = "res/objects/powerups/spiderMan.png";
+	
+	public static final String ICON_COIN = "res/setupImages/duckcoinicon.png";
 	
 	
 	
