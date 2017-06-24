@@ -27,8 +27,4 @@ public class Strings {
 	
 	public static final String ICON_COIN = "res/setupImages/duckcoinicon.png";
 	
-	
-	
-	
-	
 }

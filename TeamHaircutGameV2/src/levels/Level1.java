@@ -127,7 +127,7 @@ public class Level1 extends BasicGameState {
 	*/
 	private RectangleList mySolids;//plus 1 from goal//temp
 	//private RectangleList myBadGuys = new RectangleList(b0 + b1 + b2 + b3 + b4 + b5 + b6 + b7 +b8);//temp
-	Hero hero;
+	private Hero hero;
 	//Goal levelGoal;
 	private Header hd;
 	
