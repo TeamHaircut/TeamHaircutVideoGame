@@ -1,6 +1,6 @@
 package supportclasses;
 
-import javagame.Hero;
+import supportclasses.Hero;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -43,8 +43,8 @@ public class Item{
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
-		isHit = GameFunc.isHitCheck(rec, Hero.rec5, isHit);
-		x = GameFunc.scrollImage(x, nx, Hero.wall, Hero.nx);
+		isHit = GameFunc.isHitCheck(rec, Hero.rec, isHit);//rec5
+		x = GameFunc.scrollImage(x, nx, Ints.WALL, Ints.NX);
 	}
 	
 	public float getX() {

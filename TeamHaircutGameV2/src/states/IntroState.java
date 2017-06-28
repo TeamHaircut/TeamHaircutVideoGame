@@ -10,6 +10,7 @@ import org.newdawn.slick.state.*;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
+import strings.Strings;
 import supportclasses.CustomAnimator;
 
 public class IntroState extends BasicGameState{
@@ -26,7 +27,7 @@ public class IntroState extends BasicGameState{
    }
    
    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
-	   font = new TrueTypeFont(new java.awt.Font(GameState.FONTNAME, java.awt.Font.PLAIN, FONTSIZE), false);
+	   font = new TrueTypeFont(new java.awt.Font(Strings.FONTNAME, java.awt.Font.PLAIN, FONTSIZE), false);
    }
    
    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
@@ -46,6 +47,6 @@ public class IntroState extends BasicGameState{
 	}
    
    public int getID(){
-      return 0;
+      return -4;
    }
 }

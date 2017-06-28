@@ -3,6 +3,7 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
 import dansLibrary.GameFunc;
+import dimensions.Ints;
 
 public class BackGroundImage{
 	
@@ -33,7 +34,8 @@ public class BackGroundImage{
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
-			x = GameFunc.scrollImage(x, nx, Hero.wall, Hero.nx);
+			//x = GameFunc.scrollImage(x, nx, Hero.wall, Hero.nx);
+			x = GameFunc.scrollImage(x, nx, Ints.WALL, Ints.NX);
 	}
 	
 }//end class

@@ -21,7 +21,8 @@ import javagame.BadGuySpiny;
 import javagame.Bullet;
 import javagame.Duckcoin;
 import javagame.Goal;
-import javagame.Hero;
+//import javagame.Hero;
+import supportclasses.Hero;
 import javagame.MysteryOneUp;
 import javagame.MysteryStarMan;
 
@@ -49,7 +50,7 @@ import supportclasses.Collision;
 import supportclasses.PowerState;
 import supportclasses.Tile;
 //make change in prepstate to start on level1
-public class Level1 extends BasicGameState {
+public class Level_1_1 extends BasicGameState {
 	
 
 	
@@ -131,7 +132,7 @@ public class Level1 extends BasicGameState {
 	//Goal levelGoal;
 	private Header hd;
 	
-	public Level1(){
+	public Level_1_1(){
 		bi = new BackGroundImage(Strings.LEVEL1_BI);
 		
 		
@@ -420,12 +421,12 @@ public class Level1 extends BasicGameState {
 	   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////LEVEL RESET CONDITIONS/////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	   if (Hero.downAHole||PowerState.getPowerUpState() <= 0)
-	   {
-		  //sbg.enterState(3);
-		  //resetLevel(gc,sbg);
-	   }
-	   Hero.downAHole = false;
+//	   if (Hero.downAHole||PowerState.getPowerUpState() <= 0)
+//	   {
+//		  //sbg.enterState(3);
+//		  //resetLevel(gc,sbg);
+//	   }
+//	   Hero.downAHole = false;
 	   
 	   //if (levelGoal.rec[0].intersects(Hero.rec5)){Hero.reachedGoal = true;Hero.currentState = 5;Hero.world = "1-2";resetLevel(gc,sbg);}
 	   
@@ -449,7 +450,7 @@ public class Level1 extends BasicGameState {
    
    
    public int getID(){
-      return 4;
+      return 1;
    }
    
 }//end class level1

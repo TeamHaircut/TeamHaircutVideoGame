@@ -8,6 +8,7 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 import org.newdawn.slick.state.transition.EmptyTransition;
 
+import strings.Strings;
 import supportclasses.CustomAnimator;
 
 public class TitleState extends BasicGameState{
@@ -23,7 +24,7 @@ public class TitleState extends BasicGameState{
 	}
    
    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
-	   font = new TrueTypeFont(new java.awt.Font(GameState.FONTNAME, java.awt.Font.PLAIN, FONTSIZE), false);
+	   font = new TrueTypeFont(new java.awt.Font(Strings.FONTNAME, java.awt.Font.PLAIN, FONTSIZE), false);
 	   Image[] titleImageArray = {new Image("res/setupImages/title1.png"), new Image("res/setupImages/title2.png"),
 			   new Image("res/setupImages/title3.png")};
 	   titleAnimation = new Animation(titleImageArray, new int[] {150,150,3000}, true);
@@ -55,6 +56,6 @@ public class TitleState extends BasicGameState{
    }
    
    public int getID(){
-      return 1;
+      return -3;
    }
 }

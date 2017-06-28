@@ -4,6 +4,8 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 import org.newdawn.slick.state.transition.EmptyTransition;
 
+import strings.Strings;
+
 public class SelectState extends BasicGameState{
 	private static final int FONTSIZE = 18;
 	
@@ -23,7 +25,7 @@ public class SelectState extends BasicGameState{
 	   danImage = new Image("res/setupImages/danselectA.png");
 	   x = (ScrRes.getWidth(2))-(damianImage.getWidth())-(damianImage.getWidth()/2);
 	   y = (ScrRes.getHeight(2))-(damianImage.getHeight()/2)-(100);
-       font = new TrueTypeFont(new java.awt.Font(GameState.FONTNAME, java.awt.Font.BOLD, FONTSIZE), false);
+       font = new TrueTypeFont(new java.awt.Font(Strings.FONTNAME, java.awt.Font.BOLD, FONTSIZE), false);
 	   selectAnimation = new Animation(new Image[]{new Image("res/setupImages/selectorA.png"), 
 			   new Image("res/setupImages/selectorB.png")}, new int[]{75,75}, true);
 	   HeroState.setLives(3);
@@ -59,6 +61,6 @@ public class SelectState extends BasicGameState{
 	}
    
    public int getID(){
-      return 2;
+      return -2;
    }
 }

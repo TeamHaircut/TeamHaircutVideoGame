@@ -1,5 +1,4 @@
 package states;
-import javagame.Hero;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
@@ -23,7 +22,7 @@ public class Header{
    
    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
    {
-       font = new TrueTypeFont(new java.awt.Font(GameState.FONTNAME, java.awt.Font.BOLD, FONTSIZE), false);
+       font = new TrueTypeFont(new java.awt.Font(Strings.FONTNAME, java.awt.Font.BOLD, FONTSIZE), false);
        setTime(initialTime);
        
        switch(HeroState.getIndex()) {
@@ -42,7 +41,7 @@ public class Header{
    {
 	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*49), 0, getName() + "                        WORLD           TIME", Color.white);
 	   
-	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*49),25,"      "+ "        x "+OldCoin.getCoin() + "             " +Hero.world+"            "+String.valueOf(screenTime/1000), Color.white); 
+	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*49),25,"      "+ "        x "+OldCoin.getCoin() + "             " +"header.java ln 44"+"            "+String.valueOf(screenTime/1000), Color.white); 
 	   g.drawImage(new Image(Strings.ICON_COIN), (ScrRes.getWidth(2))-((FONTSIZE/2)*49)+(13*FONTSIZE), 25); 
 	 }
    

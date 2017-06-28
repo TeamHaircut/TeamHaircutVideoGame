@@ -2,6 +2,8 @@ package strings;
 
 
 public class Strings {
+	
+	public static final String FONTNAME = "Emulogic";
 
 	public static final String LEVEL1_BI = "res/objects/backdrops/backdrop1.png";
 	public static final String PLATFORM_BRICK = "res/objects/floors/brick.png";

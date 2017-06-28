@@ -12,5 +12,9 @@ public class Ints {
 	
 	public static final int PLATFORM = 0;
 	public static final int TUBE = 1;
+	
+	//temp
+	public static final int WALL = 0;
+	public static float NX = 0;
 
 }

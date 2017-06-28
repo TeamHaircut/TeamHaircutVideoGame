@@ -1,6 +1,6 @@
 package states;
 
-import javagame.Hero;
+import strings.Strings;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
@@ -18,7 +18,7 @@ public class StartState extends BasicGameState{
 	}
    
    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
-       font = new TrueTypeFont(new java.awt.Font(GameState.FONTNAME, java.awt.Font.BOLD, FONTSIZE), false);
+       font = new TrueTypeFont(new java.awt.Font(Strings.FONTNAME, java.awt.Font.BOLD, FONTSIZE), false);
    }
    
    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
@@ -41,16 +41,23 @@ public class StartState extends BasicGameState{
 	   counter += delta;
 	   if (counter >= 1000) {
 		   counter = 0;
-		   if (Hero.currentState == 4){
-			   sbg.getState(GameState.LEVEL1).init(gc, sbg);
-			   sbg.enterState(GameState.LEVEL1, new EmptyTransition(), 
-					   new EmptyTransition());}//enterstate 4 not 5
-		   else {sbg.enterState(GameState.LEVEL2, new EmptyTransition(), 
-				   new EmptyTransition());}
+		   System.out.println(GameState.getCurrentState());
+		   switch(GameState.getCurrentState()) {
+		   	case GameState.LEVEL_1_1:
+		   		sbg.getState(GameState.LEVEL_1_1).init(gc, sbg);
+				sbg.enterState(GameState.LEVEL_1_1, new EmptyTransition() ,new EmptyTransition());
+		   		break;
+		   	case GameState.LEVEL_1_2:
+		   		sbg.enterState(GameState.LEVEL_1_2, new EmptyTransition(), new EmptyTransition());
+		   		break;
+			default:
+				break;
+		   }
+
 	   }
 	}
    
    public int getID(){
-      return 3;
+      return -1;
    }
 }

@@ -1,7 +1,5 @@
 package supportclasses;
 
-import javagame.Hero;
-
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -92,7 +90,8 @@ public class Platform {
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
-		x = GameFunc.scrollImage(x, nx, Hero.wall, Hero.nx);
+		//x = GameFunc.scrollImage(x, nx, Hero.wall, Hero.nx);
+		x = GameFunc.scrollImage(x, nx, Ints.WALL, Ints.NX);
 	}
 
 	public Rectangle getRec() {
