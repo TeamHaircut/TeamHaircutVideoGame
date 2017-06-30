@@ -18,5 +18,5 @@ public class CustomAnimation {
 	public Animation getAni() {
 		return ani;
 	}
-
+	
 }

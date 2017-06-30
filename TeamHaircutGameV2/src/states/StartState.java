@@ -22,12 +22,13 @@ public class StartState extends BasicGameState{
    }
    
    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
-	   if (HeroState.getIndex()== 1) {
+	   System.out.println(HeroState.getIndex());
+	   if (HeroState.getIndex()== HeroState.DAMIAN) {
 		   Image damianImage = new Image("res/setupImages/damianselectA.png");
 		   g.drawImage(damianImage, (ScrRes.getWidth(2))-(damianImage.getWidth()), 
 				   (ScrRes.getHeight(2))-(damianImage.getHeight()/2));
 	   }
-	   if (HeroState.getIndex()==2) {
+	   if (HeroState.getIndex()==HeroState.DAN) {
 		   Image danImage = new Image("res/setupImages/danselectA.png");
 		   g.drawImage(danImage, (ScrRes.getWidth(2))-(danImage.getWidth()), 
 				   (ScrRes.getHeight(2))-(danImage.getHeight()/2));

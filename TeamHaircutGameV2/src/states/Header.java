@@ -26,10 +26,10 @@ public class Header{
        setTime(initialTime);
        
        switch(HeroState.getIndex()) {
-       		case 1:
+       		case HeroState.DAMIAN:
        			setName("DAMIAN");
        			break;
-       		case 2:
+       		case HeroState.DAN:
        			setName("DAN   ");
        			break;
        		default:

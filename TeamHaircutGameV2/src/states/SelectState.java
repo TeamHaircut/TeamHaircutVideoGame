@@ -4,6 +4,7 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 import org.newdawn.slick.state.transition.EmptyTransition;
 
+import dimensions.Ints;
 import strings.Strings;
 
 public class SelectState extends BasicGameState{
@@ -53,9 +54,9 @@ public class SelectState extends BasicGameState{
    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
 	   Input input = gc.getInput();
 	   if(input.isKeyDown(Input.KEY_RIGHT)){x = (ScrRes.getWidth(2))+(danImage.getWidth()/2); 
-	   y =  (ScrRes.getHeight(2))-(damianImage.getHeight()/2)-(100); HeroState.setIndex(2); name = "DAN";}
+	   y =  (ScrRes.getHeight(2))-(damianImage.getHeight()/2)-(100); HeroState.setIndex(HeroState.DAN); name = "DAN";}
 	   if(input.isKeyDown(Input.KEY_LEFT)){x = (ScrRes.getWidth(2))-(damianImage.getWidth())-(damianImage.getWidth()/2);
-	   y = (ScrRes.getHeight(2))-(danImage.getHeight()/2)-(100); HeroState.setIndex(1); name = "DAMIAN";}
+	   y = (ScrRes.getHeight(2))-(danImage.getHeight()/2)-(100); HeroState.setIndex(HeroState.DAMIAN); name = "DAMIAN";}
 	   if(input.isKeyPressed(Input.KEY_ENTER)){sbg.enterState(GameState.STARTSTATE, new EmptyTransition(), 
 			   new EmptyTransition());}
 	}
