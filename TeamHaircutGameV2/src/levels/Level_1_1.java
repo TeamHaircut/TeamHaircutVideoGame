@@ -52,8 +52,6 @@ import supportclasses.Tile;
 //make change in prepstate to start on level1
 public class Level_1_1 extends BasicGameState {
 	
-
-	
 	private BackGroundImage bi;
 	private LevelPlatformBuilder level1_Platforms;
 	private LevelTileBuilder level1_Tiles;
@@ -134,7 +132,6 @@ public class Level_1_1 extends BasicGameState {
 	
 	public Level_1_1(){
 		bi = new BackGroundImage(Strings.LEVEL1_BI);
-		
 		
 		/*
 		barriers = new Barriers(obx,oby,80,400,"res/objects/barriers/tube/tube.png");
