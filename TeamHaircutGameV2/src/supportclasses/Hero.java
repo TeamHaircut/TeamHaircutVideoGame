@@ -1,9 +1,6 @@
 package supportclasses;
 
-import java.util.Map;
-
 import org.newdawn.slick.Animation;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -20,10 +17,7 @@ import dimensions.Ints;
 public class Hero {
 	
 	public static Rectangle rec;
-	public static Animation ani;
-	//private CustomAnimation ca;
-	
-	
+	private static Animation ani;
 	
 	public static float dX;
 	public static float dY;
@@ -37,14 +31,18 @@ public class Hero {
 	
 	public static boolean isJumping;
 	
-	private Map<String, Animation> heroAnimationMap;
-	private AnimationLoader AL;
+	private int lastDirection;
+	private int lastAction;
+	private int lastEffect;
 	
 	
 	public Hero() {
 		HeroState.setDirection(HeroState.RIGHT);
 		HeroState.setAction(HeroState.ACTION_NONE);
 		HeroState.setEffect(HeroState.EFFECT_NONE);
+		lastDirection = HeroState.getDirection();
+		lastAction = HeroState.getAction();
+		lastEffect = HeroState.getEffect();
 		
 		isJumping = true;
 		
@@ -59,26 +57,17 @@ public class Hero {
 		yo = 0;
 		jumpTrigger = false;
 		
-		
-		
 	}
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
-		AL = new AnimationLoader();
-		heroAnimationMap = AnimationLoader.getAniMap();
-		
+		AnimationLoader.getAniMap();
 		rec = new Rectangle(dX,dY,Ints.D,Ints.D*2);
-		if(ani != null)
-		ani = new Animation(HeroArrays.getDHnoneRn(),1000);
-		//ca = new CustomAnimation(HeroArrays.getDHnoneRn(),1000);
-		//HeroArrays.HeroAni = HeroArrays.getDHnoneRn();
+		ani = new CustomAnimation(HeroArrays.getDHnoneRn(),1000).getAni();
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
-		g.fill(rec);
-		g.setColor(Color.white);
 		ani.draw(dX, dY);
 	}
 
@@ -90,25 +79,14 @@ public class Hero {
 		rec.setX(dX);
 		rec.setY(dY);
 		
-		
-		ani = AnimateHero.getHeroAni();
-
-//		
-//		
-//		
-//		System.out.println("jumping "+isJumping);
-//		
-//		System.out.print("| dx "+dX);
-//		System.out.print("| dy "+dY);
-//		
-//		System.out.print("| vo "+vo);
-//		System.out.print("| v "+v);
-//		System.out.print("| time y "+timeY);
-//		System.out.print("| counter "+jumpCounter);
-//		System.out.print("| yo "+yo);
-//		System.out.print("| trigger "+jumpTrigger);
-		
+		if(	lastDirection != HeroState.getDirection() || 
+			lastAction != HeroState.getAction() ||
+			lastEffect != HeroState.getEffect()) {
+		ani = AnimateHero.getHeroAni(ani);
+		lastDirection = HeroState.getDirection();
+		lastAction = HeroState.getAction();
+		lastEffect = HeroState.getEffect();
+		}
 	}
 	
-
 }
