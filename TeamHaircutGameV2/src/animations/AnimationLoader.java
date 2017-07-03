@@ -2,22 +2,16 @@ package animations;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import org.newdawn.slick.Animation;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-
 import arrays.HeroArrays;
 
 public class AnimationLoader {
-	
-	
+
 	public static Map<String, Animation> aniMap;
-	
 
 	public static Map<String, Animation> getAniMap() throws SlickException {
 		aniMap = new HashMap<String,Animation>();
-		aniMap.put("HeroAnimation", new Animation());
 		
 		aniMap.put("DHnoneLn", new CustomAnimation(HeroArrays.getDHnoneLn(),1000).getAni());
 		aniMap.put("DHnoneLb", new CustomAnimation(HeroArrays.getDHnoneLb(),1000).getAni());

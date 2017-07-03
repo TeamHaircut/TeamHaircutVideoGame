@@ -22,7 +22,6 @@ public class StartState extends BasicGameState{
    }
    
    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
-	   System.out.println(HeroState.getIndex());
 	   if (HeroState.getIndex()== HeroState.DAMIAN) {
 		   Image damianImage = new Image("res/setupImages/damianselectA.png");
 		   g.drawImage(damianImage, (ScrRes.getWidth(2))-(damianImage.getWidth()), 
@@ -42,7 +41,6 @@ public class StartState extends BasicGameState{
 	   counter += delta;
 	   if (counter >= 1000) {
 		   counter = 0;
-		   System.out.println(GameState.getCurrentState());
 		   switch(GameState.getCurrentState()) {
 		   	case GameState.LEVEL_1_1:
 		   		sbg.getState(GameState.LEVEL_1_1).init(gc, sbg);
