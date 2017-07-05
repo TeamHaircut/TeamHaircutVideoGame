@@ -437,6 +437,8 @@ public class Level_1_1 extends BasicGameState {
 	  // Bullet.collides2 = false;Bullet.collides2 = Bullet.checkCollisionB2(mySolids.getSolids());if (Bullet.collides2){Hero.fDone = true;}
 	   
 	   Collision.checkHeroCollision(mySolids.getSolids());
+
+	  // Collision.checkHeroXCollision(mySolids.getSolids());
 	   //Collision.checkCollisionBadguy(myBadGuys.getSolids());
 	
    }//end update

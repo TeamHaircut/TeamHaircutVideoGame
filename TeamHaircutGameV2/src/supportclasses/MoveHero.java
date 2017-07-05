@@ -2,6 +2,7 @@ package supportclasses;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
+
 import dimensions.Ints;
 import states.HeroState;
 
@@ -11,6 +12,7 @@ public class MoveHero {
 	
 	public static void moveLeft(GameContainer gc, int delta){
 		Input input = gc.getInput();
+		if(!Collision.getFlagRight()) {
 		//		   if (Collision.getFlagLeft() == false)//l
 		//		   {
 		//			    Hero.recBottom.setLocation(Hero.dX+4,Hero.dY+70);
@@ -76,13 +78,14 @@ public class MoveHero {
 		//	   HeroState.setAction(HeroState.ACTION_NONE);
 		//	   }
 		//}
+		}
 	}//end move left
-		   
+	
+
+	
 	public static void moveRight(GameContainer gc, int delta){
 		Input input = gc.getInput();
-	//		   if (Collision.getFlagRight() == false)//r
-	//		   {	
-	//			   Hero.recBottom.setLocation(Hero.dX+4,Hero.dY+70);
+if(!Collision.getFlagLeft()) {
 		if (input.isKeyDown(Input.KEY_D)) {
 			HeroState.setDirection(HeroState.RIGHT);
 			if(HeroState.getAction() != HeroState.ACTION_JUMP) {
@@ -137,6 +140,14 @@ public class MoveHero {
 	//			   if (input.isKeyDown(Input.KEY_D))
 	//			   		{Hero.nx = Hero.nx - ((vox)*delta);}
 	//			}
+}
+else {
+
+	Hero.dX--;
+	
+	
+}
+    
 	}//end move right
 		   
 	//	public static void jump(GameContainer gc, int delta) {
@@ -186,6 +197,16 @@ public class MoveHero {
 	//		
 	//	}//end jump
 	
+	public static void bounce() {
+		if (Collision.getFlagTop() == true){
+	   		Hero.timeY = 0;
+	   		Hero.jumpCounter = 0;
+	   		Hero.vo = -300;
+	   		Hero.v = 0;
+	   		Hero.yo = Hero.dY;	
+	   	}
+	}
+	
 
 	public static void jump(GameContainer gc, int delta){
 		Input input = gc.getInput();
@@ -194,7 +215,7 @@ public class MoveHero {
 		}
 		Hero.jumpCounter = Hero.jumpCounter + delta;
 		Hero.timeY = Hero.jumpCounter/1000;
-		if (Collision.isCollides()) {//on ground
+		if (Collision.getFlagBottom()) {//on ground
 			if(HeroState.getAction() == HeroState.ACTION_JUMP) {
 				HeroState.setAction(HeroState.ACTION_NONE);
 			}
@@ -211,11 +232,11 @@ public class MoveHero {
 		   }
 		   Hero.jumpCounter = 0;
 		   if(input.isKeyPressed(Input.KEY_L)) {
-			   Hero.jumpTrigger = true;Hero.isJumping=true;
+			   Hero.jumpTrigger = true;Hero.isJumping=true; HeroState.setAction(HeroState.ACTION_JUMP);
 		   }
 	    }
 		else {//in air
-			HeroState.setAction(HeroState.ACTION_JUMP);
+
 	//			   if (HeroState.getIndex()==1)
 	//				   if (Hero.direction)
 	//				   {
@@ -252,6 +273,7 @@ public class MoveHero {
 	//					   else Hero.heroAni = Hero.DSjumpL;
 	//				   }
 	//			   }
+			
 			Hero.v = Hero.vo + a*Hero.timeY;
 			Hero.dY = -(((Hero.v))*Hero.timeY -0.5f*(a)*Hero.timeY*Hero.timeY)+Hero.yo;
 			if (Hero.timeY > 0) {
@@ -259,4 +281,6 @@ public class MoveHero {
 			}
 		}
 	}//end jump
+	
+	
 }
