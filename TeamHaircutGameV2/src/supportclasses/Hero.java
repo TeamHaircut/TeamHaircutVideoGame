@@ -25,8 +25,10 @@ public class Hero {
 	
 	public static Line top;
 	public static Line left;
+	public static Point leftA;
 	public static Line bottom;
 	public static Line right;
+	public static Point rightA;
 	
 	
 	private static Animation ani;
@@ -48,10 +50,6 @@ public class Hero {
 	private int lastAction;
 	private int lastEffect;
 	
-	public static boolean lastTop;
-	public static boolean lastLeft;
-	public static boolean lastRight;
-	public static boolean lastBottom;
 	
 	
 	public Hero() {
@@ -62,10 +60,6 @@ public class Hero {
 		lastAction = HeroState.getAction();
 		lastEffect = HeroState.getEffect();
 		
-		lastTop = false;
-		lastLeft = false;
-		lastRight = false;
-		lastBottom = false;
 		
 		
 		isJumping = true;
@@ -90,18 +84,24 @@ public class Hero {
 		
 		top = new Line(dX+1,dY,dX+Ints.D-1,dY);
 		left = new Line(dX+Ints.D,dY+1,dX+Ints.D,dY+(Ints.D*2)-1);
+		leftA = new Point(dX+Ints.D+1,dY+(Ints.D*2)-1);
+		
+		
 		bottom = new Line(dX+1,dY+(Ints.D*2),dX+Ints.D-1,dY+(Ints.D*2));
 		right = new Line(dX,dY+1,dX,dY+(Ints.D*2)-1);
+		rightA = new Point(dX-1,dY+(Ints.D*2)-1);
+		
 		
 		ani = new CustomAnimation(HeroArrays.getDHnoneRn(),1000).getAni();
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
-		g.drawLine(dX+1,dY,dX+Ints.D-1,dY);
-		g.drawLine(dX+Ints.D,dY+1,dX+Ints.D,dY+(Ints.D*2)-1);
-		g.drawLine(dX+1,dY+(Ints.D*2),dX+Ints.D-1,dY+(Ints.D*2));
-		g.drawLine(dX,dY+1,dX,dY+(Ints.D*2)-1);
+		g.drawLine(dX+1,dY,dX+Ints.D-1,dY);//top
+		g.drawLine(dX+Ints.D,dY+1,dX+Ints.D,dY+(Ints.D*2)-1);//left
+		
+		g.drawLine(dX+1,dY+(Ints.D*2),dX+Ints.D-1,dY+(Ints.D*2));//bottom
+		g.drawLine(dX,dY+1,dX,dY+(Ints.D*2)-1);//right
 		g.setLineWidth(1);
 		g.setColor(Color.white);
 		ani.draw(dX, dY);
@@ -110,22 +110,17 @@ public class Hero {
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
 		MoveHero.jump(gc,delta);
-		
-		if(!Collision.getFlagLeft()) {
-			MoveHero.moveRight(gc,delta);
-		}
-		Collision.setFlagLeft(false);
-		
-		
+		MoveHero.moveRight(gc,delta);
 		MoveHero.moveLeft(gc,delta);
-		
-		
 		MoveHero.bounce();
 		
 		right.setStartX(dX);
 		right.setStartY(dY+1);
 		right.setEndX(dX);
 		right.setEndY(dY+(Ints.D*2)-1);
+		
+		rightA.setX(dX-1);
+		rightA.setY(dY+(Ints.D*2)-1);
 		
 		bottom.setStartX(dX+1);
 		bottom.setStartY(dY+(Ints.D*2));
@@ -136,6 +131,9 @@ public class Hero {
 		left.setStartY(dY+1);
 		left.setEndX(dX+Ints.D);
 		left.setEndY(dY+(Ints.D*2)-1);
+		
+		leftA.setX(dX+Ints.D+1);
+		leftA.setY(dY+(Ints.D*2)-1);
 		
 		top.setStartX(dX+1);
 		top.setStartY(dY);

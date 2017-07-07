@@ -81,11 +81,13 @@ public class MoveHero {
 		}
 	}//end move left
 	
-
+//public static float hold;
 	
 	public static void moveRight(GameContainer gc, int delta){
 		Input input = gc.getInput();
 if(!Collision.getFlagLeft()) {
+	//hold = Hero.dX;
+	//System.out.println(hold);
 		if (input.isKeyDown(Input.KEY_D)) {
 			HeroState.setDirection(HeroState.RIGHT);
 			if(HeroState.getAction() != HeroState.ACTION_JUMP) {
@@ -140,12 +142,6 @@ if(!Collision.getFlagLeft()) {
 	//			   if (input.isKeyDown(Input.KEY_D))
 	//			   		{Hero.nx = Hero.nx - ((vox)*delta);}
 	//			}
-}
-else {
-
-	Hero.dX--;
-	
-	
 }
     
 	}//end move right

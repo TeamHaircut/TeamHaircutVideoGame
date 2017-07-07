@@ -16,10 +16,10 @@ public class Collision {
 	
 	public Collision()
 	{
-		setFlagTop(false);
-		setFlagBottom(false);
-		setFlagRight(false);
-		setFlagLeft(false);
+//		setFlagTop(false);
+//		setFlagBottom(false);
+//		setFlagRight(false);
+//		setFlagLeft(false);
 //		setFlagBadGuy(false);
 	}
 
@@ -28,31 +28,33 @@ public class Collision {
 		setFlagTop(false);
 		setFlagBottom(false);
 		setFlagRight(false);
-		//setFlagLeft(false);
+		setFlagLeft(false);
 		for(int i = 0; i < r.length; i++)
 		{
-			if(		r[i].contains((float)Hero.bottom.getEndX(), (float)Hero.bottom.getEndY()) ||
-					r[i].contains((float)Hero.bottom.getStartX(), (float)Hero.bottom.getStartY())
-						) {
-					setFlagBottom(true);
-					
-					System.out.println("Bottom Collision!");
+
+			if(	(r[i].contains((float)Hero.bottom.getEndX(), (float)Hero.bottom.getEndY()) ||
+				 r[i].contains((float)Hero.bottom.getStartX(), (float)Hero.bottom.getStartY()))) {
+				setFlagBottom(true);
 			}
-			if(		r[i].contains((float)Hero.left.getEndX(), (float)Hero.left.getEndY()) ||
-					r[i].contains((float)Hero.left.getStartX(), (float)Hero.left.getStartY())
-					) {
+
+			if(	r[i].contains((float)Hero.left.getEndX(), (float)Hero.left.getEndY()) && r[i].contains(Hero.leftA)) {
 				setFlagLeft(true);
-				System.out.println("left Collision!");
+				Hero.dX--;
 			}
-			if(		r[i].contains((float)Hero.right.getEndX(), (float)Hero.right.getEndY()) ||
-					r[i].contains((float)Hero.right.getStartX(), (float)Hero.right.getStartY())
-					) {
+			else if(r[i].contains(Hero.leftA)) {
+				setFlagLeft(true);
+			}
+		//	
+			if(	r[i].contains((float)Hero.right.getEndX(), (float)Hero.right.getEndY()) && r[i].contains(Hero.rightA)) {
 				setFlagRight(true);
-				System.out.println("right Collision!");
+				Hero.dX++;
 			}
-			if(		r[i].contains((float)Hero.top.getEndX(), (float)Hero.top.getEndY()) ||
-					r[i].contains((float)Hero.top.getStartX(), (float)Hero.top.getStartY())
-					) {
+			else if(r[i].contains(Hero.rightA)) {
+				setFlagRight(true);
+			}
+		//	
+			if(	r[i].contains((float)Hero.top.getEndX(), (float)Hero.top.getEndY()) ||
+				r[i].contains((float)Hero.top.getStartX(), (float)Hero.top.getStartY())) {
 				setFlagTop(true);
 				System.out.println("top Collision!");
 			}	
