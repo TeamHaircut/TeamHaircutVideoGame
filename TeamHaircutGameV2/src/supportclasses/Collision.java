@@ -2,6 +2,7 @@ package supportclasses;
 
 import org.newdawn.slick.geom.Rectangle;
 
+import states.HeroState;
 import dimensions.Ints;
 
 public class Collision {
@@ -39,6 +40,7 @@ public class Collision {
 
 			if(	r[i].contains((float)Hero.left.getEndX(), (float)Hero.left.getEndY()) && r[i].contains(Hero.leftA)) {
 				setFlagLeft(true);
+				HeroState.setAction(HeroState.ACTION_NONE);
 				Hero.dX--;
 			}
 			else if(r[i].contains(Hero.leftA)) {
@@ -48,6 +50,7 @@ public class Collision {
 			if(	r[i].contains((float)Hero.right.getEndX(), (float)Hero.right.getEndY()) && r[i].contains(Hero.rightA)) {
 				setFlagRight(true);
 				Hero.dX++;
+				HeroState.setAction(HeroState.ACTION_NONE);
 			}
 			else if(r[i].contains(Hero.rightA)) {
 				setFlagRight(true);

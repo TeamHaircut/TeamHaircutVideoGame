@@ -11,6 +11,7 @@ public class MoveHero {
 	private static float vox;
 	
 	public static void moveLeft(GameContainer gc, int delta){
+		
 		Input input = gc.getInput();
 		if(!Collision.getFlagRight()) {
 		//		   if (Collision.getFlagLeft() == false)//l
@@ -34,6 +35,7 @@ public class MoveHero {
 			else {
 				vox = 0;
 				Hero.dX += vox * delta;
+				HeroState.setAction(HeroState.ACTION_NONE);
 			}
 		//			   if (input.isKeyDown(Input.KEY_A))
 		//			   {
@@ -73,65 +75,65 @@ public class MoveHero {
 		//		   vox = 0;
 		//		   Hero.dX += vox *delta;
 		}
-		//else {
-		//	   if(HeroState.getAction() != HeroState.ACTION_JUMP) {
-		//	   HeroState.setAction(HeroState.ACTION_NONE);
-		//	   }
-		//}
+//		else {
+//			   if(HeroState.getAction() != HeroState.ACTION_JUMP) {
+//			   HeroState.setAction(HeroState.ACTION_NONE);
+//			   }
+//		}
 		}
 	}//end move left
 	
-//public static float hold;
 	
 	public static void moveRight(GameContainer gc, int delta){
 		Input input = gc.getInput();
-if(!Collision.getFlagLeft()) {
-	//hold = Hero.dX;
-	//System.out.println(hold);
-		if (input.isKeyDown(Input.KEY_D)) {
-			HeroState.setDirection(HeroState.RIGHT);
-			if(HeroState.getAction() != HeroState.ACTION_JUMP) {
-				if(input.isKeyDown(Input.KEY_A)) {
-					HeroState.setAction(HeroState.ACTION_NONE);
-				}
-				else {
-					HeroState.setAction(HeroState.ACTION_WALK);
-				}
-			}
-			if (Hero.dX < 350) {
-				vox = 0.25f;
-				Hero.dX += (vox) * delta;
-			}
-			else {
-				vox = 0.25f;
-				Ints.NX = Ints.NX - ((vox)*delta);
-			}
-	//				   Hero.direction = true;
-	//				   if(Collision.getFlagBottom()== true)
-	//				   {
-	//					   if (HeroState.getIndex()==1)
-	//					   {
-	//						   if (PowerState.getPowerUpState() == 2 && !Hero.invinsable)
-	//							   Hero.heroAni = Hero.SDHwalkR;
-	//						   else if(PowerState.getPowerUpState() == 2 && Hero.invinsable)
-	//							   Hero.heroAni = Hero.SDHwalkRi;
-	//						   else if(PowerState.getPowerUpState() == 1 && Hero.invinsable)
-	//							   Hero.heroAni = Hero.DHwalkRi;
-	//						   else Hero.heroAni = Hero.DHwalkR;
-	//					   }
-	//					   else
-	//					   {
-	//						   if (PowerState.getPowerUpState() == 2)
-	//							   Hero.heroAni = Hero.SDSwalkR;
-	//						   else Hero.heroAni = Hero.DSwalkR;  
-	//					   }
-	//				   }	   
-		}
-		else {
-			if(HeroState.getAction() != HeroState.ACTION_JUMP) {
+		if(!Collision.getFlagLeft()) {
+			if (input.isKeyPressed(Input.KEY_D)) {
 				HeroState.setAction(HeroState.ACTION_NONE);
 			}
-		}
+			if (input.isKeyDown(Input.KEY_D)) {
+				HeroState.setDirection(HeroState.RIGHT);
+				if(HeroState.getAction() != HeroState.ACTION_JUMP) {
+					if(input.isKeyDown(Input.KEY_A)) {
+						HeroState.setAction(HeroState.ACTION_NONE);
+					}
+					else {
+						HeroState.setAction(HeroState.ACTION_WALK);
+					}
+				}
+				if (Hero.dX < 350) {
+					vox = 0.25f;
+					Hero.dX += (vox) * delta;
+				}
+				else {
+					vox = 0.25f;
+					Ints.NX = Ints.NX - ((vox)*delta);
+				}
+		//				   Hero.direction = true;
+		//				   if(Collision.getFlagBottom()== true)
+		//				   {
+		//					   if (HeroState.getIndex()==1)
+		//					   {
+		//						   if (PowerState.getPowerUpState() == 2 && !Hero.invinsable)
+		//							   Hero.heroAni = Hero.SDHwalkR;
+		//						   else if(PowerState.getPowerUpState() == 2 && Hero.invinsable)
+		//							   Hero.heroAni = Hero.SDHwalkRi;
+		//						   else if(PowerState.getPowerUpState() == 1 && Hero.invinsable)
+		//							   Hero.heroAni = Hero.DHwalkRi;
+		//						   else Hero.heroAni = Hero.DHwalkR;
+		//					   }
+		//					   else
+		//					   {
+		//						   if (PowerState.getPowerUpState() == 2)
+		//							   Hero.heroAni = Hero.SDSwalkR;
+		//						   else Hero.heroAni = Hero.DSwalkR;  
+		//					   }
+		//				   }	   
+			}
+//			else {
+//				if(HeroState.getAction() != HeroState.ACTION_JUMP) {
+//					HeroState.setAction(HeroState.ACTION_NONE);
+//				}
+//			}
 	//			}
 	//		   else //if collidesRight
 	//		   {
