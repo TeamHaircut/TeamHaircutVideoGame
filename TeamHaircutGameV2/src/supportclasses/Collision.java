@@ -8,7 +8,8 @@ import dimensions.Ints;
 public class Collision {
 	
 	private static boolean flagTop;
-	private static boolean flagBottom;
+	private static boolean flagBottomPartial;
+	private static boolean flagBottomFull;
 	private static boolean flagRight;
 	private static boolean flagLeft;
 //	private static boolean flagBadGuy;
@@ -27,37 +28,42 @@ public class Collision {
 	public static void checkHeroCollision(Rectangle[] r)
 	{
 		setFlagTop(false);
-		setFlagBottom(false);
+		setFlagBottomFull(false);
+		setFlagBottomPartial(false);
 		setFlagRight(false);
 		setFlagLeft(false);
 		for(int i = 0; i < r.length; i++)
 		{
-
-			if(	(r[i].contains((float)Hero.bottom.getEndX(), (float)Hero.bottom.getEndY()) ||
-				 r[i].contains((float)Hero.bottom.getStartX(), (float)Hero.bottom.getStartY()))) {
-				setFlagBottom(true);
+			if(	r[i].contains(Hero.bottomLeft) || r[i].contains(Hero.bottomRight)	) {
+				setFlagBottomPartial(true);
+			}
+			
+			if(	r[i].contains(Hero.bottomLeft) && r[i].contains(Hero.bottomRight)	) {
+				setFlagBottomFull(true);
 			}
 
-			if(	r[i].contains((float)Hero.left.getEndX(), (float)Hero.left.getEndY()) && r[i].contains(Hero.leftA)) {
+			if(	(r[i].contains(Hero.leftHigh) || r[i].contains(Hero.leftMid) || r[i].contains(Hero.leftLow)) &&
+				(r[i].contains(Hero.leftHighPercept) || r[i].contains(Hero.leftMidPercept) || r[i].contains(Hero.leftLowPercept))
+			) {
 				setFlagLeft(true);
-				HeroState.setAction(HeroState.ACTION_NONE);
 				Hero.dX--;
 			}
-			else if(r[i].contains(Hero.leftA)) {
+			else if((r[i].contains(Hero.leftHighPercept) || r[i].contains(Hero.leftMidPercept) || r[i].contains(Hero.leftLowPercept))) {
 				setFlagLeft(true);
 			}
-		//	
-			if(	r[i].contains((float)Hero.right.getEndX(), (float)Hero.right.getEndY()) && r[i].contains(Hero.rightA)) {
+			
+			if(	(r[i].contains(Hero.rightHigh) || r[i].contains(Hero.rightMid) || r[i].contains(Hero.rightLow)) &&
+				(r[i].contains(Hero.rightHighPercept) || r[i].contains(Hero.rightMidPercept) || r[i].contains(Hero.rightLowPercept))
+			) {
 				setFlagRight(true);
 				Hero.dX++;
-				HeroState.setAction(HeroState.ACTION_NONE);
-			}
-			else if(r[i].contains(Hero.rightA)) {
+				}
+			else if((r[i].contains(Hero.rightHighPercept) || r[i].contains(Hero.rightMidPercept) || r[i].contains(Hero.rightLowPercept))) {
 				setFlagRight(true);
 			}
-		//	
-			if(	r[i].contains((float)Hero.top.getEndX(), (float)Hero.top.getEndY()) ||
-				r[i].contains((float)Hero.top.getStartX(), (float)Hero.top.getStartY())) {
+			
+			if(	r[i].contains(Hero.topLeft)	|| r[i].contains(Hero.topRight)
+			) {
 				setFlagTop(true);
 				System.out.println("top Collision!");
 			}	
@@ -76,14 +82,25 @@ public class Collision {
 //		   }
 		}
 	
+	public static boolean isFlagBottomPartial() {
+		return flagBottomPartial;
+	}
+
+	public static void setFlagBottomPartial(boolean flagBottomPartial) {
+		Collision.flagBottomPartial = flagBottomPartial;
+	}
+
+	public static boolean isFlagBottomFull() {
+		return flagBottomFull;
+	}
+
+	public static void setFlagBottomFull(boolean flagBottomFull) {
+		Collision.flagBottomFull = flagBottomFull;
+	}
+
 	public static void setFlagTop(boolean newSetting)
 	{
 		flagTop = newSetting;
-	}
-	
-	public static void setFlagBottom(boolean newSetting)
-	{
-		flagBottom = newSetting;
 	}
 	
 	public static void setFlagRight(boolean newSetting)
@@ -104,11 +121,6 @@ public class Collision {
 	public static boolean getFlagTop()
 	{
 		return flagTop;
-	}
-	
-	public static boolean getFlagBottom()
-	{
-		return flagBottom;
 	}
 	
 	public static boolean getFlagRight()

@@ -7,7 +7,7 @@ import dimensions.Ints;
 import states.HeroState;
 
 public class MoveHero {
-	private final static float a = -850f;//-850
+	private final static float a = -750f;//-850
 	private static float vox;
 	
 	public static void moveLeft(GameContainer gc, int delta){
@@ -87,9 +87,6 @@ public class MoveHero {
 	public static void moveRight(GameContainer gc, int delta){
 		Input input = gc.getInput();
 		if(!Collision.getFlagLeft()) {
-			if (input.isKeyPressed(Input.KEY_D)) {
-				HeroState.setAction(HeroState.ACTION_NONE);
-			}
 			if (input.isKeyDown(Input.KEY_D)) {
 				HeroState.setDirection(HeroState.RIGHT);
 				if(HeroState.getAction() != HeroState.ACTION_JUMP) {
@@ -213,7 +210,8 @@ public class MoveHero {
 		}
 		Hero.jumpCounter = Hero.jumpCounter + delta;
 		Hero.timeY = Hero.jumpCounter/1000;
-		if (Collision.getFlagBottom()) {//on ground
+		
+		if (Collision.isFlagBottomPartial()) {//on ground
 			if(HeroState.getAction() == HeroState.ACTION_JUMP) {
 				HeroState.setAction(HeroState.ACTION_NONE);
 			}

@@ -1,15 +1,11 @@
 package supportclasses;
 
-import javafx.scene.shape.Line;
-
 import org.newdawn.slick.Animation;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Rectangle;
-import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
 
 import states.HeroState;
@@ -22,14 +18,30 @@ import dimensions.Ints;
 public class Hero {
 	
 	public static Rectangle rec;
+		
+	public static Point leftHigh;
+	public static Point leftMid;
+	public static Point leftLow;
+	public static Point leftHighPercept;
+	public static Point leftMidPercept;
+	public static Point leftLowPercept;
 	
-	public static Line top;
-	public static Line left;
-	public static Point leftA;
-	public static Line bottom;
-	public static Line right;
-	public static Point rightA;
+	public static Point rightHigh;
+	public static Point rightMid;
+	public static Point rightLow;
+	public static Point rightHighPercept;
+	public static Point rightMidPercept;
+	public static Point rightLowPercept;
 	
+	public static Point bottomLeft;
+	public static Point bottomRight;
+	public static Point bottomLeftPercept;
+	public static Point bottomRightPercept;
+	
+	public static Point topLeft;
+	public static Point topRight;
+	public static Point topLeftPercept;
+	public static Point topRightPercept;
 	
 	private static Animation ani;
 	
@@ -45,12 +57,9 @@ public class Hero {
 	
 	public static boolean isJumping;
 	
-	
 	private int lastDirection;
 	private int lastAction;
 	private int lastEffect;
-	
-	
 	
 	public Hero() {
 		HeroState.setDirection(HeroState.RIGHT);
@@ -59,8 +68,6 @@ public class Hero {
 		lastDirection = HeroState.getDirection();
 		lastAction = HeroState.getAction();
 		lastEffect = HeroState.getEffect();
-		
-		
 		
 		isJumping = true;
 		dY = 0;
@@ -82,28 +89,25 @@ public class Hero {
 		AnimationLoader.getAniMap();
 		rec = new Rectangle(dX,dY,Ints.D,Ints.D*2);
 		
-		top = new Line(dX+1,dY,dX+Ints.D-1,dY);
-		left = new Line(dX+Ints.D,dY+1,dX+Ints.D,dY+(Ints.D*2)-1);
-		leftA = new Point(dX+Ints.D+1,dY+(Ints.D*2)-1);
+		leftHigh = new Point(dX+Ints.D,dY+1); leftHighPercept = new Point(dX+Ints.D+1,dY+1);
+		leftMid = new Point(dX+Ints.D,dY+Ints.D); leftMidPercept = new Point(dX+Ints.D+1, dY+Ints.D);
+		leftLow = new Point(dX+Ints.D,dY+(2*Ints.D)-1); leftLowPercept = new Point(dX+Ints.D+1,dY+(2*Ints.D)-1);
 		
+		rightHigh = new Point(dX,dY+1); rightHighPercept = new Point(dX-1,dY+1);
+		rightMid = new Point(dX,dY+Ints.D); rightMidPercept = new Point(dX-1, dY+Ints.D);
+		rightLow = new Point(dX,dY+(2*Ints.D)-1); rightLowPercept = new Point(dX-1,dY+(2*Ints.D)-1);
 		
-		bottom = new Line(dX+1,dY+(Ints.D*2),dX+Ints.D-1,dY+(Ints.D*2));
-		right = new Line(dX,dY+1,dX,dY+(Ints.D*2)-1);
-		rightA = new Point(dX-1,dY+(Ints.D*2)-1);
+		bottomLeft = new Point(dX+1,dY+(2*Ints.D)); bottomLeftPercept = new Point(dX+1,dY+(2*Ints.D)+1);
+		bottomRight = new Point(dX+Ints.D-1,dY+(2*Ints.D)); bottomRightPercept = new Point(dX+Ints.D-1,dY+(2*Ints.D)+1);
 		
+		topLeft = new Point(dX+1,dY); topLeftPercept = new Point(dX+1,dY-1);
+		topRight = new Point(dX+Ints.D-1,dY); topRightPercept = new Point(dX+Ints.D-1,dY-1);
 		
 		ani = new CustomAnimation(HeroArrays.getDHnoneRn(),1000).getAni();
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
-		g.drawLine(dX+1,dY,dX+Ints.D-1,dY);//top
-		g.drawLine(dX+Ints.D,dY+1,dX+Ints.D,dY+(Ints.D*2)-1);//left
-		
-		g.drawLine(dX+1,dY+(Ints.D*2),dX+Ints.D-1,dY+(Ints.D*2));//bottom
-		g.drawLine(dX,dY+1,dX,dY+(Ints.D*2)-1);//right
-		g.setLineWidth(1);
-		g.setColor(Color.white);
 		ani.draw(dX, dY);
 	}
 
@@ -114,32 +118,19 @@ public class Hero {
 		MoveHero.moveLeft(gc,delta);
 		MoveHero.bounce();
 		
-		right.setStartX(dX);
-		right.setStartY(dY+1);
-		right.setEndX(dX);
-		right.setEndY(dY+(Ints.D*2)-1);
+		leftHigh.setLocation(dX+Ints.D,dY+1); leftHighPercept.setLocation(dX+Ints.D+1,dY+1);
+		leftMid.setLocation(dX+Ints.D,dY+Ints.D); leftMidPercept.setLocation(dX+Ints.D+1, dY+Ints.D);
+		leftLow.setLocation(dX+Ints.D,dY+(2*Ints.D)-1); leftLowPercept.setLocation(dX+Ints.D+1,dY+(2*Ints.D)-1);
 		
-		rightA.setX(dX-1);
-		rightA.setY(dY+(Ints.D*2)-1);
+		rightHigh.setLocation(dX,dY+1); rightHighPercept.setLocation(dX-1,dY+1);
+		rightMid.setLocation(dX,dY+Ints.D); rightMidPercept.setLocation(dX-1, dY+Ints.D);
+		rightLow.setLocation(dX,dY+(2*Ints.D)-1); rightLowPercept.setLocation(dX-1,dY+(2*Ints.D)-1);
 		
-		bottom.setStartX(dX+1);
-		bottom.setStartY(dY+(Ints.D*2));
-		bottom.setEndX(dX+Ints.D-1);
-		bottom.setEndY(dY+(Ints.D*2));
+		bottomLeft.setLocation(dX+1,dY+(2*Ints.D)); bottomLeftPercept.setLocation(dX+1,dY+(2*Ints.D)+1);
+		bottomRight.setLocation(dX+Ints.D-1,dY+(2*Ints.D)); bottomRightPercept.setLocation(dX+Ints.D-1,dY+(2*Ints.D)+1);
 		
-		left.setStartX(dX+Ints.D);
-		left.setStartY(dY+1);
-		left.setEndX(dX+Ints.D);
-		left.setEndY(dY+(Ints.D*2)-1);
-		
-		leftA.setX(dX+Ints.D+1);
-		leftA.setY(dY+(Ints.D*2)-1);
-		
-		top.setStartX(dX+1);
-		top.setStartY(dY);
-		top.setEndX(dX+Ints.D-1);
-		top.setEndY(dY);
-		
+		topLeft.setLocation(dX+1,dY); topLeftPercept.setLocation(dX+1,dY-1);
+		topRight.setLocation(dX+Ints.D-1,dY); topRightPercept.setLocation(dX+Ints.D-1,dY-1);
 		
 		rec.setX(dX);
 		rec.setY(dY);
@@ -152,8 +143,6 @@ public class Hero {
 		lastAction = HeroState.getAction();
 		lastEffect = HeroState.getEffect();
 		}
-		
-
 		
 	}
 	
