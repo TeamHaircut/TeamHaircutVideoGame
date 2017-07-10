@@ -227,8 +227,19 @@ public class MoveHero {
 				Hero.dY =Hero.yo; Hero.vo = 0;
 		   }
 		   Hero.jumpCounter = 0;
-		   if(input.isKeyPressed(Input.KEY_L)) {
-			   Hero.jumpTrigger = true;Hero.isJumping=true; HeroState.setAction(HeroState.ACTION_JUMP);
+		   if(input.isKeyPressed(Input.KEY_L)	) {
+			   
+			   if(Collision.getFlagLeft() && Collision.isFlagBottomFull()) {
+				   Hero.jumpTrigger = true;Hero.isJumping=true; HeroState.setAction(HeroState.ACTION_JUMP);
+			   }
+			   
+			   if(Collision.getFlagRight() && Collision.isFlagBottomFull()) {
+				   Hero.jumpTrigger = true;Hero.isJumping=true; HeroState.setAction(HeroState.ACTION_JUMP);
+			   }
+			   
+			   if(!Collision.getFlagLeft() && !Collision.getFlagRight() && Collision.isFlagBottomPartial()) {
+				   Hero.jumpTrigger = true;Hero.isJumping=true; HeroState.setAction(HeroState.ACTION_JUMP);
+			   }
 		   }
 	    }
 		else {//in air

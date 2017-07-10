@@ -126,8 +126,11 @@ public class Hero {
 		rightMid.setLocation(dX,dY+Ints.D); rightMidPercept.setLocation(dX-1, dY+Ints.D);
 		rightLow.setLocation(dX,dY+(2*Ints.D)-1); rightLowPercept.setLocation(dX-1,dY+(2*Ints.D)-1);
 		
-		bottomLeft.setLocation(dX+1,dY+(2*Ints.D)); bottomLeftPercept.setLocation(dX+1,dY+(2*Ints.D)+1);
-		bottomRight.setLocation(dX+Ints.D-1,dY+(2*Ints.D)); bottomRightPercept.setLocation(dX+Ints.D-1,dY+(2*Ints.D)+1);
+//		bottomLeft.setLocation(dX+1,dY+(2*Ints.D)); bottomLeftPercept.setLocation(dX+1,dY+(2*Ints.D)+1);
+//		bottomRight.setLocation(dX+Ints.D-1,dY+(2*Ints.D)); bottomRightPercept.setLocation(dX+Ints.D-1,dY+(2*Ints.D)+1);
+		
+		bottomLeft.setLocation(dX+10,dY+(2*Ints.D)); bottomLeftPercept.setLocation(dX+10,dY+(2*Ints.D)+1);
+		bottomRight.setLocation(dX+Ints.D-10,dY+(2*Ints.D)); bottomRightPercept.setLocation(dX+Ints.D-10,dY+(2*Ints.D)+1);
 		
 		topLeft.setLocation(dX+1,dY); topLeftPercept.setLocation(dX+1,dY-1);
 		topRight.setLocation(dX+Ints.D-1,dY); topRightPercept.setLocation(dX+Ints.D-1,dY-1);

@@ -8,6 +8,8 @@ import dimensions.Ints;
 public class Collision {
 	
 	private static boolean flagTop;
+	private static boolean flagBottomLeft;
+	private static boolean flagBottomRight;
 	private static boolean flagBottomPartial;
 	private static boolean flagBottomFull;
 	private static boolean flagRight;
@@ -28,12 +30,23 @@ public class Collision {
 	public static void checkHeroCollision(Rectangle[] r)
 	{
 		setFlagTop(false);
+		setFlagBottomLeft(false);
+		setFlagBottomRight(false);
 		setFlagBottomFull(false);
 		setFlagBottomPartial(false);
 		setFlagRight(false);
 		setFlagLeft(false);
 		for(int i = 0; i < r.length; i++)
 		{
+			if(	r[i].contains(Hero.bottomLeft)) {
+				setFlagBottomLeft(true);
+			}
+			
+			if(	r[i].contains(Hero.bottomRight)) {
+				setFlagBottomRight(true);
+			}
+			
+			
 			if(	r[i].contains(Hero.bottomLeft) || r[i].contains(Hero.bottomRight)	) {
 				setFlagBottomPartial(true);
 			}
@@ -82,6 +95,22 @@ public class Collision {
 //		   }
 		}
 	
+	public static boolean isFlagBottomLeft() {
+		return flagBottomLeft;
+	}
+
+	public static void setFlagBottomLeft(boolean flagBottomLeft) {
+		Collision.flagBottomLeft = flagBottomLeft;
+	}
+
+	public static boolean isFlagBottomRight() {
+		return flagBottomRight;
+	}
+
+	public static void setFlagBottomRight(boolean flagBottomRight) {
+		Collision.flagBottomRight = flagBottomRight;
+	}
+
 	public static boolean isFlagBottomPartial() {
 		return flagBottomPartial;
 	}
