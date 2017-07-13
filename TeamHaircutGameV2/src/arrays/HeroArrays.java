@@ -94,8 +94,8 @@ public class HeroArrays {
 	
 	public static Image[] getDHwalkLn() throws SlickException {
 		return new Image[]{ 
-				new Image(HeroStrings.DH_NONE_L_N),
-				new Image(HeroStrings.DH_WALK_L_N)
+				new Image(HeroStrings.DH_WALK_L_N),
+				new Image(HeroStrings.DH_NONE_L_N)
 				};
 	}
 	

@@ -113,6 +113,7 @@ public class Hero {
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
+		MoveHero.checkMoving(gc);
 		MoveHero.jump(gc,delta);
 		MoveHero.moveRight(gc,delta);
 		MoveHero.moveLeft(gc,delta);

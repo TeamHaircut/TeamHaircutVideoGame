@@ -78,7 +78,6 @@ public class Collision {
 			if(	r[i].contains(Hero.topLeft)	|| r[i].contains(Hero.topRight)
 			) {
 				setFlagTop(true);
-				System.out.println("top Collision!");
 			}	
 		}
 	}

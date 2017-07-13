@@ -10,77 +10,78 @@ public class MoveHero {
 	private final static float a = -750f;//-850
 	private static float vox;
 	
-	public static void moveLeft(GameContainer gc, int delta){
-		
+	public static void checkMoving(GameContainer gc) {
 		Input input = gc.getInput();
-		if(!Collision.getFlagRight()) {
-		//		   if (Collision.getFlagLeft() == false)//l
-		//		   {
-		//			    Hero.recBottom.setLocation(Hero.dX+4,Hero.dY+70);
-		
-		if (input.isKeyDown(Input.KEY_A)) {
-			HeroState.setDirection(HeroState.LEFT);
-			if(HeroState.getAction() != HeroState.ACTION_JUMP) {   
-			   if(input.isKeyDown(Input.KEY_D)) {
-				   HeroState.setAction(HeroState.ACTION_NONE);
-			   }
-			   else {
-				   HeroState.setAction(HeroState.ACTION_WALK);
-			   }
-			}
-			if(Hero.dX > 0) {
-				vox = 0.25f;
-				Hero.dX -= (vox) * delta;
+		if(HeroState.getAction() != HeroState.ACTION_JUMP) {
+			if (	(input.isKeyDown(Input.KEY_A) || input.isKeyDown(Input.KEY_D)) &&
+					!(input.isKeyDown(Input.KEY_A) && input.isKeyDown(Input.KEY_D))	
+			) {
+				HeroState.setAction(HeroState.ACTION_WALK);
 			}
 			else {
-				vox = 0;
-				Hero.dX += vox * delta;
 				HeroState.setAction(HeroState.ACTION_NONE);
 			}
-		//			   if (input.isKeyDown(Input.KEY_A))
-		//			   {
-		//				   if (Hero.dX > 0)
-		//					   {vox = 0.25f;
-		//					   Hero.dX -= (vox) * delta;}
-		//		    	   else 
-		//		    		   {vox = 0;
-		//		    		   Hero.dX += vox *delta;} 
-					   
-		//				   Hero.direction = false;
-		//				   if(Collision.getFlagBottom()==true)
-		//				   {
-		//					   if (HeroState.getIndex()==1)
-		//					   {
-		//						   if (PowerState.getPowerUpState() == 2 && !Hero.invinsable)
-		//							   Hero.heroAni = Hero.SDHwalkL;
-		//						   else if(PowerState.getPowerUpState() == 2 && Hero.invinsable)
-		//							   Hero.heroAni = Hero.SDHwalkLi;
-		//						   else if(PowerState.getPowerUpState() == 1 && Hero.invinsable)
-		//							   Hero.heroAni = Hero.DHwalkLi;
-		//						   else Hero.heroAni = Hero.DHwalkL;
-		//					   }
-		//					   else
-		//					   {
-		//						   if (PowerState.getPowerUpState() == 2)
-		//							   Hero.heroAni = Hero.SDSwalkL;
-		//						   else Hero.heroAni = Hero.DSwalkL;  
-		//					   }
-		//				   }
-		//				   
-		//			   }
-		//			}
-		//		   else//if collidesLeft
-		//		   {	Hero.recBottom.setLocation(Hero.dX+10,Hero.dY+70);
-		//		   Hero.recBottom.setSize(28,10);
-		//		   vox = 0;
-		//		   Hero.dX += vox *delta;
 		}
+	}
+	
+	public static void moveLeft(GameContainer gc, int delta){
+		Input input = gc.getInput();
+		if(!Collision.getFlagRight()) {	
+			if (input.isKeyDown(Input.KEY_A)) {
+				HeroState.setDirection(HeroState.LEFT);
+				if(Hero.dX > 0) {
+					vox = 0.25f;
+					Hero.dX -= (vox) * delta;
+				}
+				else {
+					vox = 0;
+					Hero.dX += vox * delta;
+				}		
+			//			   if (input.isKeyDown(Input.KEY_A))
+			//			   {
+			//				   if (Hero.dX > 0)
+			//					   {vox = 0.25f;
+			//					   Hero.dX -= (vox) * delta;}
+			//		    	   else 
+			//		    		   {vox = 0;
+			//		    		   Hero.dX += vox *delta;} 
+						   
+			//				   Hero.direction = false;
+			//				   if(Collision.getFlagBottom()==true)
+			//				   {
+			//					   if (HeroState.getIndex()==1)
+			//					   {
+			//						   if (PowerState.getPowerUpState() == 2 && !Hero.invinsable)
+			//							   Hero.heroAni = Hero.SDHwalkL;
+			//						   else if(PowerState.getPowerUpState() == 2 && Hero.invinsable)
+			//							   Hero.heroAni = Hero.SDHwalkLi;
+			//						   else if(PowerState.getPowerUpState() == 1 && Hero.invinsable)
+			//							   Hero.heroAni = Hero.DHwalkLi;
+			//						   else Hero.heroAni = Hero.DHwalkL;
+			//					   }
+			//					   else
+			//					   {
+			//						   if (PowerState.getPowerUpState() == 2)
+			//							   Hero.heroAni = Hero.SDSwalkL;
+			//						   else Hero.heroAni = Hero.DSwalkL;  
+			//					   }
+			//				   }
+			//				   
+			//			   }
+			//			}
+			//		   else//if collidesLeft
+			//		   {	Hero.recBottom.setLocation(Hero.dX+10,Hero.dY+70);
+			//		   Hero.recBottom.setSize(28,10);
+			//		   vox = 0;
+			//		   Hero.dX += vox *delta;
+			}
 //		else {
 //			   if(HeroState.getAction() != HeroState.ACTION_JUMP) {
 //			   HeroState.setAction(HeroState.ACTION_NONE);
 //			   }
 //		}
 		}
+		
 	}//end move left
 	
 	
@@ -89,14 +90,6 @@ public class MoveHero {
 		if(!Collision.getFlagLeft()) {
 			if (input.isKeyDown(Input.KEY_D)) {
 				HeroState.setDirection(HeroState.RIGHT);
-				if(HeroState.getAction() != HeroState.ACTION_JUMP) {
-					if(input.isKeyDown(Input.KEY_A)) {
-						HeroState.setAction(HeroState.ACTION_NONE);
-					}
-					else {
-						HeroState.setAction(HeroState.ACTION_WALK);
-					}
-				}
 				if (Hero.dX < 350) {
 					vox = 0.25f;
 					Hero.dX += (vox) * delta;
@@ -141,8 +134,8 @@ public class MoveHero {
 	//			   if (input.isKeyDown(Input.KEY_D))
 	//			   		{Hero.nx = Hero.nx - ((vox)*delta);}
 	//			}
-}
-    
+		}
+
 	}//end move right
 		   
 	//	public static void jump(GameContainer gc, int delta) {
@@ -193,17 +186,20 @@ public class MoveHero {
 	//	}//end jump
 	
 	public static void bounce() {
-		if (Collision.getFlagTop() == true){
-	   		Hero.timeY = 0;
-	   		Hero.jumpCounter = 0;
-	   		Hero.vo = -300;
-	   		Hero.v = 0;
-	   		Hero.yo = Hero.dY;	
-	   	}
+		if(HeroState.getAction() == HeroState.ACTION_JUMP) {
+			if (Collision.getFlagTop() == true){
+		   		Hero.timeY = 0;
+		   		Hero.jumpCounter = 0;
+		   		Hero.vo = -300;
+		   		Hero.v = 0;
+		   		Hero.yo = Hero.dY;	
+		   	}
+		}
 	}
 	
 
 	public static void jump(GameContainer gc, int delta){
+		
 		Input input = gc.getInput();
 		if (Hero.jumpTrigger) {
 			Hero.vo = 500;Hero.dY--;
@@ -230,20 +226,23 @@ public class MoveHero {
 		   if(input.isKeyPressed(Input.KEY_L)	) {
 			   
 			   if(Collision.getFlagLeft() && Collision.isFlagBottomFull()) {
-				   Hero.jumpTrigger = true;Hero.isJumping=true; HeroState.setAction(HeroState.ACTION_JUMP);
+				   Hero.jumpTrigger = true;Hero.isJumping=true; 
+				   HeroState.setAction(HeroState.ACTION_JUMP);
 			   }
 			   
 			   if(Collision.getFlagRight() && Collision.isFlagBottomFull()) {
-				   Hero.jumpTrigger = true;Hero.isJumping=true; HeroState.setAction(HeroState.ACTION_JUMP);
+				   Hero.jumpTrigger = true;Hero.isJumping=true; 
+				   HeroState.setAction(HeroState.ACTION_JUMP);
 			   }
 			   
 			   if(!Collision.getFlagLeft() && !Collision.getFlagRight() && Collision.isFlagBottomPartial()) {
-				   Hero.jumpTrigger = true;Hero.isJumping=true; HeroState.setAction(HeroState.ACTION_JUMP);
+				   Hero.jumpTrigger = true;Hero.isJumping=true; 
+				   HeroState.setAction(HeroState.ACTION_JUMP);
 			   }
 		   }
 	    }
-		else {//in air
-
+		
+		else {
 	//			   if (HeroState.getIndex()==1)
 	//				   if (Hero.direction)
 	//				   {
@@ -287,6 +286,10 @@ public class MoveHero {
 				Hero.jumpTrigger = false;
 			}
 		}
+		if(Hero.dY > Hero.yo+1) {
+			HeroState.setAction(HeroState.ACTION_JUMP);
+		}
+		
 	}//end jump
 	
 	
