@@ -9,7 +9,7 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 import states.ScrRes;
-import dansLibrary.GameFunc;
+//import dansLibrary.GameFunc;
 import dimensions.Ints;
 
 
@@ -43,7 +43,7 @@ public class Item{
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
-		isHit = GameFunc.isHitCheck(rec, Hero.rec, isHit);//rec5
+		isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_FULL, isHit);//rec5
 		x = GameFunc.scrollImage(x, nx, Ints.WALL, Ints.NX);
 	}
 	

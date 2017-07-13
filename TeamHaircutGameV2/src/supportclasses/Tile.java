@@ -11,7 +11,7 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 import states.ScrRes;
-import dansLibrary.GameFunc;
+//import dansLibrary.GameFunc;
 import dimensions.Ints;
 
 public class Tile {
@@ -66,23 +66,23 @@ public class Tile {
 		switch (action){
 			case Ints.TILE_ACTION_MAKE:
 				if(Hero.isJumping && (Hero.dY <= (y+Ints.D) && Hero.dY >= (y+(Ints.D/2)))	) {
-					isHit = GameFunc.isHitCheck(rec, Hero.rec, isHit);//rec3
+					isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_TOP, isHit);//rec3
 				}
 				if(!isHit) {
 					rec.setX(-2000);
 				}
 				break;
 			case Ints.TILE_ACTION_BREAK:
-				isHit = GameFunc.isHitCheck(rec, Hero.rec, isHit);//rec3
+				isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_TOP, isHit);//rec3
 				if(isHit) {
 					rec.setX(-2000);
 				}
 				break;
 			case Ints.TILE_ACTION_NONE:
-				isHit = GameFunc.isHitCheck(rec, Hero.rec, isHit);//rec3
+				isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_TOP, isHit);//rec3
 				break;
 			case Ints.TILE_ACTION_TAKE:
-				isHit = GameFunc.isHitCheck(rec, Hero.rec, isHit);//rec5
+				isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_TOP, isHit);//rec5
 				if(isHit) {
 					rec.setX(-2000);
 				}

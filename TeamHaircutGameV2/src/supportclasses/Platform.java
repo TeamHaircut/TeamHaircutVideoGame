@@ -7,7 +7,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
-import dansLibrary.GameFunc;
+//import dansLibrary.GameFunc;
 import dimensions.Ints;
 
 public class Platform {

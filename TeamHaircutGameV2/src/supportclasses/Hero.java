@@ -1,6 +1,7 @@
 package supportclasses;
 
 import org.newdawn.slick.Animation;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -109,6 +110,7 @@ public class Hero {
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
 		ani.draw(dX, dY);
+		
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
@@ -126,10 +128,7 @@ public class Hero {
 		rightHigh.setLocation(dX,dY+1); rightHighPercept.setLocation(dX-1,dY+1);
 		rightMid.setLocation(dX,dY+Ints.D); rightMidPercept.setLocation(dX-1, dY+Ints.D);
 		rightLow.setLocation(dX,dY+(2*Ints.D)-1); rightLowPercept.setLocation(dX-1,dY+(2*Ints.D)-1);
-		
-//		bottomLeft.setLocation(dX+1,dY+(2*Ints.D)); bottomLeftPercept.setLocation(dX+1,dY+(2*Ints.D)+1);
-//		bottomRight.setLocation(dX+Ints.D-1,dY+(2*Ints.D)); bottomRightPercept.setLocation(dX+Ints.D-1,dY+(2*Ints.D)+1);
-		
+			
 		bottomLeft.setLocation(dX+10,dY+(2*Ints.D)); bottomLeftPercept.setLocation(dX+10,dY+(2*Ints.D)+1);
 		bottomRight.setLocation(dX+Ints.D-10,dY+(2*Ints.D)); bottomRightPercept.setLocation(dX+Ints.D-10,dY+(2*Ints.D)+1);
 		
