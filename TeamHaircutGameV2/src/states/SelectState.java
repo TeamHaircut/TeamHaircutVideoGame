@@ -4,7 +4,6 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 import org.newdawn.slick.state.transition.EmptyTransition;
 
-import dimensions.Ints;
 import strings.Strings;
 
 public class SelectState extends BasicGameState{
