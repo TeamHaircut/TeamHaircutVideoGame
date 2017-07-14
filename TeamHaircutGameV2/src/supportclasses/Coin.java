@@ -1,27 +1,49 @@
 package supportclasses;
 
+import org.newdawn.slick.Animation;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 import animations.CustomAnimation;
 import arrays.ImageArrays;
-import dimensions.Ints;
 
-public class Coin extends Tile{
-	
+public class Coin extends Item{
+
+	private Animation ani;
 	private boolean isAvailable;
 	
-	public Coin(float x, int y) throws SlickException {
+	public Coin(float x, int y) {
 		super(x,y);
-		super.setAnin(new CustomAnimation(ImageArrays.getCoin(),200).getAni());
-		super.setPost(new CustomAnimation(ImageArrays.getBlankBox(),1000).getAni());
-		super.setxOffset(0);
-		super.setyOffset(0);
-		super.setLooping(false);
-		super.setAction(Ints.TILE_ACTION_TAKE);
-		isAvailable = true;
 		
+		this.ani = new Animation();
+		this.isAvailable = true;
+	}
+	
+	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
+	{
+		super.init(gc, sbg);
+		ani = new CustomAnimation(ImageArrays.getCoin(),200).getAni();
+		ani.setLooping(true);
+	}
+	
+	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
+	{
+		super.render(gc, sbg, g);
+		g.fill(super.getRec());
+		g.setColor(Color.white);
+		System.out.println(super.getRec().getX()+" "+super.getRec().getY());
+		if(!isAvailable) {
+			ani.draw(-2000, super.getY());
+			super.getRec().setX(-2000);
+		}
+		if(isAvailable) {
+			ani.draw(super.getX(), super.getY()+800);
+			super.getRec().setX(super.getX());
+			super.getRec().setY(super.getY()+800);
+		}
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
@@ -32,7 +54,15 @@ public class Coin extends Tile{
 				OldCoin.incrementCoin();
 			}
 			isAvailable = false;
-		}
+		}		
+	}
+	
+  public boolean isAvailable() {
+		return isAvailable;
+	}
+
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
 	}
 
 }

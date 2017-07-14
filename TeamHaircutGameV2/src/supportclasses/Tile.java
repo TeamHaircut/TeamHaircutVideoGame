@@ -82,7 +82,7 @@ public class Tile {
 				isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_TOP, isHit);//rec3
 				break;
 			case Ints.TILE_ACTION_TAKE:
-				isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_TOP, isHit);//rec5
+				isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_FULL, isHit);//rec5
 				if(isHit) {
 					rec.setX(-2000);
 				}

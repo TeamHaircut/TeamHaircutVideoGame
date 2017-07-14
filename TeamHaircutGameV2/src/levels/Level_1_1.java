@@ -42,6 +42,7 @@ import supportclasses.HiddenBox;
 import supportclasses.HiddenCoin;
 import supportclasses.InvisibleBox;
 import supportclasses.Item;
+import supportclasses.LevelItemBuilder;
 import supportclasses.LevelPlatformBuilder;
 import supportclasses.LevelTileBuilder;
 import supportclasses.Platform;
@@ -55,6 +56,10 @@ public class Level_1_1 extends BasicGameState {
 	private BackGroundImage bi;
 	private LevelPlatformBuilder level1_Platforms;
 	private LevelTileBuilder level1_Tiles;
+	
+	private Coin duck;
+	
+	//private LevelItemBuilder level1_Items;
 
 	/*
 
@@ -132,7 +137,7 @@ public class Level_1_1 extends BasicGameState {
 	
 	public Level_1_1(){
 		bi = new BackGroundImage(Strings.LEVEL1_BI);
-		
+		duck = new Coin(20,6);
 		/*
 		barriers = new Barriers(obx,oby,80,400,"res/objects/barriers/tube/tube.png");
 		powerbox = new ChangeTile(powerx,powery, powermyResource1, powermyResource2, new int[] {200,200,200} ,new int[] {200}, false);
@@ -183,7 +188,7 @@ public class Level_1_1 extends BasicGameState {
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
 		
 		bi.init(gc, sbg);
-		
+		duck.init(gc, sbg);
 		Platform.count = 0;
 		level1_Platforms = new LevelPlatformBuilder(new Platform[]{
 				
@@ -273,19 +278,26 @@ public class Level_1_1 extends BasicGameState {
 				new HiddenBox(103,5),//starman
 
 				
-				new Coin(87,5),
-				new Coin(89,10),
-				new Coin(199,10),
-				new Coin(200,9),
-				new Coin(200,8),
-				new Coin(200,7),
-				new Coin(201,6),
-				new Coin(201,5),
-				new Coin(201,4),
 				
 
 						
-		}); 
+		});
+		
+//		level1_Items = new LevelItemBuilder(new Item[] {
+//				
+//				new Coin(10,5),
+//				new Coin(87,5),
+//				new Coin(89,10),
+//				new Coin(199,10),
+//				new Coin(200,9),
+//				new Coin(200,8),
+//				new Coin(200,7),
+//				new Coin(201,6),
+//				new Coin(201,5),
+//				new Coin(201,4),
+//				
+//		});
+		
 
 		mySolids = new RectangleList(Platform.count + Tile.count);
 		level1_Platforms.init(gc, sbg);
@@ -331,6 +343,7 @@ public class Level_1_1 extends BasicGameState {
 			myBounds.addSolid(barriers.rec);
 		coins.init(gc, sbg);
 		*/
+			
 		hero.init(gc, sbg);
 		//levelGoal.init(gc, sbg);
 			//mySolids.addSolid(levelGoal.rec2);
@@ -345,6 +358,8 @@ public class Level_1_1 extends BasicGameState {
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	   level1_Platforms.render(gc, sbg, g);
 	   level1_Tiles.render(gc, sbg, g);
+	   
+	  // level1_Items.render(gc, sbg, g);
 	   
 	   
 	   /*
@@ -373,16 +388,20 @@ public class Level_1_1 extends BasicGameState {
 	   //hiddenstarman.render(gc, sbg, g);
 	   //levelGoal.render(gc, sbg, g);//goal
 	   hd.render(gc, sbg, g);//header
+	   duck.render(gc, sbg, g);
 	}
    
    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
 	   
 	   bi.update(gc, sbg, delta);//backdrop
+	   duck.update(gc, sbg, delta);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////UPDATE OBJECTS////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	   level1_Platforms.update(gc, sbg, delta);
 	   level1_Tiles.update(gc, sbg, delta);
+	   
+	   //level1_Items.update(gc, sbg, delta);
 	   
 	   
 //	   telePlatforms.update(gc, sbg, delta);
