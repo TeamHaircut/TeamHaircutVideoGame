@@ -19,7 +19,6 @@ import javagame.BadGuyJumpDouble;
 import javagame.BadGuyKnife;
 import javagame.BadGuySpiny;
 import javagame.Bullet;
-import javagame.Duckcoin;
 import javagame.Goal;
 //import javagame.Hero;
 import supportclasses.Hero;
