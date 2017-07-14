@@ -56,13 +56,9 @@ public class Level_1_1 extends BasicGameState {
 	private BackGroundImage bi;
 	private LevelPlatformBuilder level1_Platforms;
 	private LevelTileBuilder level1_Tiles;
-	
-	private Coin duck;
-	
-	//private LevelItemBuilder level1_Items;
+	private LevelItemBuilder level1_Items;
 
-	/*
-
+/*
 	private MysteryOneUp hiddenoneup;
 	private MysteryStarMan hiddenstarman;
 	
@@ -123,22 +119,22 @@ public class Level_1_1 extends BasicGameState {
 	private float[] bgfrx = {};///////////////////////////////////////////////
 	private float[] bgfry = {};///////////////////////////////////////////////
 	
-//	private RectangleList mySolids = new RectangleList(c0 + c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + b6 +1);//plus 1 from goal
+	private RectangleList mySolids = new RectangleList(c0 + c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + b6 +1);//plus 1 from goal
 	private RectangleList mySolids = new RectangleList(c0 + c2 + c3 + c4 + c5 + c6 + c7 + b6 +1);//plus 1 from goal
-//	private RectangleList myBounds = new RectangleList(c1 + c2 + c3 + c4 + c5 + c6 +c7 + b6 );
+	private RectangleList myBounds = new RectangleList(c1 + c2 + c3 + c4 + c5 + c6 +c7 + b6 );
 	private RectangleList myBounds = new RectangleList(c2 + c3 + c4 + c5 + c6 +c7 + b6 );
 	private RectangleList myBadGuys = new RectangleList(b0 + b1 + b2 + b3 + b4 + b5 + b6 + b7 +b8);
-	*/
+*/
 	private RectangleList mySolids;//plus 1 from goal//temp
-	//private RectangleList myBadGuys = new RectangleList(b0 + b1 + b2 + b3 + b4 + b5 + b6 + b7 +b8);//temp
+//	private RectangleList myBadGuys = new RectangleList(b0 + b1 + b2 + b3 + b4 + b5 + b6 + b7 +b8);//temp
 	private Hero hero;
-	//Goal levelGoal;
+//	Goal levelGoal;
 	private Header hd;
+	
 	
 	public Level_1_1(){
 		bi = new BackGroundImage(Strings.LEVEL1_BI);
-		duck = new Coin(20,6);
-		/*
+/*
 		barriers = new Barriers(obx,oby,80,400,"res/objects/barriers/tube/tube.png");
 		powerbox = new ChangeTile(powerx,powery, powermyResource1, powermyResource2, new int[] {200,200,200} ,new int[] {200}, false);
 		hiddenpowerups = new MysteryPowerUp(powerx,powery,powerbox);
@@ -157,15 +153,15 @@ public class Level_1_1 extends BasicGameState {
 		bgJDouble = new BadGuyJumpDouble(bgjdx,bgjdy,myBounds, mySolids);
 		bgFireball = new BadGuyFireball(bgfbx,bgfby,myBounds, mySolids, "short");
 		bgFirerod = new BadGuyFirerod(bgfrx,bgfry,myBounds, mySolids);
-		*/
+*/
 		hero = new Hero();
-		//levelGoal = new Goal(new float[] {204},new float[] {7});
+//		levelGoal = new Goal(new float[] {204},new float[] {7});
 		hd = new Header(400);
 	}
    
 	public void resetLevel(GameContainer gc, StateBasedGame sbg) throws SlickException
 	   {
-		/*
+/*
 		hiddenoneup.reset(gc, sbg);
 		hiddenstarman.reset(gc, sbg);
 		coins.reset(gc, sbg);
@@ -181,14 +177,13 @@ public class Level_1_1 extends BasicGameState {
 		bgJDouble.reset(gc,sbg);
 		bgFireball.reset(gc,sbg);
 		bgFirerod.reset(gc,sbg);
-		*/
-		//hd.reset(gc, sbg);
+*/
+//		hd.reset(gc, sbg);
 	   }
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
 		
 		bi.init(gc, sbg);
-		duck.init(gc, sbg);
 		Platform.count = 0;
 		level1_Platforms = new LevelPlatformBuilder(new Platform[]{
 				
@@ -277,28 +272,26 @@ public class Level_1_1 extends BasicGameState {
 				 */
 				new HiddenBox(103,5),//starman
 
-				
-				
-
-						
+								
 		});
 		
-//		level1_Items = new LevelItemBuilder(new Item[] {
-//				
-//				new Coin(10,5),
-//				new Coin(87,5),
-//				new Coin(89,10),
-//				new Coin(199,10),
-//				new Coin(200,9),
-//				new Coin(200,8),
-//				new Coin(200,7),
-//				new Coin(201,6),
-//				new Coin(201,5),
-//				new Coin(201,4),
-//				
-//		});
+		level1_Items = new LevelItemBuilder(new Item[] {
+				
+				new Coin(10,4),
+				new Coin(87,4),
+				new Coin(89,9),
+				new Coin(199,9),
+				new Coin(200,8),
+				new Coin(200,7),
+				new Coin(200,6),
+				new Coin(201,5),
+				new Coin(201,4),
+				new Coin(201,3),
+				
+		});
 		
-
+		level1_Items.init(gc, sbg);
+        
 		mySolids = new RectangleList(Platform.count + Tile.count);
 		level1_Platforms.init(gc, sbg);
 		level1_Tiles.init(gc, sbg);
@@ -346,7 +339,7 @@ public class Level_1_1 extends BasicGameState {
 			
 		hero.init(gc, sbg);
 		//levelGoal.init(gc, sbg);
-			//mySolids.addSolid(levelGoal.rec2);
+		//mySolids.addSolid(levelGoal.rec2);
 		hd.init(gc, sbg);
 	 }
    
@@ -358,6 +351,7 @@ public class Level_1_1 extends BasicGameState {
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	   level1_Platforms.render(gc, sbg, g);
 	   level1_Tiles.render(gc, sbg, g);
+	   level1_Items.render(gc, sbg, g);
 	   
 	  // level1_Items.render(gc, sbg, g);
 	   
@@ -388,18 +382,17 @@ public class Level_1_1 extends BasicGameState {
 	   //hiddenstarman.render(gc, sbg, g);
 	   //levelGoal.render(gc, sbg, g);//goal
 	   hd.render(gc, sbg, g);//header
-	   duck.render(gc, sbg, g);
 	}
    
    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
 	   
 	   bi.update(gc, sbg, delta);//backdrop
-	   duck.update(gc, sbg, delta);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////UPDATE OBJECTS////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	   level1_Platforms.update(gc, sbg, delta);
 	   level1_Tiles.update(gc, sbg, delta);
+	   level1_Items.update(gc, sbg, delta);
 	   
 	   //level1_Items.update(gc, sbg, delta);
 	   

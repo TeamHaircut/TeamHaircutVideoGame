@@ -1,7 +1,6 @@
 package supportclasses;
 
 import org.newdawn.slick.Animation;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -32,17 +31,14 @@ public class Coin extends Item{
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
 		super.render(gc, sbg, g);
-		g.fill(super.getRec());
-		g.setColor(Color.white);
-		System.out.println(super.getRec().getX()+" "+super.getRec().getY());
 		if(!isAvailable) {
 			ani.draw(-2000, super.getY());
 			super.getRec().setX(-2000);
 		}
 		if(isAvailable) {
-			ani.draw(super.getX(), super.getY()+800);
+			ani.draw(super.getX(), super.getY());
 			super.getRec().setX(super.getX());
-			super.getRec().setY(super.getY()+800);
+			super.getRec().setY(super.getY());
 		}
 	}
 	
