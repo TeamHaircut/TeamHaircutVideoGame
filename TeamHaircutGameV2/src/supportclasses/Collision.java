@@ -2,9 +2,6 @@ package supportclasses;
 
 import org.newdawn.slick.geom.Rectangle;
 
-import states.HeroState;
-import dimensions.Ints;
-
 public class Collision {
 	
 	private static boolean flagTop;
