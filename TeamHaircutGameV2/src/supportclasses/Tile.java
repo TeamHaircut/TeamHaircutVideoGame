@@ -1,6 +1,5 @@
 package supportclasses;
 
-//import javagame.Hero;
 import supportclasses.Hero;
 
 import org.newdawn.slick.Animation;
@@ -10,9 +9,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
-import states.HeroState;
 import states.ScrRes;
-//import dansLibrary.GameFunc;
 import dimensions.Ints;
 
 public class Tile {
@@ -41,7 +38,6 @@ public class Tile {
 		
 		nx = -((x*Ints.D)-350);
 		this.isHit = false;
-		
 	}
 		
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
@@ -61,29 +57,28 @@ public class Tile {
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
-		//x = GameFunc.scrollImage(x, nx, Hero.wall, Hero.nx);
 		x = GameFunc.scrollImage(x, nx, Ints.WALL, Ints.NX);
 		rec.setX(x);
 		switch (action){
 			case Ints.TILE_ACTION_MAKE:
 				if(Hero.dY < Hero.yo) {
-					isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_TOP, isHit);//rec3
+					isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_TOP, isHit);
 				}
 				if(!isHit) {
 					rec.setX(-2000);
 				}
 				break;
 			case Ints.TILE_ACTION_BREAK:
-				isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_TOP, isHit);//rec3
+				isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_TOP, isHit);
 				if(isHit) {
 					rec.setX(-2000);
 				}
 				break;
 			case Ints.TILE_ACTION_NONE:
-				isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_TOP, isHit);//rec3
+				isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_TOP, isHit);
 				break;
 			case Ints.TILE_ACTION_TAKE:
-				isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_FULL, isHit);//rec5
+				isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_FULL, isHit);
 				if(isHit) {
 					rec.setX(-2000);
 				}
