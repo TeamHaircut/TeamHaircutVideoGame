@@ -10,6 +10,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
+import states.HeroState;
 import states.ScrRes;
 //import dansLibrary.GameFunc;
 import dimensions.Ints;
@@ -65,7 +66,7 @@ public class Tile {
 		rec.setX(x);
 		switch (action){
 			case Ints.TILE_ACTION_MAKE:
-				if(Hero.isJumping && (Hero.dY <= (y+Ints.D) && Hero.dY >= (y+(Ints.D/2)))	) {
+				if(Hero.dY < Hero.yo) {
 					isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_TOP, isHit);//rec3
 				}
 				if(!isHit) {

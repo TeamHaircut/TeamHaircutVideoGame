@@ -276,7 +276,6 @@ public class Level_1_1 extends BasicGameState {
 		
 		level1_Items = new LevelItemBuilder(new Item[] {
 				
-				new Coin(10,4),
 				new Coin(87,4),
 				new Coin(89,9),
 				new Coin(199,9),
