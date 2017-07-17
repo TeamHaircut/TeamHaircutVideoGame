@@ -264,7 +264,9 @@ public class Level_1_1 extends BasicGameState {
 				/*
 				 * MAKE TILES
 				 */
-				new InvisibleBox(64,5),//1up							
+				new InvisibleBox(10,5,Ints.ITEM_1UP),
+				new InvisibleBox(12,5,Ints.ITEM_1UP),
+				//new InvisibleBox(64,5,Ints.ITEM_1UP),//1up							
 						
 				/*
 				 * STARMAN		
@@ -288,11 +290,12 @@ public class Level_1_1 extends BasicGameState {
 				
 		});
 		
-		level1_Items.init(gc, sbg);
+		
         
 		mySolids = new RectangleList(Platform.count + Tile.count);
 		level1_Platforms.init(gc, sbg);
 		level1_Tiles.init(gc, sbg);
+		level1_Items.init(gc, sbg);
 			mySolids.addSolid(level1_Platforms.rec);
 			mySolids.addSolid(level1_Tiles.rec);
 //			myBounds.addSolid(myPlatforms.rec);

@@ -10,7 +10,6 @@ public class GameFunc {
 	public static float scrollImage(float xPos, float xShift, float wall, float heroShift ){
 		   
 		   xPos = wall-(xShift-heroShift);
-		   
 		return xPos;
 	   }
 	

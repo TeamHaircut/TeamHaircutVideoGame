@@ -16,6 +16,8 @@ public class ImageArrays{
 	public static Image[] PowerUpItem;
 	
 	public static Image[] Coin;
+	public static Image[] OneUp;
+	public static Image[] OneUpPost;
 	
 	
 	public static Image[] getCoinBox() throws SlickException {
@@ -73,6 +75,18 @@ public class ImageArrays{
 				new Image(Strings.ITEM_COIN1),
 				new Image(Strings.ITEM_COIN2)};
 		return Coin;
+	}
+	
+	public static Image[] getOneUp() throws SlickException {
+		OneUp = new Image[]{ 
+				new Image(Strings.ITEM_1UP)};
+		return OneUp;
+	}
+	
+	public static Image[] getOneUpPost() throws SlickException {
+		OneUpPost = new Image[]{ 
+				new Image(Strings.ITEM_1UP_POST)};
+		return OneUpPost;
 	}
 		
 }

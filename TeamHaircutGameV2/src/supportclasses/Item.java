@@ -12,8 +12,8 @@ import dimensions.Ints;
 public class Item{
 	
 	public static int count;
-	private float x;
-	private float y;
+	public float x;
+	public float y;
 	private Rectangle rec;
 	private boolean isHit;
 	private float nx;
@@ -81,6 +81,16 @@ public class Item{
 	public void setRec(Rectangle rec) {
 		this.rec = rec;
 	}
+
+	public float getNx() {
+		return nx;
+	}
+
+
+	public void setNx(float nx) {
+		this.nx = nx;
+	}
+
 
 	private float toFloor(int floor) {
 		   return (ScrRes.getHeight()-(Ints.D*floor))/Ints.D;

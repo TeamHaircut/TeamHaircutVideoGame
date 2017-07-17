@@ -12,6 +12,7 @@ public class Ints {
 	public static final int COLLISION_FULL = 1;
 	
 	public static final int ITEM_POWERUP = 1;
+	public static final int ITEM_1UP = 2;
 	
 	public static final int PLATFORM = 0;
 	public static final int TUBE = 1;
