@@ -40,7 +40,7 @@ public class Item{
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
 		isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_FULL, isHit);//rec5
-		x = GameFunc.scrollImage(x, nx, Ints.WALL, Ints.NX);
+		//x = GameFunc.scrollImage(x, nx, Ints.WALL, Ints.NX);
 	}
 	
 	public float getX() {
