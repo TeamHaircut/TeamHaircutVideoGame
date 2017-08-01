@@ -5,9 +5,9 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import dimensions.Ints;
 import animations.CustomAnimation;
 import arrays.ImageArrays;
-import dimensions.Ints;
 
 public class InvisibleBox extends Tile{
 	
@@ -15,16 +15,16 @@ public class InvisibleBox extends Tile{
 	
 	public InvisibleBox(float x, int y) throws SlickException {
 		super(x,y);
-		super.setAnin(new CustomAnimation(ImageArrays.getBlankBox(),1000).getAni());
+		super.setAnin(new CustomAnimation(ImageArrays.getBlankBox(),200).getAni());
 		super.setPost(new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni());
 		super.setLooping(false);
 		super.setAction(Ints.TILE_ACTION_MAKE);
-		
+		item = new HiddenCoin(x,y);
 	}
 	
 	public InvisibleBox(float x, int y, int itemType) throws SlickException {
 		super(x,y);
-		super.setAnin(new CustomAnimation(ImageArrays.getBlankBox(),1000).getAni());
+		super.setAnin(new CustomAnimation(ImageArrays.getBlankBox(),200).getAni());
 		super.setPost(new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni());
 		super.setLooping(false);
 		super.setAction(Ints.TILE_ACTION_MAKE);
@@ -36,7 +36,7 @@ public class InvisibleBox extends Tile{
 		default:
 			item = new HiddenCoin(x,y);
 			break;
-		}		
+		}	
 	}
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
@@ -48,29 +48,22 @@ public class InvisibleBox extends Tile{
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
 		super.render(gc, sbg, g);
-		//if(super.isHit()  && item instanceof OneUp) {
-		if(super.isHit() && item instanceof OneUp) {
+		if(super.isHit()  && item instanceof HiddenCoin) {
+			item.render(gc, sbg, g);
+			if(	((HiddenCoin) item).isAvailable()) {
+				OldCoin.incrementCoin();
+				((HiddenCoin) item).setAvailable(false);
+			}
+		}
+		if(super.isHit()  && item instanceof OneUp) {
 			item.render(gc, sbg, g);
 		}
-		//	if(	((OneUp) item).isAvailable()) {
-				//incrementLives()
-//				OldCoin.incrementCoin();
-		//		((OneUp) item).setAvailable(false);
-		//	}
-		//}
-//		if(super.isHit()  && item instanceof PowerUp) {
-//			item.render(gc, sbg, g);
-//		}
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
 		super.update(gc, sbg, delta);
-		if(super.isHit()) {
-			item.update(gc, sbg, delta);
-		}
+		item.update(gc, sbg, delta);
 	}
 	
-
-
 }
