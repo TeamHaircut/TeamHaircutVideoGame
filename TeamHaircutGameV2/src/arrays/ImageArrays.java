@@ -85,7 +85,8 @@ public class ImageArrays{
 	
 	public static Image[] getOneUpPost() throws SlickException {
 		OneUpPost = new Image[]{ 
-				new Image(Strings.ITEM_1UP_POST)};
+				new Image(Strings.ITEM_1UP_POST),
+				new Image(Strings.TILE_BLANK)};
 		return OneUpPost;
 	}
 		
