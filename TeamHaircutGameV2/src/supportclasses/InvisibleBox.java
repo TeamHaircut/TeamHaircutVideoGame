@@ -12,6 +12,7 @@ import arrays.ImageArrays;
 public class InvisibleBox extends Tile{
 	
 	private Item item;
+	private boolean isAvailable;
 	
 	public InvisibleBox(float x, int y) throws SlickException {
 		super(x,y);
@@ -20,6 +21,7 @@ public class InvisibleBox extends Tile{
 		super.setLooping(false);
 		super.setAction(Ints.TILE_ACTION_MAKE);
 		item = new HiddenCoin(x,y);
+		isAvailable = true;
 	}
 	
 	public InvisibleBox(float x, int y, int itemType) throws SlickException {
@@ -28,6 +30,7 @@ public class InvisibleBox extends Tile{
 		super.setPost(new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni());
 		super.setLooping(false);
 		super.setAction(Ints.TILE_ACTION_MAKE);
+		isAvailable = true;
 		switch(itemType) {
 		case Ints.ITEM_1UP:
 			item = new OneUp(x,y);
@@ -57,7 +60,11 @@ public class InvisibleBox extends Tile{
 		}
 		if(super.isHit()  && item instanceof OneUp) {
 			item.render(gc, sbg, g);
-			item.vox = 0.1f;
+			if(isAvailable) {
+				item.vox = 0.1f;
+				isAvailable = false;
+			}
+			
 		}
 	}
 	
