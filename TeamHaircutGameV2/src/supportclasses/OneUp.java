@@ -13,7 +13,8 @@ import arrays.ImageArrays;
 public class OneUp extends Item{
 
 	private float dX;
-	//public float vox;
+	private float dY;
+	public float voy;
 	private Animation ani;
 	private Animation postAni;
 	private boolean isAvailable;
@@ -21,6 +22,7 @@ public class OneUp extends Item{
 	public OneUp(float x, int y) {
 		super(x,y);
 		dX = x;
+		dY = y;
 		this.ani = new Animation();
 		this.postAni = new Animation();
 		this.isAvailable = true;
@@ -29,9 +31,10 @@ public class OneUp extends Item{
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
 		vox = 0.0f;
+		voy = 0.05f;
 		super.init(gc, sbg);
 		ani = new CustomAnimation(ImageArrays.getOneUp(),200).getAni();
-		postAni = new CustomAnimation(ImageArrays.getOneUpPost(),3000).getAni();
+		postAni = new CustomAnimation(ImageArrays.getOneUpPost(),1000).getAni();//3000
 		ani.setLooping(false);
 		postAni.setLooping(false);
 		postAni.stop();
@@ -60,8 +63,14 @@ public class OneUp extends Item{
 			if(isAvailable) {
 				vox = 0.0f;
 				postAni.restart();
+				dY = y;
+				dX = x;
 				//PowerState.incrementPowerUpState();
 				//LiveState.incrementLives();
+			}
+			else {
+				y = y-((voy)*delta);
+				x = (float) (20*Math.sin(y/10));
 			}
 			isAvailable = false;
 		}		

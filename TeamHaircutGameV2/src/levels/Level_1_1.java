@@ -264,7 +264,7 @@ public class Level_1_1 extends BasicGameState {
 				/*
 				 * MAKE TILES
 				 */
-				new InvisibleBox(16,5,Ints.ITEM_1UP),
+				new InvisibleBox(10,5,Ints.ITEM_1UP),//16
 				//new InvisibleBox(12,5,Ints.ITEM_1UP),
 				//new InvisibleBox(64,5,Ints.ITEM_1UP),//1up							
 						
