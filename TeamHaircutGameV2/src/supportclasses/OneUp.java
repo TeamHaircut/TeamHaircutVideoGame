@@ -34,7 +34,7 @@ public class OneUp extends Item{
 		voy = 0.05f;
 		super.init(gc, sbg);
 		ani = new CustomAnimation(ImageArrays.getOneUp(),200).getAni();
-		postAni = new CustomAnimation(ImageArrays.getOneUpPost(),1000).getAni();//3000
+		postAni = new CustomAnimation(ImageArrays.getOneUpPost(),100000).getAni();//3000
 		ani.setLooping(false);
 		postAni.setLooping(false);
 		postAni.stop();
@@ -45,7 +45,7 @@ public class OneUp extends Item{
 		super.render(gc, sbg, g);
 		if(!isAvailable) {
 			ani.draw(-2000, super.getY());
-			postAni.draw(super.getX(),super.getY());
+			postAni.draw(super.getX()+dX,super.getY());
 			super.getRec().setX(-2000);
 		}
 		if(isAvailable) {
@@ -71,6 +71,8 @@ public class OneUp extends Item{
 			else {
 				y = y-((voy)*delta);
 				x = (float) (20*Math.sin(y/10));
+				
+				
 			}
 			isAvailable = false;
 		}		
