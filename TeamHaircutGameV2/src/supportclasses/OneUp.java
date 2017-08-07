@@ -34,7 +34,7 @@ public class OneUp extends Item{
 		voy = 0.05f;
 		super.init(gc, sbg);
 		ani = new CustomAnimation(ImageArrays.getOneUp(),200).getAni();
-		postAni = new CustomAnimation(ImageArrays.getOneUpPost(),100000).getAni();//3000
+		postAni = new CustomAnimation(ImageArrays.getOneUpPost(),1500).getAni();
 		ani.setLooping(false);
 		postAni.setLooping(false);
 		postAni.stop();
@@ -70,7 +70,7 @@ public class OneUp extends Item{
 			}
 			else {
 				y = y-((voy)*delta);
-				x = (float) (20*Math.sin(y/10));
+				dX = (float) (20*Math.sin(y/10));
 				
 				
 			}
