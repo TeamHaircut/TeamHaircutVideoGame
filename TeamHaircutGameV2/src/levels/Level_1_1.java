@@ -124,7 +124,7 @@ public class Level_1_1 extends BasicGameState {
 	private RectangleList myBounds = new RectangleList(c2 + c3 + c4 + c5 + c6 +c7 + b6 );
 	private RectangleList myBadGuys = new RectangleList(b0 + b1 + b2 + b3 + b4 + b5 + b6 + b7 +b8);
 */
-	private RectangleList mySolids;//plus 1 from goal//temp
+	//private RectangleList mySolids;//plus 1 from goal//temp
 //	private RectangleList myBadGuys = new RectangleList(b0 + b1 + b2 + b3 + b4 + b5 + b6 + b7 +b8);//temp
 	private Hero hero;
 //	Goal levelGoal;
@@ -234,8 +234,8 @@ public class Level_1_1 extends BasicGameState {
 	
 				/*
 				 * BREAK BLOCKS
-				 */
-				new BreakBox(20,5),new BreakBox(22,5),new BreakBox(24,5),new BreakBox(78,5),new BreakBox(80,5),
+				 */																		//5
+				new BreakBox(20,5),new BreakBox(22,5),new BreakBox(24,5),new BreakBox(78,6),new BreakBox(80,5),
 				new BreakBox(82,9),new BreakBox(83,9),new BreakBox(84,9),new BreakBox(85,9),new BreakBox(86,9),
 				new BreakBox(87,9),new BreakBox(88,9),new BreakBox(89,9),new BreakBox(90,9),new BreakBox(91,9),
 				new BreakBox(94,9),new BreakBox(95,9),new BreakBox(96,9),new BreakBox(97,9),new BreakBox(102,5),
@@ -264,9 +264,7 @@ public class Level_1_1 extends BasicGameState {
 				/*
 				 * MAKE TILES
 				 */
-				new InvisibleBox(9,5,Ints.ITEM_1UP),//16
-				//new InvisibleBox(12,5,Ints.ITEM_1UP),
-				//new InvisibleBox(64,5,Ints.ITEM_1UP),//1up							
+				new InvisibleBox(64,5,Ints.ITEM_1UP),							
 						
 				/*
 				 * STARMAN		
@@ -292,12 +290,15 @@ public class Level_1_1 extends BasicGameState {
 		
 		
         
-		mySolids = new RectangleList(Platform.count + Tile.count);
+		//mySolids = new RectangleList(Platform.count + Tile.count);
+		RectangleList.createNewList(Platform.count+Tile.count);
 		level1_Platforms.init(gc, sbg);
 		level1_Tiles.init(gc, sbg);
 		level1_Items.init(gc, sbg);
-			mySolids.addSolid(level1_Platforms.rec);
-			mySolids.addSolid(level1_Tiles.rec);
+		RectangleList.addSolid(level1_Platforms.rec);
+		RectangleList.addSolid(level1_Tiles.rec);
+			//mySolids.addSolid(level1_Platforms.rec);
+			//mySolids.addSolid(level1_Tiles.rec);
 //			myBounds.addSolid(myPlatforms.rec);
 		/*
 
@@ -449,7 +450,8 @@ public class Level_1_1 extends BasicGameState {
 	   //Bullet.collides1 = false;Bullet.collides1 = Bullet.checkCollisionB1(mySolids.getSolids());if (Bullet.collides1){Hero.tDone = true;}
 	  // Bullet.collides2 = false;Bullet.collides2 = Bullet.checkCollisionB2(mySolids.getSolids());if (Bullet.collides2){Hero.fDone = true;}
 	   
-	   Collision.checkHeroCollision(mySolids.getSolids());
+	   //Collision.checkHeroCollision(mySolids.getSolids());
+	   Collision.checkHeroCollision(RectangleList.getSolids());
 
 	  // Collision.checkHeroXCollision(mySolids.getSolids());
 	   //Collision.checkCollisionBadguy(myBadGuys.getSolids());

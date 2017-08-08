@@ -31,13 +31,18 @@ public class Item{
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
-		rec = new Rectangle(x,y,Ints.D,Ints.D);
+		if(this instanceof OneUp ) {
+			rec = new Rectangle(x,y,Ints.D,Ints.D*2);
+		}
+		else {
+			rec = new Rectangle(x,y,Ints.D,Ints.D);
+		}
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
-//		g.fill(rec);
-//		g.setColor(Color.white);
+		g.fill(rec);
+		g.setColor(Color.white);
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException

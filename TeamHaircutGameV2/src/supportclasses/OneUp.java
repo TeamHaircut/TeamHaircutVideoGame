@@ -6,23 +6,22 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
-import dimensions.Ints;
 import animations.CustomAnimation;
 import arrays.ImageArrays;
 
 public class OneUp extends Item{
 
+	private int dir;
 	private float dX;
-	private float dY;
 	public float voy;
 	private Animation ani;
 	private Animation postAni;
 	private boolean isAvailable;
 	
 	public OneUp(float x, int y) {
-		super(x,y);
+		super(x,y+1);
+		dir = 1;
 		dX = x;
-		dY = y;
 		this.ani = new Animation();
 		this.postAni = new Animation();
 		this.isAvailable = true;
@@ -58,24 +57,22 @@ public class OneUp extends Item{
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
 		super.update(gc, sbg, delta);
-		nx = nx - ((vox)*delta);
+		nx = nx - ((vox)*(dir)*delta);
 		if(super.isHit()) {
 			if(isAvailable) {
 				vox = 0.0f;
-				postAni.restart();
-				dY = y;
 				dX = x;
+				postAni.restart();
 				//PowerState.incrementPowerUpState();
 				//LiveState.incrementLives();
 			}
 			else {
 				y = y-((voy)*delta);
 				dX = (float) (20*Math.sin(y/10));
-				
-				
 			}
 			isAvailable = false;
-		}		
+		}
+		dir = Collision.checkObjectCollision(getRec(), RectangleList.getSolids(),dir);
 	}
 	
   public boolean isAvailable() {

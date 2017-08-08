@@ -13,8 +13,6 @@ public class Collision {
 	private static boolean flagLeft;
 //	private static boolean flagBadGuy;
 	
-	
-	
 	public Collision()
 	{
 //		setFlagTop(false);
@@ -22,6 +20,18 @@ public class Collision {
 //		setFlagRight(false);
 //		setFlagLeft(false);
 //		setFlagBadGuy(false);
+	}
+	
+	public static int checkObjectCollision(Rectangle r, Rectangle[] list, int dir) {
+		
+		for(int i = 0; i < list.length; i++)
+		{
+			if(	r.intersects(list[i])) {
+				dir = dir * -1;
+			}
+		}
+		System.out.println();
+		return dir;
 	}
 
 	public static void checkHeroCollision(Rectangle[] r)
