@@ -22,16 +22,15 @@ public class Collision {
 //		setFlagBadGuy(false);
 	}
 	
-	public static int checkObjectCollision(Rectangle r, Rectangle[] list, int dir) {
+	public static boolean checkObjectCollision(Rectangle r, Rectangle[] list) {
 		
 		for(int i = 0; i < list.length; i++)
 		{
 			if(	r.intersects(list[i])) {
-				dir = dir * -1;
+				return true;
 			}
 		}
-		System.out.println();
-		return dir;
+		return false;
 	}
 
 	public static void checkHeroCollision(Rectangle[] r)

@@ -72,7 +72,6 @@ public class OneUp extends Item{
 			}
 			isAvailable = false;
 		}
-		dir = Collision.checkObjectCollision(getRec(), RectangleList.getSolids(),dir);
 	}
 	
   public boolean isAvailable() {
