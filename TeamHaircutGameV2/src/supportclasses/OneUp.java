@@ -4,6 +4,7 @@ import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 import animations.CustomAnimation;
@@ -72,6 +73,7 @@ public class OneUp extends Item{
 			}
 			isAvailable = false;
 		}
+		 System.out.println(Collision.checkObjectCollision(getRec(), RectangleList.getSolids())); 
 	}
 	
   public boolean isAvailable() {
