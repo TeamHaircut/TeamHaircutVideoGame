@@ -35,8 +35,8 @@ public class GameDriver extends StateBasedGame{
        */
       //this.enterState(GameState.INTROSTATE);
       //this.enterState(GameState.TITLESTATE);
-      this.enterState(GameState.SELECTSTATE);
-      //this.enterState(GameState.LEVEL_1_1);
+      //this.enterState(GameState.SELECTSTATE);
+      this.enterState(GameState.LEVEL_1_1);
    }
    
    public static void main(String[] args) {
