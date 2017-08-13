@@ -65,4 +65,8 @@ public class HeroState {
 		HeroState.lives = lives;
 	}
 	
+	public static void incrementLives() {
+		HeroState.lives++;
+	}
+	
 }

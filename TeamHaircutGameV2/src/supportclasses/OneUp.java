@@ -7,6 +7,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
+import states.HeroState;
 import animations.CustomAnimation;
 import arrays.ImageArrays;
 
@@ -65,7 +66,7 @@ public class OneUp extends Item{
 				dX = x;
 				postAni.restart();
 				//PowerState.incrementPowerUpState();
-				//LiveState.incrementLives();
+				HeroState.incrementLives();
 			}
 			else {
 				y = y-((voy)*delta);
@@ -73,7 +74,7 @@ public class OneUp extends Item{
 			}
 			isAvailable = false;
 		}
-		 System.out.println(Collision.checkObjectCollision(getRec(), RectangleList.getSolids())); 
+		 Collision.checkObjectCollision(getRec(), RectangleList.getSolids()); 
 	}
 	
   public boolean isAvailable() {
