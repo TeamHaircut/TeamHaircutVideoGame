@@ -358,8 +358,6 @@ public class Level_1_1 extends BasicGameState {
 	   level1_Items.render(gc, sbg, g);
 	   
 	  // level1_Items.render(gc, sbg, g);
-	   
-	   
 	   /*
 
 	   powerbox.render(gc, sbg, g);
@@ -464,15 +462,8 @@ public class Level_1_1 extends BasicGameState {
 	   return (ScrRes.getHeight()-(Ints.D*floor))/Ints.D;
    }
    
-   
    public int getID(){
       return 1;
    }
    
 }//end class level1
-
-
-
-
-
-
