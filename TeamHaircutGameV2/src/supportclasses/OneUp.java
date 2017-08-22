@@ -66,7 +66,7 @@ public class OneUp extends Item{
 				dX = x;
 				postAni.restart();
 				//PowerState.incrementPowerUpState();
-				HeroState.incrementLives();
+				//HeroState.incrementLives();
 			}
 			else {
 				y = y-((voy)*delta);

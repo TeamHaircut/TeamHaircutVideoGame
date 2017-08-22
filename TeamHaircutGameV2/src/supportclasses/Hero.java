@@ -10,6 +10,7 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 import states.HeroState;
+import states.ScrRes;
 import animations.AnimateHero;
 import animations.AnimationLoader;
 import animations.CustomAnimation;

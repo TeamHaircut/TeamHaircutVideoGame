@@ -1,6 +1,7 @@
 package states;
 
 import strings.Strings;
+import supportclasses.Hero;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
@@ -19,9 +20,11 @@ public class StartState extends BasicGameState{
    
    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
        font = new TrueTypeFont(new java.awt.Font(Strings.FONTNAME, java.awt.Font.BOLD, FONTSIZE), false);
+       HeroState.setState(HeroState.STATE_ALIVE);
    }
    
    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
+	   g.setBackground(Color.black);
 	   if (HeroState.getIndex()== HeroState.DAMIAN) {
 		   Image damianImage = new Image("res/setupImages/damianselectA.png");
 		   g.drawImage(damianImage, (ScrRes.getWidth(2))-(damianImage.getWidth()), 

@@ -16,12 +16,16 @@ public class HeroState {
 	public static final int EFFECT_BIGMAN = 1;
 	public static final int EFFECT_STARMAN = 2;
 	
+	public static final int STATE_DEAD = 0;
+	public static final int STATE_ALIVE = 1;
+	
 	
 	private static int index = 0;
 	private static int direction = 0;
 	private static int action = 0;
 	private static int effect = 0;
 	
+	private static int state = 1;
 	
 	private static int lives = 3;
 
@@ -57,6 +61,14 @@ public class HeroState {
 		HeroState.effect = effect;
 	}
 
+	public static int getState() {
+		return state;
+	}
+
+	public static void setState(int state) {
+		HeroState.state = state;
+	}
+
 	public static int getLives() {
 		return lives;
 	}
@@ -65,8 +77,12 @@ public class HeroState {
 		HeroState.lives = lives;
 	}
 	
-	public static void incrementLives() {
-		HeroState.lives++;
+//	public static void incrementLives() {
+//		HeroState.lives++;
+//	}
+	
+	public static void decrementLives() {
+		HeroState.lives--;
 	}
 	
 }

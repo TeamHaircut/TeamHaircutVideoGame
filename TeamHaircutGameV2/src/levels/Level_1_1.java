@@ -31,7 +31,9 @@ import org.newdawn.slick.state.*;
 import animations.CustomAnimation;
 import arrays.ImageArrays;
 import dimensions.Ints;
+import states.GameState;
 import states.Header;
+import states.HeroState;
 import states.ScrRes;
 import strings.Strings;
 import supportclasses.BreakBox;
@@ -153,7 +155,7 @@ public class Level_1_1 extends BasicGameState {
 		bgFireball = new BadGuyFireball(bgfbx,bgfby,myBounds, mySolids, "short");
 		bgFirerod = new BadGuyFirerod(bgfrx,bgfry,myBounds, mySolids);
 */
-		hero = new Hero();
+		//hero = new Hero();
 //		levelGoal = new Goal(new float[] {204},new float[] {7});
 		hd = new Header(400);
 	}
@@ -181,7 +183,7 @@ public class Level_1_1 extends BasicGameState {
 	   }
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
-		
+		hero = new Hero();
 		bi.init(gc, sbg);
 		Platform.count = 0;
 		level1_Platforms = new LevelPlatformBuilder(new Platform[]{
@@ -432,7 +434,22 @@ public class Level_1_1 extends BasicGameState {
 	   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////LEVEL RESET CONDITIONS/////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	   if (Hero.downAHole||PowerState.getPowerUpState() <= 0)
+
+	   if(Hero.dY > ScrRes.getHeight()) {
+		   if(HeroState.getState() == HeroState.STATE_ALIVE) {
+			   HeroState.decrementLives();
+			   HeroState.setState(HeroState.STATE_DEAD);
+		   }
+		}
+		else {
+			HeroState.setState(HeroState.STATE_ALIVE);
+		}
+	   
+	   if(HeroState.getState() == HeroState.STATE_DEAD) {
+		   sbg.enterState(GameState.STARTSTATE);
+	   }
+	   
+	   //	   if (Hero.downAHole||PowerState.getPowerUpState() <= 0)
 //	   {
 //		  //sbg.enterState(3);
 //		  //resetLevel(gc,sbg);
