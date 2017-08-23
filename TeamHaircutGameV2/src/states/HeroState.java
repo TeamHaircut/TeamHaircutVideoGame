@@ -78,9 +78,9 @@ public class HeroState {
 		HeroState.lives = lives;
 	}
 	
-//	public static void incrementLives() {
-//		HeroState.lives++;
-//	}
+	public static void incrementLives() {
+		HeroState.lives++;
+	}
 	
 	public static void decrementLives() {
 		HeroState.lives--;

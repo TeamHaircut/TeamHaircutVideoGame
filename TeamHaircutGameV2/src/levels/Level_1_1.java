@@ -265,8 +265,7 @@ public class Level_1_1 extends BasicGameState {
 												
 				/*
 				 * MAKE TILES
-				 */
-				new InvisibleBox(5,5,Ints.ITEM_1UP),	
+				 */	
 				new InvisibleBox(8,5,Ints.ITEM_1UP),
 				new InvisibleBox(11,5,Ints.ITEM_1UP),
 						
@@ -435,6 +434,7 @@ public class Level_1_1 extends BasicGameState {
 		////////////////////////////////////////LEVEL RESET CONDITIONS/////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+	   //if down-a-hole
 	   if(Hero.dY > ScrRes.getHeight()) {
 		   if(HeroState.getState() == HeroState.STATE_ALIVE) {
 			   HeroState.decrementLives();
@@ -451,8 +451,7 @@ public class Level_1_1 extends BasicGameState {
 		   }
 		   else {
 			   sbg.enterState(GameState.STARTSTATE);
-		   }
-		   
+		   }  
 	   }
 	   
 	   //	   if (Hero.downAHole||PowerState.getPowerUpState() <= 0)
