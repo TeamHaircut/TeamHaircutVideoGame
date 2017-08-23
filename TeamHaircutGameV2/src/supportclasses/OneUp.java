@@ -1,6 +1,7 @@
 package supportclasses;
 
 import org.newdawn.slick.Animation;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -19,7 +20,6 @@ public class OneUp extends Item{
 	private Animation ani;
 	private Animation postAni;
 	private boolean isAvailable;
-	private int count;
 	
 	public OneUp(float x, int y) {
 		super(x,y+1);
@@ -28,7 +28,6 @@ public class OneUp extends Item{
 		this.ani = new Animation();
 		this.postAni = new Animation();
 		this.isAvailable = true;
-		this.count = 0;
 	}
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
@@ -68,11 +67,8 @@ public class OneUp extends Item{
 				dX = x;
 				postAni.restart();
 				//PowerState.incrementPowerUpState();
-				if(count == 0) {
-					HeroState.incrementLives();
-					count = 1;
-				}
-				
+				HeroState.incrementLives();
+
 			}
 			else {
 				y = y-((voy)*delta);

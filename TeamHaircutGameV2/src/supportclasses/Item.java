@@ -41,8 +41,7 @@ public class Item{
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
-		g.fill(rec);
-		g.setColor(Color.white);
+
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException

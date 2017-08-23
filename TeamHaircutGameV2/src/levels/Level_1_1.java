@@ -266,8 +266,8 @@ public class Level_1_1 extends BasicGameState {
 				/*
 				 * MAKE TILES
 				 */	
-				new InvisibleBox(8,5,Ints.ITEM_1UP),
-				new InvisibleBox(11,5,Ints.ITEM_1UP),
+				
+				new InvisibleBox(64,5,Ints.ITEM_1UP),
 						
 				/*
 				 * STARMAN		
