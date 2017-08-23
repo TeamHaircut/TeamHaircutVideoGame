@@ -28,7 +28,6 @@ public class SelectState extends BasicGameState{
        font = new TrueTypeFont(new java.awt.Font(Strings.FONTNAME, java.awt.Font.BOLD, FONTSIZE), false);
 	   selectAnimation = new Animation(new Image[]{new Image("res/setupImages/selectorA.png"), 
 			   new Image("res/setupImages/selectorB.png")}, new int[]{75,75}, true);
-	   HeroState.setLives(3);
 	}
    
    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
@@ -56,7 +55,7 @@ public class SelectState extends BasicGameState{
 	   y =  (ScrRes.getHeight(2))-(damianImage.getHeight()/2)-(100); HeroState.setIndex(HeroState.DAN); name = "DAN";}
 	   if(input.isKeyDown(Input.KEY_LEFT)){x = (ScrRes.getWidth(2))-(damianImage.getWidth())-(damianImage.getWidth()/2);
 	   y = (ScrRes.getHeight(2))-(danImage.getHeight()/2)-(100); HeroState.setIndex(HeroState.DAMIAN); name = "DAMIAN";}
-	   if(input.isKeyPressed(Input.KEY_ENTER)){sbg.enterState(GameState.STARTSTATE, new EmptyTransition(), 
+	   if(input.isKeyPressed(Input.KEY_ENTER)){HeroState.setLives(3); sbg.enterState(GameState.STARTSTATE, new EmptyTransition(), 
 			   new EmptyTransition());}
 	}
    

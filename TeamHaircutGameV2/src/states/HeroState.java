@@ -28,6 +28,7 @@ public class HeroState {
 	private static int state = 1;
 	
 	private static int lives = 3;
+	private static int coins = 0;
 
 	public static int getIndex() {
 		return index;
@@ -83,6 +84,18 @@ public class HeroState {
 	
 	public static void decrementLives() {
 		HeroState.lives--;
+	}
+
+	public static int getCoins() {
+		return coins;
+	}
+
+	public static void setCoins(int coins) {
+		HeroState.coins = coins;
+	}
+	
+	public static void incrementCoins() {
+		HeroState.coins++;
 	}
 	
 }

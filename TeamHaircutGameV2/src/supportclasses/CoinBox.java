@@ -5,6 +5,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import states.HeroState;
 import dimensions.Ints;
 import animations.CustomAnimation;
 import arrays.ImageArrays;
@@ -51,7 +52,7 @@ public class CoinBox extends Tile{
 		if(super.isHit()  && item instanceof HiddenCoin) {
 			item.render(gc, sbg, g);
 			if(	((HiddenCoin) item).isAvailable()) {
-				OldCoin.incrementCoin();
+				HeroState.incrementCoins();
 				((HiddenCoin) item).setAvailable(false);
 			}
 		}

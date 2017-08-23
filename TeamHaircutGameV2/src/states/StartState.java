@@ -1,7 +1,6 @@
 package states;
 
 import strings.Strings;
-import supportclasses.Hero;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;

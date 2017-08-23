@@ -446,7 +446,13 @@ public class Level_1_1 extends BasicGameState {
 		}
 	   
 	   if(HeroState.getState() == HeroState.STATE_DEAD) {
-		   sbg.enterState(GameState.STARTSTATE);
+		   if(HeroState.getLives() <= 0) {
+			   sbg.enterState(GameState.GAMEOVERSTATE);
+		   }
+		   else {
+			   sbg.enterState(GameState.STARTSTATE);
+		   }
+		   
 	   }
 	   
 	   //	   if (Hero.downAHole||PowerState.getPowerUpState() <= 0)
