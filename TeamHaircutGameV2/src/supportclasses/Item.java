@@ -32,7 +32,7 @@ public class Item{
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
 		if(this instanceof OneUp ) {
-			rec = new Rectangle(x,y,Ints.D,Ints.D*2);
+			rec = new Rectangle(x,y,Ints.D,(Ints.D*2)-10);
 		}
 		else {
 			rec = new Rectangle(x,y,Ints.D,Ints.D);

@@ -21,6 +21,10 @@ public class OneUp extends Item{
 	private Animation postAni;
 	private boolean isAvailable;
 	
+	private static int counter;
+	
+	
+	
 	public OneUp(float x, int y) {
 		super(x,y+1);
 		dir = 1;
@@ -28,6 +32,7 @@ public class OneUp extends Item{
 		this.ani = new Animation();
 		this.postAni = new Animation();
 		this.isAvailable = true;
+		counter = 0;
 	}
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
@@ -60,13 +65,15 @@ public class OneUp extends Item{
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
 		super.update(gc, sbg, delta);
+		
+		counter += delta;
+		
 		nx = nx - ((vox)*(dir)*delta);
 		if(super.isHit()) {
 			if(isAvailable) {
 				vox = 0.0f;
 				dX = x;
 				postAni.restart();
-				//PowerState.incrementPowerUpState();
 				HeroState.incrementLives();
 
 			}
@@ -76,7 +83,20 @@ public class OneUp extends Item{
 			}
 			isAvailable = false;
 		}
-		 Collision.checkObjectCollision(getRec(), RectangleList.getSolids()); 
+		 boolean flag = Collision.checkObjectCollision(getRec(), RectangleList.getSolids());
+//		 if(flag && counter > ) {
+//			 HeroState.setCoins(dir);
+//			 dir = -1*dir;
+//		 }
+		 
+		 if (counter > 1000) {
+			 if(flag) {
+				 dir = -1*dir;
+				 counter = 0;
+			 }
+		 } 
+			 
+		 
 	}
 	
   public boolean isAvailable() {

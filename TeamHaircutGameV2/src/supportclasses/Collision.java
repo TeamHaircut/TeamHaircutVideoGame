@@ -23,14 +23,14 @@ public class Collision {
 	}
 	
 	public static boolean checkObjectCollision(Rectangle r, Rectangle[] list) {
-		
-		for(int i = 0; i < list.length; i++)
-		{
-			if(	r.intersects(list[i])) {
-				return true;
+		boolean flag = false;
+		for(int i =0; i < list.length; i++) {
+			if(r.intersects(list[i])) {
+				flag = true;
 			}
+			
 		}
-		return false;
+		return flag;
 	}
 
 	public static void checkHeroCollision(Rectangle[] r)

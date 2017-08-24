@@ -237,6 +237,7 @@ public class Level_1_1 extends BasicGameState {
 				/*
 				 * BREAK BLOCKS
 				 */																		//5
+				new BreakBox(10,5),
 				new BreakBox(20,5),new BreakBox(22,5),new BreakBox(24,5),new BreakBox(78,6),new BreakBox(80,5),
 				new BreakBox(82,9),new BreakBox(83,9),new BreakBox(84,9),new BreakBox(85,9),new BreakBox(86,9),
 				new BreakBox(87,9),new BreakBox(88,9),new BreakBox(89,9),new BreakBox(90,9),new BreakBox(91,9),
@@ -267,7 +268,7 @@ public class Level_1_1 extends BasicGameState {
 				 * MAKE TILES
 				 */	
 				
-				new InvisibleBox(64,5,Ints.ITEM_1UP),
+				new InvisibleBox(15,4,Ints.ITEM_1UP),//64
 						
 				/*
 				 * STARMAN		
