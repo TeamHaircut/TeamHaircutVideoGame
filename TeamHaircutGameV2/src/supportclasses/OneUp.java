@@ -84,19 +84,12 @@ public class OneUp extends Item{
 			isAvailable = false;
 		}
 		 boolean flag = Collision.checkObjectCollision(getRec(), RectangleList.getSolids());
-//		 if(flag && counter > ) {
-//			 HeroState.setCoins(dir);
-//			 dir = -1*dir;
-//		 }
-		 
 		 if (counter > 1000) {
 			 if(flag) {
 				 dir = -1*dir;
 				 counter = 0;
 			 }
-		 } 
-			 
-		 
+		 }  
 	}
 	
   public boolean isAvailable() {
