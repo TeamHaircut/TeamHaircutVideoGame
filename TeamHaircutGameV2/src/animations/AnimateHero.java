@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package animations;
 
 import org.newdawn.slick.Animation;

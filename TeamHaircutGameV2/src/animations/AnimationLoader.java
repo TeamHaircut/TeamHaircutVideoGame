@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package animations;
 
 import java.util.HashMap;
