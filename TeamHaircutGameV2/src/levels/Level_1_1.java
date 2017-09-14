@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package levels;
 
 import java.util.ArrayList;
@@ -268,7 +269,7 @@ public class Level_1_1 extends BasicGameState {
 				 * MAKE TILES
 				 */	
 				
-				new InvisibleBox(15,4,Ints.ITEM_1UP),//64
+				new InvisibleBox(14,4,Ints.ITEM_1UP),//64
 						
 				/*
 				 * STARMAN		
