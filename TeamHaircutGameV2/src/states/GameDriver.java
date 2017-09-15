@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package states;
 
 import levels.Level_1_1;
@@ -35,8 +36,8 @@ public class GameDriver extends StateBasedGame{
        */
       //this.enterState(GameState.INTROSTATE);
       //this.enterState(GameState.TITLESTATE);
-      this.enterState(GameState.SELECTSTATE);
-      //this.enterState(GameState.LEVEL_1_1);
+      //this.enterState(GameState.SELECTSTATE);
+      this.enterState(GameState.LEVEL_1_1);
    }
    
    public static void main(String[] args) {
@@ -52,10 +53,10 @@ public class GameDriver extends StateBasedGame{
          
          ScrRes.setHeight(appgc.getScreenHeight());
          ScrRes.setWidth(appgc.getScreenWidth());
-         appgc.setDisplayMode(ScrRes.getWidth(), ScrRes.getHeight(), true);
+         appgc.setDisplayMode(ScrRes.getWidth(), ScrRes.getHeight(), true);//true for full screen
          
 //       alt-tab to exit fullscreen
-         appgc.setFullscreen(true);
+         appgc.setFullscreen(true);//uncomment for full screen
          appgc.setShowFPS(true);
          appgc.start();
       }catch(SlickException e){

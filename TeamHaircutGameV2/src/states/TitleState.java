@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 /**********************************************
  * This state displays the title screen
  * until the user presses the enter key

@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 /*****************************************************
  * This is the first state called from the gamedriver
  * it displays a string designed to change color

@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package states;
 
 public class GameState {
