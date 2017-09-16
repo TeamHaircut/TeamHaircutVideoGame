@@ -1,4 +1,4 @@
-//	www.teamhaircut.org
+//	www.teamhaircut.org 
 package strings;
 
 public class HeroStrings {
