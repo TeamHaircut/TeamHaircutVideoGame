@@ -13,12 +13,16 @@ import dimensions.Ints;
 public class Item{
 	
 	public static int count;
+	
 	public float x;
 	public float y;
 	private Rectangle rec;
+	
 	private boolean isHit;
 	public float nx;
 	public float vox;
+	
+	private boolean jumpTriggerIsSet;
 	
 	public Item(float x, int y) {
 		
@@ -32,7 +36,7 @@ public class Item{
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
 		if(this instanceof OneUp ) {
-			rec = new Rectangle(x,y,Ints.D,(Ints.D*2)-10);
+			rec = new Rectangle(x,y,Ints.D,(Ints.D*2));
 		}
 		else {
 			rec = new Rectangle(x,y,Ints.D,Ints.D);
@@ -41,7 +45,8 @@ public class Item{
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
-
+		//g.setColor(Color.white);
+		//g.fill(getRec());
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
@@ -101,6 +106,14 @@ public class Item{
 
 	private float toFloor(int floor) {
 		   return (ScrRes.getHeight()-(Ints.D*floor))/Ints.D;
+	}
+	
+	public void setJumpTrigger(boolean newSetting) {
+		this.jumpTriggerIsSet = newSetting;
+	}
+	
+	public boolean getJumpTrigger() {
+		return jumpTriggerIsSet;
 	}
 
 }

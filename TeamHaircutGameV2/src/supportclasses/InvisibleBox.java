@@ -72,7 +72,15 @@ public class InvisibleBox extends Tile{
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
 		super.update(gc, sbg, delta);
-		item.update(gc, sbg, delta);
+		
+		if(!isAvailable)
+		{
+			item.update(gc, sbg, delta);
+		}
+		else {
+			item.setJumpTrigger(true);
+		}
+		
 	}
 	
 }
