@@ -9,7 +9,6 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import dimensions.Ints;
 import states.HeroState;
-import states.ScrRes;
 import animations.CustomAnimation;
 import arrays.ImageArrays;
 
@@ -18,47 +17,29 @@ public class OneUp extends Item{
 	public int dir;
 	public int counter;
 	
-	public Point leftHigh;
-	public Point leftMid;
-	public Point leftLow;
-	public  Point leftHighPercept;
-	public  Point leftMidPercept;
-	public  Point leftLowPercept;
+	public Point leftHigh, leftMid, leftLow;
+	public Point leftHighPercept, leftMidPercept, leftLowPercept;
+	public Point rightHigh, rightMid, rightLow;
+	public Point rightHighPercept, rightMidPercept, rightLowPercept;
+	public Point bottomLeft, bottomRight, bottomLeftPercept;
+	public Point bottomRightPercept, topLeft, topRight;
+	public Point topLeftPercept, topRightPercept;
 	
-	public  Point rightHigh;
-	public  Point rightMid;
-	public  Point rightLow;
-	public  Point rightHighPercept;
-	public  Point rightMidPercept;
-	public  Point rightLowPercept;
-	
-	public  Point bottomLeft;
-	public  Point bottomRight;
-	public  Point bottomLeftPercept;
-	public  Point bottomRightPercept;
-	
-	public  Point topLeft;
-	public  Point topRight;
-	public  Point topLeftPercept;
-	public  Point topRightPercept;
 	private ObjectCollision coll;
 	
-	public float voy;
-	private Animation ani;
-	private float vo;
-	private float dY;
-	private float jumpCounter;
-	private float timeY;
-	private float yo;
 	private float a = -750f;
+	private float dX;
+	private float dY;
+	private float yo;
 	private float v;
+	private float vo;
+	public float voy;
+	private float timeY;
+	private float jumpCounter;
 	
-
+	private Animation ani;
 	private Animation postAni;
 	private boolean isAvailable;
-	
-	private float dX;
-	
 	
 	public OneUp(float x, int y) {
 		super(x, y);
@@ -76,7 +57,6 @@ public class OneUp extends Item{
 		v = 0;
 		timeY = 0;
 		jumpCounter = 0;
-		
 		
 	}
 	
@@ -105,7 +85,6 @@ public class OneUp extends Item{
 		
 		voy = 0.05f;
 		
-		
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
@@ -113,7 +92,7 @@ public class OneUp extends Item{
 		super.render(gc, sbg, g);
 		super.getRec().setX(super.getX());
 		super.getRec().setY(super.getY());
-//		ani.draw(super.getX(), super.getY());
+		
 		if(!isAvailable) {
 			ani.draw(-2000, super.getY());
 			postAni.draw(super.getX()+dX,super.getY());
@@ -125,20 +104,18 @@ public class OneUp extends Item{
 			super.getRec().setX(super.getX());
 		}
 		
-		
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
 		super.update(gc, sbg, delta);
 		nx = nx - ((vox)*(dir)*delta);
-		jump(gc,delta);
 		
-		counter += delta;
 		 jump(gc,delta);
+		 
+		 counter += delta;
 		 if (counter > 1000) {
 			 if(coll.isFlagMidLeft() || coll.isFlagMidRight()) {
-				 
 				 dir = -1*dir;
 				 counter = 0;
 			 }
@@ -156,15 +133,10 @@ public class OneUp extends Item{
 				else {
 					y = y-((voy)*delta);
 					System.out.println(y);
-//					dX = (float) (20*Math.sin(y/10));
 					dX = (float) (20*Math.sin(y/10));
 
 				}
-				//isAvailable = false;
 			}
-			
-
-		 
 		
 		leftHigh.setLocation(x+Ints.D,y+1); leftHighPercept.setLocation(x+Ints.D+1,y+1);
 		leftMid.setLocation(x+Ints.D,y+Ints.D); leftMidPercept.setLocation(x+Ints.D+1, y+Ints.D);
@@ -180,13 +152,9 @@ public class OneUp extends Item{
 		coll.checkObjectCollision(RectangleList.getSolids(), this);
 	}
 	
-	
-	
-
 	public void jump(GameContainer gc, int delta){
-		//implement jump trigger
 		if(getJumpTrigger() == true) {
-			vo = 500;// dY--;
+			vo = 500;
 		}
 		jumpCounter = jumpCounter + delta;
 		timeY = jumpCounter/1000;
