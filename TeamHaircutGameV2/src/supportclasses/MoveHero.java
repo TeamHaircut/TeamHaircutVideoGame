@@ -7,7 +7,7 @@ import dimensions.Ints;
 import states.HeroState;
 
 public class MoveHero {
-	private final static float a = -750f;//-850
+	private final static float a = -750f;//-750
 	private static float vox;
 	
 	public static void checkMoving(GameContainer gc) {
@@ -203,6 +203,7 @@ public class MoveHero {
 		Input input = gc.getInput();
 		if (Hero.jumpTrigger) {
 			Hero.vo = 500;Hero.dY--;
+			
 		}
 		Hero.jumpCounter = Hero.jumpCounter + delta;
 		Hero.timeY = Hero.jumpCounter/1000;
@@ -220,11 +221,12 @@ public class MoveHero {
 				else {
 					Hero.yo = Hero.yo *10;
 				}
-				Hero.dY =Hero.yo; Hero.vo = 0;
+				MoveHero.correctFloor(Hero.yo);
+
+				Hero.dY =Hero.yo;  Hero.vo = 0;
 		   }
 		   Hero.jumpCounter = 0;
 		   if(input.isKeyPressed(Input.KEY_L)	) {
-			   
 			   if(Collision.getFlagLeft() && Collision.isFlagBottomFull()) {
 				   Hero.jumpTrigger = true;Hero.isJumping=true; 
 				   HeroState.setAction(HeroState.ACTION_JUMP);
@@ -243,6 +245,7 @@ public class MoveHero {
 	    }
 		
 		else {
+			
 	//			   if (HeroState.getIndex()==1)
 	//				   if (Hero.direction)
 	//				   {
@@ -291,6 +294,26 @@ public class MoveHero {
 		}
 		
 	}//end jump
+	
+	private static void correctFloor(float oldYo) {
+		if (oldYo > 0 && oldYo < 40) {Hero.yo = 0;}
+		if (oldYo > 40 && oldYo < 80) {Hero.yo = 40;}
+		if (oldYo > 80 && oldYo < 120) {Hero.yo = 80;}
+		if (oldYo > 120 && oldYo < 160) {Hero.yo = 120;}
+		if (oldYo > 160 && oldYo < 200) {Hero.yo = 160;}
+		if (oldYo > 200 && oldYo < 240) {Hero.yo = 200;}
+		if (oldYo > 240 && oldYo < 280) {Hero.yo = 240;}
+		if (oldYo > 280 && oldYo < 320) {Hero.yo = 280;}
+		if (oldYo > 320 && oldYo < 360) {Hero.yo = 320;}
+		if (oldYo > 360 && oldYo < 400) {Hero.yo = 360;}
+		if (oldYo > 400 && oldYo < 440) {Hero.yo = 400;}
+		if (oldYo > 440 && oldYo < 480) {Hero.yo = 440;}
+		if (oldYo > 480 && oldYo < 520) {Hero.yo = 480;}
+		if (oldYo > 520 && oldYo < 560) {Hero.yo = 520;}
+		if (oldYo > 560 && oldYo < 600) {Hero.yo = 560;}
+		if (oldYo > 600 && oldYo < 640) {Hero.yo = 600;}
+		if (oldYo > 640 && oldYo < 680) {Hero.yo = 640;}
+	}
 	
 	
 }

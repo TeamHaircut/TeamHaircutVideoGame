@@ -63,6 +63,11 @@ public class Hero {
 	private int lastAction;
 	private int lastEffect;
 	
+	//
+	//public static Rectangle vrec;
+	//public static float vheight;
+	//
+	
 	public Hero() {
 		HeroState.setDirection(HeroState.RIGHT);
 		HeroState.setAction(HeroState.ACTION_NONE);
@@ -90,6 +95,7 @@ public class Hero {
 	{
 		AnimationLoader.getAniMap();
 		rec = new Rectangle(dX,dY,Ints.D,Ints.D*2);
+		//vrec = new Rectangle(dX,dY+(Ints.D*2),Ints.D,vheight);
 		
 		leftHigh = new Point(dX+Ints.D,dY+1); leftHighPercept = new Point(dX+Ints.D+1,dY+1);
 		leftMid = new Point(dX+Ints.D,dY+Ints.D); leftMidPercept = new Point(dX+Ints.D+1, dY+Ints.D);
@@ -112,6 +118,9 @@ public class Hero {
 	{
 		ani.draw(dX, dY);
 		
+		g.setColor(Color.white);
+		//g.fill(vrec);
+		
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
@@ -121,6 +130,7 @@ public class Hero {
 		MoveHero.moveRight(gc,delta);
 		MoveHero.moveLeft(gc,delta);
 		MoveHero.bounce();
+		
 		
 		leftHigh.setLocation(dX+Ints.D,dY+1); leftHighPercept.setLocation(dX+Ints.D+1,dY+1);
 		leftMid.setLocation(dX+Ints.D,dY+Ints.D); leftMidPercept.setLocation(dX+Ints.D+1, dY+Ints.D);
@@ -138,6 +148,11 @@ public class Hero {
 		
 		rec.setX(dX);
 		rec.setY(dY);
+		
+		//vrec.setX(dX);
+		//vrec.setY(dY+(Ints.D*2));
+		//vrec.setHeight(vheight);
+		
 		
 		if(	lastDirection != HeroState.getDirection() || 
 			lastAction != HeroState.getAction() ||
