@@ -43,7 +43,7 @@ public class OneUp extends Item{
 	public  Point topRightPercept;
 	private ObjectCollision coll;
 	
-
+	public float voy;
 	private Animation ani;
 	private float vo;
 	private float dY;
@@ -53,15 +53,25 @@ public class OneUp extends Item{
 	private float a = -750f;
 	private float v;
 	
+
+	private Animation postAni;
+	private boolean isAvailable;
+	
+	private float dX;
+	
 	
 	public OneUp(float x, int y) {
 		super(x, y);
+
 		dir = 1;
+		dX=-2000;
 		counter = 0;
 		coll = new ObjectCollision();
 		this.ani = new Animation();
+		this.postAni = new Animation();
+		this.isAvailable = true;
 		dY = 0;
-		yo = this.y;
+		yo = this.y-30;
 		vo = 0;
 		v = 0;
 		timeY = 0;
@@ -74,6 +84,10 @@ public class OneUp extends Item{
 	{
 		super.init(gc, sbg);
 		ani = new CustomAnimation(ImageArrays.getOneUp(),200).getAni();
+		postAni = new CustomAnimation(ImageArrays.getOneUpPost(),1500).getAni();
+		postAni.setLooping(false);
+		postAni.stop();
+
 		ani.setLooping(false);
 		leftHigh = new Point(x+Ints.D,y+1); leftHighPercept = new Point(x+Ints.D+1,y+1);
 		leftMid = new Point(x+Ints.D,y+Ints.D); leftMidPercept = new Point(x+Ints.D+1, y+Ints.D);
@@ -88,15 +102,30 @@ public class OneUp extends Item{
 		
 		topLeft = new Point(x+1,y); topLeftPercept = new Point(x+1,y-1);
 		topRight = new Point(x+Ints.D-1,y); topRightPercept = new Point(x+Ints.D-1,y-1);
+		
+		voy = 0.05f;
+		
+		
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
 		super.render(gc, sbg, g);
-		
 		super.getRec().setX(super.getX());
 		super.getRec().setY(super.getY());
-		ani.draw(super.getX(), super.getY());
+//		ani.draw(super.getX(), super.getY());
+		if(!isAvailable) {
+			ani.draw(-2000, super.getY());
+			postAni.draw(super.getX()+dX,super.getY());
+			super.getRec().setX(-2000);
+		}
+		if(isAvailable) {
+			ani.draw(super.getX(), super.getY());
+			postAni.draw(-2000,super.getY());
+			super.getRec().setX(super.getX());
+		}
+		
+		
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
@@ -114,24 +143,44 @@ public class OneUp extends Item{
 				 counter = 0;
 			 }
 		 } 
+		 
+		 if(super.isHit()) {
+				if(isAvailable) {
+					vox = 0.0f;
+					dX = -2000;
+					postAni.restart();
+					HeroState.incrementLives();
+					isAvailable = false;
+
+				}
+				else {
+					y = y-((voy)*delta);
+					System.out.println(y);
+//					dX = (float) (20*Math.sin(y/10));
+					dX = (float) (20*Math.sin(y/10));
+
+				}
+				//isAvailable = false;
+			}
+			
+
+		 
 		
 		leftHigh.setLocation(x+Ints.D,y+1); leftHighPercept.setLocation(x+Ints.D+1,y+1);
 		leftMid.setLocation(x+Ints.D,y+Ints.D); leftMidPercept.setLocation(x+Ints.D+1, y+Ints.D);
 		leftLow.setLocation(x+Ints.D,y+(2*Ints.D)-1); leftLowPercept.setLocation(x+Ints.D+1,y+(2*Ints.D)-1);
-		
 		rightHigh.setLocation(x,y+1); rightHighPercept.setLocation(x-1,y+1);
 		rightMid.setLocation(x,y+Ints.D); rightMidPercept.setLocation(x-1, y+Ints.D);
 		rightLow.setLocation(x,y+(2*Ints.D)-1); rightLowPercept.setLocation(x-1,y+(2*Ints.D)-1);
-			
 		bottomLeft.setLocation(x+10,y+(2*Ints.D)); bottomLeftPercept.setLocation(x+10,y+(2*Ints.D)+1);
 		bottomRight.setLocation(x+Ints.D-10,y+(2*Ints.D)); bottomRightPercept.setLocation(x+Ints.D-10,y+(2*Ints.D)+1);
-		
 		topLeft.setLocation(x+1,y); topLeftPercept.setLocation(x+1,y-1);
 		topRight.setLocation(x+Ints.D-1,y); topRightPercept.setLocation(x+Ints.D-1,y-1);
 		
-		
 		coll.checkObjectCollision(RectangleList.getSolids(), this);
 	}
+	
+	
 	
 
 	public void jump(GameContainer gc, int delta){
@@ -152,7 +201,9 @@ public class OneUp extends Item{
 				else {
 					yo = yo *10;
 				}
-				dY =yo; vo = 0;
+				
+				correctFloor(yo);//correction1
+				dY = yo; y = dY;vo = 0;//correction2
 		   }
 		   jumpCounter = 0;
 	    }
@@ -160,6 +211,7 @@ public class OneUp extends Item{
 		else {
 			v = vo + a*timeY;
 			dY = -(((v))*timeY -0.5f*(a)*timeY*timeY)+yo;
+			if(isAvailable)
 			y = dY;
 			if (timeY > 0) {
 				setJumpTrigger(false);
@@ -167,5 +219,25 @@ public class OneUp extends Item{
 		}
 		
 	}//end jump
+	
+	private void correctFloor(float oldYo) {//correction3
+		if (oldYo > 0 && oldYo < 40) {yo = 0;}
+		if (oldYo > 40 && oldYo < 80) {yo = 40;}
+		if (oldYo > 80 && oldYo < 120) {yo = 80;}
+		if (oldYo > 120 && oldYo < 160) {yo = 120;}
+		if (oldYo > 160 && oldYo < 200) {yo = 160;}
+		if (oldYo > 200 && oldYo < 240) {yo = 200;}
+		if (oldYo > 240 && oldYo < 280) {yo = 240;}
+		if (oldYo > 280 && oldYo < 320) {yo = 280;}
+		if (oldYo > 320 && oldYo < 360) {yo = 320;}
+		if (oldYo > 360 && oldYo < 400) {yo = 360;}
+		if (oldYo > 400 && oldYo < 440) {yo = 400;}
+		if (oldYo > 440 && oldYo < 480) {yo = 440;}
+		if (oldYo > 480 && oldYo < 520) {yo = 480;}
+		if (oldYo > 520 && oldYo < 560) {yo = 520;}
+		if (oldYo > 560 && oldYo < 600) {yo = 560;}
+		if (oldYo > 600 && oldYo < 640) {yo = 600;}
+		if (oldYo > 640 && oldYo < 680) {yo = 640;}
+	}
 	
 }//end class

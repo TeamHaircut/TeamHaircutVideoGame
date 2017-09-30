@@ -3,6 +3,8 @@ package supportclasses;
 
 import org.newdawn.slick.geom.Rectangle;
 
+import dimensions.Ints;
+
 public class Collision {
 	
 	private static boolean flagTop;
@@ -56,11 +58,18 @@ public class Collision {
 			
 			if(	r[i].contains(Hero.bottomLeft) || r[i].contains(Hero.bottomRight)	) {
 				setFlagBottomPartial(true);
+				
 			}
 			
 			if(	r[i].contains(Hero.bottomLeft) && r[i].contains(Hero.bottomRight)	) {
 				setFlagBottomFull(true);
 			}
+			
+//			if(r[i].intersects(Hero.vrec)) {
+//				Hero.vheight = r[i].getY()-(Hero.dY+(Ints.D*2));
+//				if(Hero.vheight < 0) { Hero.vheight = 0;}
+//			}
+	
 
 			if(	(r[i].contains(Hero.leftHigh) || r[i].contains(Hero.leftMid) || r[i].contains(Hero.leftLow)) &&
 				(r[i].contains(Hero.leftHighPercept) || r[i].contains(Hero.leftMidPercept) || r[i].contains(Hero.leftLowPercept))

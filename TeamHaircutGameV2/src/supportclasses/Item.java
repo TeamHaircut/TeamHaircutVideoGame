@@ -28,7 +28,8 @@ public class Item{
 		
 		nx = -((x*Ints.D)-350);
 		this.isHit = false;
-		this.x = (x*Ints.D);
+		this.x = -2000;
+		//this.x = (x*Ints.D);
 		this.y = (toFloor(y)*Ints.D)-Ints.D;
 	}
 	
