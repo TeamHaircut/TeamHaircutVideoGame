@@ -1,7 +1,6 @@
 package supportclasses;
 
 import org.newdawn.slick.Animation;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -10,7 +9,6 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 import states.HeroState;
-import states.ScrRes;
 import animations.AnimateHero;
 import animations.AnimationLoader;
 import animations.CustomAnimation;
@@ -20,6 +18,7 @@ import dimensions.Ints;
 public class Hero {
 	
 	public static Rectangle rec;
+	public static Rectangle bottomRec;
 		
 	public static Point leftHigh;
 	public static Point leftMid;
@@ -94,7 +93,8 @@ public class Hero {
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
 		AnimationLoader.getAniMap();
-		rec = new Rectangle(dX,dY,Ints.D,Ints.D*2);
+		rec = new Rectangle(dX,dY,Ints.D,(Ints.D*2)-20);
+		bottomRec = new Rectangle(dX+10, dY+60, 20,20);
 		//vrec = new Rectangle(dX,dY+(Ints.D*2),Ints.D,vheight);
 		
 		leftHigh = new Point(dX+Ints.D,dY+1); leftHighPercept = new Point(dX+Ints.D+1,dY+1);
@@ -118,9 +118,12 @@ public class Hero {
 	{
 		ani.draw(dX, dY);
 		
+		/*
 		g.setColor(Color.white);
-		//g.fill(vrec);
-		
+		g.fill(rec);
+		g.setColor(Color.red);
+		g.fill(bottomRec);
+		*/
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
@@ -148,6 +151,9 @@ public class Hero {
 		
 		rec.setX(dX);
 		rec.setY(dY);
+		
+		bottomRec.setX(dX+10);
+		bottomRec.setY(dY+60);
 		
 		//vrec.setX(dX);
 		//vrec.setY(dY+(Ints.D*2));
