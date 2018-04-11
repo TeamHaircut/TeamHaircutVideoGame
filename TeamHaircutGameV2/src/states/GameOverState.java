@@ -7,7 +7,6 @@ import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
 import strings.Strings;
-import supportclasses.OldCoin;
 
 public class GameOverState extends BasicGameState{
 	//use 6 points and its multipliers: 12,18,24,30,36,42,48,54,60...
