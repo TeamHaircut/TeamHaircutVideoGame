@@ -1,9 +1,8 @@
 //	www.teamhaircut.org
-package javagame;
+package supportclasses;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
-import supportclasses.GameFunc;
 //import dansLibrary.GameFunc;
 import dimensions.Ints;
 
@@ -21,7 +20,7 @@ public class BackGroundImage{
 		resource = res;
 		nx = -(x-350);
 		x = 0;
-		y = 0;
+		y = 325;
 	}
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
