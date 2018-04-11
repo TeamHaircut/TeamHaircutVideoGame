@@ -21,6 +21,7 @@ public class GameDriver extends StateBasedGame{
       
      // this.addState(new Level2());
       this.addState(new Level_1_1());
+      //this.addState(new Level_Test());
    }
    
    public void initStatesList(GameContainer gc) throws SlickException{
@@ -30,14 +31,18 @@ public class GameDriver extends StateBasedGame{
       this.getState(GameState.STARTSTATE).init(gc, this);
       this.getState(GameState.GAMEOVERSTATE).init(gc, this);
       this.getState(GameState.LEVEL_1_1).init(gc, this);
+      //this.getState(GameState.LEVEL_Test).init(gc, this);
+
 
       /*
        * use GameState.INTROSTATE, to start at beginning
        */
-      //this.enterState(GameState.INTROSTATE);
+      this.enterState(GameState.INTROSTATE);
       //this.enterState(GameState.TITLESTATE);
       //this.enterState(GameState.SELECTSTATE);
-      this.enterState(GameState.LEVEL_1_1);
+      //this.enterState(GameState.STARTSTATE);
+      //this.enterState(GameState.LEVEL_1_1);
+      //this.enterState(GameState.LEVEL_Test);
    }
    
    public static void main(String[] args) {
@@ -53,11 +58,12 @@ public class GameDriver extends StateBasedGame{
          
          ScrRes.setHeight(appgc.getScreenHeight());
          ScrRes.setWidth(appgc.getScreenWidth());
-         appgc.setDisplayMode(ScrRes.getWidth(), ScrRes.getHeight(), true);//true for full screen
+//         appgc.setDisplayMode(ScrRes.getWidth(), ScrRes.getHeight(), true);//true for full screen
+         appgc.setDisplayMode(ScrRes.getWidth(), ScrRes.getHeight(), false);//true for full screen
          
 //       alt-tab to exit fullscreen
-         appgc.setFullscreen(true);//uncomment for full screen
-         appgc.setShowFPS(true);
+         //appgc.setFullscreen(true);//uncomment for full screen
+         appgc.setShowFPS(false);//true
          appgc.start();
       }catch(SlickException e){
          e.printStackTrace();
