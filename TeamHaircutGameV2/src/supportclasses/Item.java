@@ -1,6 +1,5 @@
 package supportclasses;
 
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -36,7 +35,7 @@ public class Item{
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
-		if(this instanceof OneUp ) {
+		if(this instanceof OneUp || this instanceof BasicBadGuy ) {
 			rec = new Rectangle(x,y,Ints.D,(Ints.D*2));
 		}
 		else {
@@ -52,7 +51,13 @@ public class Item{
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
-		isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_FULL, isHit);
+		if (this instanceof BasicBadGuy ) {
+			isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_BOTTOM, isHit);
+		}
+		else {
+			isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_FULL, isHit);
+
+		}
 		x = GameFunc.scrollImage(x, nx, Ints.WALL, Ints.NX);
 	}
 	
