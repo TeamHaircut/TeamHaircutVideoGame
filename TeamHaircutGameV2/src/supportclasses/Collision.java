@@ -3,7 +3,6 @@ package supportclasses;
 
 import org.newdawn.slick.geom.Rectangle;
 
-import dimensions.Ints;
 
 public class Collision {
 	
@@ -14,7 +13,7 @@ public class Collision {
 	private static boolean flagBottomFull;
 	private static boolean flagRight;
 	private static boolean flagLeft;
-//	private static boolean flagBadGuy;
+	//private static boolean flagBadGuy;
 	
 	public Collision()
 	{
@@ -38,6 +37,7 @@ public class Collision {
 
 	public static void checkHeroCollision(Rectangle[] r)
 	{
+		
 		setFlagTop(false);
 		setFlagBottomLeft(false);
 		setFlagBottomRight(false);
@@ -176,6 +176,7 @@ public class Collision {
 	{
 		return flagLeft;
 	}
+	
 //	
 //	public static boolean getFlagBadGuy()
 //	{
