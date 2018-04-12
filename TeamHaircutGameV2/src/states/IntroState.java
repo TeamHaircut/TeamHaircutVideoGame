@@ -17,7 +17,7 @@ import supportclasses.CustomAnimator;
 
 public class IntroState extends BasicGameState{
 	
-	//use 6 points and its multipliers: 12,18,24,30,36,42,48,54,60...
+	//for FONTSIZE use 6 points and its multipliers: 12,18,24,30,36,42,48,54,60...
 	private static int counter;
 	private static Font font;
 	private CustomAnimator ca;
