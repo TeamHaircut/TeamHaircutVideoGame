@@ -4,6 +4,7 @@ package strings;
 
 public class Strings {
 	
+	public static final String GAMENAME = "Team Haircut: The Video Game";
 	public static final String FONTNAME = "Emulogic";
 
 	public static final String LEVEL1_BI = "res/objects/backdrops/backdrop1.png";
@@ -31,5 +32,16 @@ public class Strings {
 	public static final String ITEM_1UP_POST = "res/objects/powerups/oneup/oneUpPost.png";
 	
 	public static final String ICON_COIN = "res/setupImages/duckcoinicon.png";
+	
+	public static final String BAD_WALK_L_BASIC = "res/badguys/basic/aboboWL.png";
+	public static final String BAD_NONE_L_BASIC = "res/badguys/basic/aboboFL.png";
+	
+	public static final String BAD_WALK_R_BASIC = "res/badguys/basic/aboboWR.png";
+	public static final String BAD_NONE_R_BASIC = "res/badguys/basic/aboboFR.png";
+	
+	public static final String BAD_POST1_BASIC = "res/badguys/basic/aboboD5R.png";
+	public static final String BAD_POST2_BASIC ="res/badguys/basic/aboboD1R.png";
+	
+	
 	
 }
