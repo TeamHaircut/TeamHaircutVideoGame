@@ -20,4 +20,4 @@ public class CustomAnimation {
 		return ani;
 	}
 	
-}
+}//[end CustomAnimator]
