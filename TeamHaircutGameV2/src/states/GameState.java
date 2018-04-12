@@ -8,8 +8,10 @@ public class GameState {
 	public static final int SELECTSTATE = -2;//2
 	public static final int STARTSTATE = -1;//3
 	
+	public static final int LEVEL_Test = -99;
 	public static final int LEVEL_1_1 = 1;//4
 	public static final int LEVEL_1_2 = 2;
+	
 	
 	public static final int GAMEOVERSTATE = -5;//99
 	
@@ -23,6 +25,4 @@ public class GameState {
 		GameState.currentState = currentState;
 	}
 	
-	
-	
-}
+}//[end GameState]
