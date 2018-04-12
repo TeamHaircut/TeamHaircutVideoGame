@@ -8,7 +8,6 @@ import dimensions.Ints;
 import strings.Strings;
 
 public class Header{
-//	private static final int FONTSIZE = 18;
 	
 	private Font font;
 	private int initialTime;
