@@ -6,9 +6,11 @@ import levels.Level_1_1;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
+import strings.Strings;
+
 public class GameDriver extends StateBasedGame{
    
-   private static final String GAMENAME = "Team Haircut: The Video Game";
+   //private static final String GAMENAME = "Team Haircut: The Video Game";
    
    public GameDriver(String gameName){
       super(gameName);
@@ -48,7 +50,7 @@ public class GameDriver extends StateBasedGame{
    public static void main(String[] args) {
       AppGameContainer appgc;
       try{
-         appgc = new AppGameContainer(new GameDriver(GAMENAME));
+         appgc = new AppGameContainer(new GameDriver(Strings.GAMENAME));
 //       ScreenResolution.setScreenHeight(480);
 //       ScreenResolution.setScreenWidth(980);
 //       appgc.setDisplayMode(980, 480, false);// old setting
