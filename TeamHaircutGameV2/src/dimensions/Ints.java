@@ -4,7 +4,9 @@ package dimensions;
 
 public class Ints {
 	
-	public static final int D = 40;//40
+	public static final int FONTSIZE = 18;
+	
+	public static final int D = 40;
 	public static final int TILE_ACTION_NONE = 0;
 	public static final int TILE_ACTION_MAKE = 1;
 	public static final int TILE_ACTION_BREAK = 2;
@@ -12,6 +14,7 @@ public class Ints {
 	
 	public static final int COLLISION_TOP = 0;
 	public static final int COLLISION_FULL = 1;
+	public static final int COLLISION_BOTTOM = 2;
 	
 	public static final int ITEM_POWERUP = 1;
 	public static final int ITEM_1UP = 2;
@@ -23,4 +26,4 @@ public class Ints {
 	public static final int WALL = 0;
 	public static float NX = 0;
 
-}
+}//[end Ints]
