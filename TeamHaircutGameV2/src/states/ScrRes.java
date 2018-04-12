@@ -30,5 +30,4 @@ public class ScrRes {
 		width = newWidth;
 	}
 	
-
-}
+}//[end ScrRes]
