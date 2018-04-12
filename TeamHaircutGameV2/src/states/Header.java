@@ -4,10 +4,11 @@ package states;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
+import dimensions.Ints;
 import strings.Strings;
 
 public class Header{
-	private static final int FONTSIZE = 18;
+//	private static final int FONTSIZE = 18;
 	
 	private Font font;
 	private int initialTime;
@@ -22,7 +23,7 @@ public class Header{
    
    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
    {
-       font = new TrueTypeFont(new java.awt.Font(Strings.FONTNAME, java.awt.Font.BOLD, FONTSIZE), false);
+       font = new TrueTypeFont(new java.awt.Font(Strings.FONTNAME, java.awt.Font.BOLD, Ints.FONTSIZE), false);
        setTime(initialTime);
        
        switch(HeroState.getIndex()) {
@@ -39,12 +40,12 @@ public class Header{
    
    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
    {
-	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*49), 0, getName() + "                        WORLD           TIME", Color.white);
+	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49), 0, getName() + "                        WORLD           TIME", Color.white);
 	   
-//	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*49),25,"      "+ "        x "+HeroState.getCoins() + "             " +"header.java ln 44"+"            "+String.valueOf(screenTime/1000), Color.white); 
-	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*49),25,"      "+ "        x "+HeroState.getCoins() + "             " +" 1-1"+"            "+" "+String.valueOf(screenTime/1000), Color.white); 
+//	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49),25,"      "+ "        x "+HeroState.getCoins() + "             " +"header.java ln 44"+"            "+String.valueOf(screenTime/1000), Color.white); 
+	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49),25,"      "+ "        x "+HeroState.getCoins() + "             " +" 1-1"+"            "+" "+String.valueOf(screenTime/1000), Color.white); 
 
-	   g.drawImage(new Image(Strings.ICON_COIN), (ScrRes.getWidth(2))-((FONTSIZE/2)*49)+(13*FONTSIZE), 25); 
+	   g.drawImage(new Image(Strings.ICON_COIN), (ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49)+(13*Ints.FONTSIZE), 25); 
 	 }
    
    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
