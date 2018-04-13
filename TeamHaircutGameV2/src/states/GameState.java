@@ -12,7 +12,6 @@ public class GameState {
 	public static final int LEVEL_1_1 = 1;//4
 	public static final int LEVEL_1_2 = 2;
 	
-	
 	public static final int GAMEOVERSTATE = -5;//99
 	
 	private static int currentState = 1;
