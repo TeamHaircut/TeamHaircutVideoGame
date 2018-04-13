@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javagame.BackGroundImage;
 import javagame.BadGuyBasic;
 import javagame.BadGuyBasicDouble;
 import javagame.BadGuyBeetle;
@@ -37,6 +36,8 @@ import states.Header;
 import states.HeroState;
 import states.ScrRes;
 import strings.Strings;
+import supportclasses.BackGroundImage;
+import supportclasses.BasicBadGuy;
 import supportclasses.BreakBox;
 import supportclasses.Coin;
 import supportclasses.CoinBox;
@@ -158,7 +159,7 @@ public class Level_1_1 extends BasicGameState {
 */
 		//hero = new Hero();
 //		levelGoal = new Goal(new float[] {204},new float[] {7});
-		hd = new Header(400);
+		hd = new Header(Ints.LEVEL_1_1_TIME);
 	}
    
 	public void resetLevel(GameContainer gc, StateBasedGame sbg) throws SlickException
@@ -238,7 +239,6 @@ public class Level_1_1 extends BasicGameState {
 				/*
 				 * BREAK BLOCKS
 				 */																		//5
-				new BreakBox(10,5),
 				new BreakBox(20,5),new BreakBox(22,5),new BreakBox(24,5),new BreakBox(78,6),new BreakBox(80,5),
 				new BreakBox(82,9),new BreakBox(83,9),new BreakBox(84,9),new BreakBox(85,9),new BreakBox(86,9),
 				new BreakBox(87,9),new BreakBox(88,9),new BreakBox(89,9),new BreakBox(90,9),new BreakBox(91,9),
@@ -269,7 +269,7 @@ public class Level_1_1 extends BasicGameState {
 				 * MAKE TILES
 				 */	
 				
-				new InvisibleBox(14,4,Ints.ITEM_1UP),//64
+				new InvisibleBox(64,5,Ints.ITEM_1UP),//64
 						
 				/*
 				 * STARMAN		
@@ -290,7 +290,23 @@ public class Level_1_1 extends BasicGameState {
 				new Coin(201,5),
 				new Coin(201,4),
 				new Coin(201,3),
-				
+
+				new BasicBadGuy(25,2),
+				new BasicBadGuy(42,2),
+				new BasicBadGuy(50,2),
+				new BasicBadGuy(52,2),
+				new BasicBadGuy(83,9),
+				new BasicBadGuy(85,2),
+				new BasicBadGuy(99,2),
+				new BasicBadGuy(100,2),
+				new BasicBadGuy(123,2),
+				new BasicBadGuy(124,2),
+				new BasicBadGuy(125,2),
+				new BasicBadGuy(126,2),
+				new BasicBadGuy(127,2),
+				new BasicBadGuy(174,2),
+				new BasicBadGuy(175,2),
+
 		});
 		
 		
@@ -490,4 +506,4 @@ public class Level_1_1 extends BasicGameState {
       return 1;
    }
    
-}//end class level1
+}//[end Level_1_1]
