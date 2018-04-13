@@ -7,10 +7,15 @@ public class Strings {
 	public static final String GAMENAME = "Team Haircut: The Video Game";
 	public static final String FONTNAME = "Emulogic";
 	
-	public static String TITLE_STATE_IMAGE_0 = "res/setupImages/title1.png";
-	public static String TITLE_STATE_IMAGE_1 = "res/setupImages/title2.png";
-	public static String TITLE_STATE_IMAGE_2 = "res/setupImages/title3.png";
-	public static String TITLE_STATE_IMAGE_3 = "res/setupImages/titleDemo.png";
+	public static final String TITLE_STATE_IMAGE_0 = "res/setupImages/title1.png";
+	public static final String TITLE_STATE_IMAGE_1 = "res/setupImages/title2.png";
+	public static final String TITLE_STATE_IMAGE_2 = "res/setupImages/title3.png";
+	public static final String TITLE_STATE_IMAGE_3 = "res/setupImages/titleDemo.png";
+	
+	public static final String SELECT_STATE_IMAGE_0 = "res/setupImages/damianselectA.png";
+	public static final String SELECT_STATE_IMAGE_1 = "res/setupImages/danselectA.png";
+	public static final String SELECT_STATE_IMAGE_2 = "res/setupImages/selectorA.png";
+	public static final String SELECT_STATE_IMAGE_3 = "res/setupImages/selectorB.png";
 
 	public static final String LEVEL1_BI = "res/objects/backdrops/backdrop1.png";
 	public static final String PLATFORM_BRICK = "res/objects/floors/brick.png";
