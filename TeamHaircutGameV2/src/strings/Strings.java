@@ -10,6 +10,7 @@ public class Strings {
 	public static String TITLE_STATE_IMAGE_0 = "res/setupImages/title1.png";
 	public static String TITLE_STATE_IMAGE_1 = "res/setupImages/title2.png";
 	public static String TITLE_STATE_IMAGE_2 = "res/setupImages/title3.png";
+	public static String TITLE_STATE_IMAGE_3 = "res/setupImages/titleDemo.png";
 
 	public static final String LEVEL1_BI = "res/objects/backdrops/backdrop1.png";
 	public static final String PLATFORM_BRICK = "res/objects/floors/brick.png";
