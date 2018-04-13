@@ -4,6 +4,7 @@ package dimensions;
 
 public class Ints {
 	
+	//use 6 points and its multipliers: 12,18,24,30,36,42,48,54,60...
 	public static final int FONTSIZE = 18;
 	
 	public static final int D = 40;
