@@ -29,11 +29,11 @@ public class TitleState extends BasicGameState{
 	   font = new TrueTypeFont(new java.awt.Font(Strings.FONTNAME, java.awt.Font.PLAIN, Ints.FONTSIZE), false);
 	   Image[] titleImageArray = {new Image(Strings.TITLE_STATE_IMAGE_0), new Image(Strings.TITLE_STATE_IMAGE_1),
 			   new Image(Strings.TITLE_STATE_IMAGE_2)};
-	   titleAnimation = new Animation(titleImageArray, new int[] {150,150,3000}, true);//150,150,3000
+	   titleAnimation = new Animation(titleImageArray, new int[] {150,150,3000}, true);
    }
    
    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
-	   Image menuImage = new Image("res/setupImages/titleDemo.png");//title
+	   Image menuImage = new Image(Strings.TITLE_STATE_IMAGE_3);
 	   
 	   g.drawImage(menuImage, (ScrRes.getWidth(2))-(menuImage.getWidth()/2), 
 			   (ScrRes.getHeight(2))-(menuImage.getHeight()/2));
@@ -42,8 +42,8 @@ public class TitleState extends BasicGameState{
 			   ScrRes.getHeight(2)+ScrRes.getHeight(3) , "PRESS ENTER",
 			   ca.getColor());
 	   
-	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*18),//22
-			   ScrRes.getHeight()-75, "\u00a9 2017 TeamHaircut", Color.white);//u00a9 2017 TeamHaircut.org
+	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*22),
+			   ScrRes.getHeight()-75, "\u00a9 2018 TeamHaircut.org", Color.white);
 	   
 	   titleAnimation.draw((ScrRes.getWidth(4))+65,(ScrRes.getHeight(5))-15);
 	   
@@ -51,7 +51,7 @@ public class TitleState extends BasicGameState{
    }
    
    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
-	   ca.animateString(delta, 100);//
+	   ca.animateString(delta, 100);
 	   Input input = gc.getInput();
 	   if(input.isKeyPressed(Input.KEY_ENTER)){sbg.enterState(GameState.SELECTSTATE, new EmptyTransition(), 
 			   new EmptyTransition());}
