@@ -5,10 +5,10 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 import org.newdawn.slick.state.transition.EmptyTransition;
 
+import dimensions.Ints;
 import strings.Strings;
 
 public class SelectState extends BasicGameState{
-	private static final int FONTSIZE = 18;
 	
 	private Font font;
 	private int x, y;
@@ -18,25 +18,25 @@ public class SelectState extends BasicGameState{
 	private Image damianImage, danImage;
 	
 	public SelectState() {
-		name = "DAMIAN";
+		name = "DAMIAN";//DAMIAN
 	}
    
    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
-	   damianImage = new Image("res/setupImages/damianselectA.png");
-	   danImage = new Image("res/setupImages/danselectA.png");
+	   damianImage = new Image(Strings.SELECT_STATE_IMAGE_0);
+	   danImage = new Image(Strings.SELECT_STATE_IMAGE_1);
 	   x = (ScrRes.getWidth(2))-(damianImage.getWidth())-(damianImage.getWidth()/2);
 	   y = (ScrRes.getHeight(2))-(damianImage.getHeight()/2)-(100);
-       font = new TrueTypeFont(new java.awt.Font(Strings.FONTNAME, java.awt.Font.BOLD, FONTSIZE), false);
-	   selectAnimation = new Animation(new Image[]{new Image("res/setupImages/selectorA.png"), 
-			   new Image("res/setupImages/selectorB.png")}, new int[]{75,75}, true);
+       font = new TrueTypeFont(new java.awt.Font(Strings.FONTNAME, java.awt.Font.BOLD, Ints.FONTSIZE), false);
+	   selectAnimation = new Animation(new Image[]{new Image(Strings.SELECT_STATE_IMAGE_2), 
+			   new Image(Strings.SELECT_STATE_IMAGE_3)}, new int[]{75,75}, true);
 	}
    
    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
-	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*13), 
+	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*13), 
 			   (ScrRes.getHeight(2)) -(250), "SELECT PLAYER", Color.white);
 	   g.setColor(Color.white);
 	   g.setLineWidth(5);
-	   g.drawLine((ScrRes.getWidth(2))-((FONTSIZE/2)*22), (ScrRes.getHeight()/2)-(200), 
+	   g.drawLine((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*22), (ScrRes.getHeight()/2)-(200), 
 			   (ScrRes.getWidth(3))+(ScrRes.getWidth(3)), (ScrRes.getHeight(2))-(200));
 	   
 	   g.drawImage(damianImage, (ScrRes.getWidth(2))-(damianImage.getWidth())-(damianImage.getWidth()/2), 
@@ -46,7 +46,7 @@ public class SelectState extends BasicGameState{
 	   
 	   g.drawAnimation(selectAnimation, x, y);
 	   
-	   font.drawString((ScrRes.getWidth(2))-((FONTSIZE/2)*name.length()), 
+	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*name.length()), 
 			   ScrRes.getHeight(2)+ScrRes.getHeight(5), name, Color.white);
    }
    
