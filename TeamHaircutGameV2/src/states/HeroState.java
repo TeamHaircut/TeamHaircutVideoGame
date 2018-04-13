@@ -99,4 +99,4 @@ public class HeroState {
 		HeroState.coins++;
 	}
 	
-}
+}//[end HeroState]
