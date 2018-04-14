@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package supportclasses;
 
 import org.newdawn.slick.GameContainer;
@@ -7,7 +8,6 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
-//import dansLibrary.GameFunc;
 import dimensions.Ints;
 
 public class Platform {
@@ -62,8 +62,6 @@ public class Platform {
 				rec = new Rectangle(x,y,col*Ints.D,row*Ints.D);
 				break;		
 		}
-		
-		
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
@@ -80,17 +78,11 @@ public class Platform {
 				}
 			}
 			break;		
-	}
-		
-		
-		
+		}
 		rec.setX(x);
-		
 	}
 	
-	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
-	{
-		//x = GameFunc.scrollImage(x, nx, Hero.wall, Hero.nx);
+	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
 		x = GameFunc.scrollImage(x, nx, Ints.WALL, Ints.NX);
 	}
 
@@ -101,6 +93,5 @@ public class Platform {
 	public void setRec(Rectangle rec) {
 		this.rec = rec;
 	}
-	
-	
-}
+		
+}//[end Platform]
