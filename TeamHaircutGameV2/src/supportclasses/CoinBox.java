@@ -68,4 +68,4 @@ public class CoinBox extends Tile{
 		item.update(gc, sbg, delta);
 	}
 	
-}
+}//[end CoinBox]
