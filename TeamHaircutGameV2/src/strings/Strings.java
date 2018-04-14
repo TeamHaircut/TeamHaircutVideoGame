@@ -1,7 +1,6 @@
 //	www.teamhaircut.org 
 package strings;
 
-
 public class Strings {
 	
 	public static final String GAMENAME = "Team Haircut: The Video Game";
@@ -51,7 +50,5 @@ public class Strings {
 	
 	public static final String BAD_POST1_BASIC = "res/badguys/basic/aboboD5R.png";
 	public static final String BAD_POST2_BASIC ="res/badguys/basic/aboboD1R.png";
-	
-	
 	
 }
