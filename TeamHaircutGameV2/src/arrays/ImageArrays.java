@@ -4,6 +4,7 @@ package arrays;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+
 import strings.Strings;
 
 public class ImageArrays{
@@ -20,6 +21,10 @@ public class ImageArrays{
 	public static Image[] Coin;
 	public static Image[] OneUp;
 	public static Image[] OneUpPost;
+	
+	public static Image[] BasicBadGuyL;
+	public static Image[] BasicBadGuyR;
+	public static Image[] BasicBadGuyPost;
 	
 	
 	public static Image[] getCoinBox() throws SlickException {
@@ -90,6 +95,27 @@ public class ImageArrays{
 				new Image(Strings.ITEM_1UP_POST),
 				new Image(Strings.TILE_BLANK)};
 		return OneUpPost;
+	}
+	
+	public static Image[] getBasicBadGuyL() throws SlickException {
+		BasicBadGuyL = new Image[]{ 
+				new Image(Strings.BAD_WALK_L_BASIC),
+				new Image(Strings.BAD_NONE_L_BASIC)};
+		return BasicBadGuyL;
+	}
+	
+	public static Image[] getBasicBadGuyR() throws SlickException {
+		BasicBadGuyR = new Image[]{ 
+				new Image(Strings.BAD_WALK_R_BASIC),
+				new Image(Strings.BAD_NONE_R_BASIC)};
+		return BasicBadGuyR;
+	}
+	
+	public static Image[] getBasicBadGuyPost() throws SlickException {
+		BasicBadGuyPost = new Image[]{ 
+				new Image(Strings.BAD_POST1_BASIC),
+				new Image(Strings.BAD_POST2_BASIC)};
+		return BasicBadGuyPost;
 	}
 		
 }
