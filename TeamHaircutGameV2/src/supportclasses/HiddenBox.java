@@ -17,4 +17,4 @@ public class HiddenBox extends Tile{
 		
 	}
 
-}
+}//[end HiddenBox]
