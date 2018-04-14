@@ -31,6 +31,9 @@ public class GameFunc {
 		if(collisionType == 1) {
 			if (REC.intersects(Hero.rec)){isHit = true;}
 		}
+		if(collisionType == 2) {
+			if (REC.intersects(Hero.bottomRec)){isHit = true;}
+		}
 		
 	   return isHit;
 	}
