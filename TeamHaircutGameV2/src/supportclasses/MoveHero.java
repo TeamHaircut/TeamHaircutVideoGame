@@ -197,7 +197,6 @@ public class MoveHero {
 		}
 	}
 	
-
 	public static void jump(GameContainer gc, int delta){
 		
 		Input input = gc.getInput();
