@@ -83,4 +83,4 @@ public class InvisibleBox extends Tile{
 		
 	}
 	
-}
+}//[end InvisibleBox]
