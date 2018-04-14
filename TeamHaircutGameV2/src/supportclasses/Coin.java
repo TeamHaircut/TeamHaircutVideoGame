@@ -63,4 +63,4 @@ public class Coin extends Item{
 		this.isAvailable = isAvailable;
 	}
 
-}
+}//[end Coin]
