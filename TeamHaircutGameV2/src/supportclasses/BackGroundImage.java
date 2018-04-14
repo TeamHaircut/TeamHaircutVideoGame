@@ -39,4 +39,4 @@ public class BackGroundImage{
 			x = GameFunc.scrollImage(x, nx, Ints.WALL, Ints.NX);
 	}
 	
-}//end class
+}//[end BackGroundImage]
