@@ -40,4 +40,4 @@ public class LevelItemBuilder {
 		}
 	}
 	
-}
+}//[end LevelItemBuilder]
