@@ -13,7 +13,7 @@ public class Collision {
 	private static boolean flagBottomFull;
 	private static boolean flagRight;
 	private static boolean flagLeft;
-	//private static boolean flagBadGuy;
+	private static boolean flagBadGuy;
 	
 	public Collision()
 	{
@@ -98,17 +98,11 @@ public class Collision {
 		}
 	}
 	
-	
-	
-	public static void checkCollisionBadguy(Rectangle[] r)
-	{
-//		setFlagBadGuy(false);
-//		for (int i = 0; i < r.length; i++)
-//		   {
-//			   if (r[i].intersects(Hero.recBottom))
-//				   setFlagBadGuy(true);
-//		   }
+	public static void checkCollisionBadguy(Rectangle r) {
+		if (r.intersects(Hero.bottomRec)) {
+			setFlagBadGuy(true);
 		}
+	}
 	
 	public static boolean isFlagBottomLeft() {
 		return flagBottomLeft;
@@ -156,12 +150,12 @@ public class Collision {
 	{
 		flagLeft = newSetting;
 	}
-//	
-//	public static void setFlagBadGuy(boolean newSetting)
-//	{
-//		flagBadGuy = newSetting;
-//	}
-//	
+	
+	public static void setFlagBadGuy(boolean newSetting)
+	{
+		flagBadGuy = newSetting;
+	}
+	
 	public static boolean getFlagTop()
 	{
 		return flagTop;
@@ -177,11 +171,11 @@ public class Collision {
 		return flagLeft;
 	}
 	
-//	
-//	public static boolean getFlagBadGuy()
-//	{
-//		return flagBadGuy;
-//	}
+	
+	public static boolean getFlagBadGuy()
+	{
+		return flagBadGuy;
+	}
 	
 	
 	
