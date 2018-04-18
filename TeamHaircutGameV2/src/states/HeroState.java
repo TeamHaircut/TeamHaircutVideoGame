@@ -31,6 +31,7 @@ public class HeroState {
 	private static int lives = 3;
 	private static int coins = 0;
 	private static int score = 0;
+	private static String scoreString = "000000";
 
 	public static int getIndex() {
 		return index;
@@ -106,10 +107,30 @@ public class HeroState {
 
 	public static void setScore(int score) {
 		HeroState.score = score;
+		if(HeroState.score == 0) {
+			HeroState.scoreString = "000000";
+		}
 	}
 	
 	public static void incrementScore(int value) {
 		HeroState.score+=value;
+		scoreToString();
+	}
+
+	public static String getScoreString() {
+		return scoreString;
+	}
+
+	public static void scoreToString() {
+		scoreString = Integer.toString(getScore());
+		int stringLength = scoreString.length();
+		for(int i = stringLength; i < 6; i++) {
+			scoreString = "0"+scoreString;
+		}
+		if(getScore() >= 1000000) {
+			scoreString = "999999";
+		}
+		
 	}
 	
 }//[end HeroState]
