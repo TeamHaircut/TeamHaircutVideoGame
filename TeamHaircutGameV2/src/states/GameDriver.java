@@ -56,7 +56,7 @@ public class GameDriver extends StateBasedGame{
          
 //       alt-tab to exit fullscreen
          appgc.setFullscreen(true);//uncomment for full screen
-         appgc.setShowFPS(true);//true
+         appgc.setShowFPS(false);//true
          appgc.start();
       }catch(SlickException e){
          e.printStackTrace();
