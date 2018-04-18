@@ -1,6 +1,7 @@
 package supportclasses;
 
 import org.newdawn.slick.Animation;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -118,12 +119,11 @@ public class Hero {
 	{
 		ani.draw(dX, dY);
 		
-		/*
-		g.setColor(Color.white);
-		g.fill(rec);
-		g.setColor(Color.red);
-		g.fill(bottomRec);
-		*/
+		
+//		g.setColor(Color.white);
+//		g.fill(rec);
+//		g.setColor(Color.red);
+//		g.fill(bottomRec);
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
@@ -132,7 +132,8 @@ public class Hero {
 		MoveHero.jump(gc,delta);
 		MoveHero.moveRight(gc,delta);
 		MoveHero.moveLeft(gc,delta);
-		MoveHero.bounce();
+		MoveHero.bounceDown();
+		MoveHero.bounceUp();
 		
 		
 		leftHigh.setLocation(dX+Ints.D,dY+1); leftHighPercept.setLocation(dX+Ints.D+1,dY+1);
