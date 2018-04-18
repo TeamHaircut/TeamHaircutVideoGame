@@ -2,6 +2,7 @@
 package states;
 
 import levels.Level_1_1;
+import levels.Level_Test;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
@@ -19,9 +20,9 @@ public class GameDriver extends StateBasedGame{
       this.addState(new GameOverState());
       
       
-     // this.addState(new Level2());
+//      this.addState(new Level2());
       this.addState(new Level_1_1());
-      //this.addState(new Level_Test());
+//      this.addState(new Level_Test());
    }
    
    public void initStatesList(GameContainer gc) throws SlickException{
@@ -31,7 +32,7 @@ public class GameDriver extends StateBasedGame{
       this.getState(GameState.STARTSTATE).init(gc, this);
       this.getState(GameState.GAMEOVERSTATE).init(gc, this);
       this.getState(GameState.LEVEL_1_1).init(gc, this);
-      //this.getState(GameState.LEVEL_Test).init(gc, this);
+//      this.getState(GameState.LEVEL_Test).init(gc, this);
 
 
       /*
