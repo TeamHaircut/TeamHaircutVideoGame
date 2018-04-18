@@ -1,5 +1,6 @@
 package supportclasses;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -45,8 +46,8 @@ public class Item{
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
-		//g.setColor(Color.white);
-		//g.fill(getRec());
+//		g.setColor(Color.white);
+//		g.fill(getRec());
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
