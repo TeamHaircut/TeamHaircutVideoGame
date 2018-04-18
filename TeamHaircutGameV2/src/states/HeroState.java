@@ -29,7 +29,8 @@ public class HeroState {
 	private static int state = 1;
 	
 	private static int lives = 3;
-	private static int coins = 0;
+	private static int coins = 98;
+	private static String coinsString = "98";
 	private static int score = 0;
 	private static String scoreString = "000000";
 
@@ -95,10 +96,14 @@ public class HeroState {
 
 	public static void setCoins(int coins) {
 		HeroState.coins = coins;
+		if(HeroState.coins == 0) {
+			HeroState.coinsString = "00";
+		}
 	}
 	
 	public static void incrementCoins() {
 		HeroState.coins++;
+		coinsToString();
 	}
 
 	public static int getScore() {
@@ -129,6 +134,24 @@ public class HeroState {
 		}
 		if(getScore() >= 1000000) {
 			scoreString = "999999";
+		}
+		
+	}
+	
+	public static String getCoinsString() {
+		return coinsString;
+	}
+
+	public static void coinsToString() {
+		coinsString = Integer.toString(getCoins());
+		int stringLength = coinsString.length();
+		for(int i = stringLength; i < 2; i++) {
+			coinsString = "0"+coinsString;
+		}
+		if(getCoins() >= 100) {
+			coinsString = "00";
+			setCoins(0);
+			incrementLives();
 		}
 		
 	}
