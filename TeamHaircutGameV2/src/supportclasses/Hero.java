@@ -119,7 +119,6 @@ public class Hero {
 	{
 		ani.draw(dX, dY);
 		
-		
 //		g.setColor(Color.white);
 //		g.fill(rec);
 //		g.setColor(Color.red);
