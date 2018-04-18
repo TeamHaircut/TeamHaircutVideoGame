@@ -27,10 +27,11 @@ public class Header{
        
        switch(HeroState.getIndex()) {
        		case HeroState.DAMIAN:
-       			setName("DAMIAN");
+       			setName("C.SAFETY");
        			break;
        		case HeroState.DAN:
-       			setName("DAN   ");
+//       			setName("DAN   ");
+       			setName("C.AMERIKA");
        			break;
        		default:
        			break;
@@ -42,7 +43,7 @@ public class Header{
 	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49), 0, getName() + "                        WORLD           TIME", Color.white);
 	   
 //	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49),25,"      "+ "        x "+HeroState.getCoins() + "             " +"header.java ln 44"+"            "+String.valueOf(screenTime/1000), Color.white); 
-	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49),25,"      "+ "        x "+HeroState.getCoins() + "             " +" 1-1"+"            "+" "+String.valueOf(screenTime/1000), Color.white); 
+	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49),25,"         "+ "        x "+HeroState.getCoins() + "             " +" 1-1"+"            "+" "+String.valueOf(screenTime/1000), Color.white); 
 
 	   g.drawImage(new Image(Strings.ICON_COIN), (ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49)+(13*Ints.FONTSIZE), 25); 
 	 }
