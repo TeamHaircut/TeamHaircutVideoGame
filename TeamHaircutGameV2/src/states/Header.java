@@ -41,11 +41,9 @@ public class Header{
    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
    {
 	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49), 0, getName() + "                        WORLD           TIME", Color.white);
-	   
-//	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49),25,"      "+ "        x "+HeroState.getCoins() + "             " +"header.java ln 44"+"            "+String.valueOf(screenTime/1000), Color.white); 
-	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49),25,HeroState.getScoreString()+"  "+ "        x "+HeroState.getCoins() + "             " +" 1-1"+"            "+" "+String.valueOf(screenTime/1000), Color.white); 
+	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49),25,HeroState.getScoreString()+"  "+ "           x "+HeroState.getCoinsString() + "         " +" 1-1"+"            "+" "+String.valueOf(screenTime/1000), Color.white); 
 
-	   g.drawImage(new Image(Strings.ICON_COIN), (ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49)+(13*Ints.FONTSIZE), 25); 
+	   g.drawImage(new Image(Strings.ICON_COIN), (ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49)+(13*Ints.FONTSIZE)+85, 25); 
 	 }
    
    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
