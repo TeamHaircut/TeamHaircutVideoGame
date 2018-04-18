@@ -185,7 +185,7 @@ public class MoveHero {
 	//		
 	//	}//end jump
 	
-	public static void bounce() {
+	public static void bounceDown() {
 		if(HeroState.getAction() == HeroState.ACTION_JUMP) {
 			if (Collision.getFlagTop() == true){
 		   		Hero.timeY = 0;
@@ -193,6 +193,19 @@ public class MoveHero {
 		   		Hero.vo = -300;
 		   		Hero.v = 0;
 		   		Hero.yo = Hero.dY;	
+		   	}
+		}
+	}
+	
+	public static void bounceUp() {
+		if(HeroState.getAction() == HeroState.ACTION_JUMP) {
+			if (Collision.getFlagBadGuy() == true){
+		   		Hero.timeY = 0;
+		   		Hero.jumpCounter = 0;
+		   		Hero.vo = +400;
+		   		Hero.v = 0;
+		   		Hero.yo = Hero.dY;
+		   		Collision.setFlagBadGuy(false);
 		   	}
 		}
 	}
