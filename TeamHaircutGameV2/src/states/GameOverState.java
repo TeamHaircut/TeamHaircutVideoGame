@@ -35,6 +35,7 @@ public class GameOverState extends BasicGameState{
 	   GameState.setCurrentState(GameState.LEVEL_1_1);
 	   //Hero.world = " 1-1";
 	   HeroState.setCoins(0);
+	   HeroState.setScore(0);
 	   if (counter >= 5000) {
 		   counter = 0;
 		   sbg.enterState(GameState.TITLESTATE, new FadeOutTransition(), new FadeInTransition());
