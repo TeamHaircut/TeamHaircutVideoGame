@@ -7,6 +7,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import dimensions.Ints;
 import states.HeroState;
 import animations.CustomAnimation;
 import arrays.ImageArrays;
@@ -50,6 +51,7 @@ public class Coin extends Item{
 		if(super.isHit()) {
 			if(isAvailable) {
 				HeroState.incrementCoins();
+				HeroState.incrementScore(Ints.COIN_VALUE);
 			}
 			isAvailable = false;
 		}		
