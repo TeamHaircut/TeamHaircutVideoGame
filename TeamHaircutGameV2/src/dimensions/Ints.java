@@ -7,7 +7,7 @@ public class Ints {
 	//use 6 points and its multipliers: 12,18,24,30,36,42,48,54,60...
 	public static final int FONTSIZE = 18;
 	
-	public static final int LEVEL_1_1_TIME = 400;
+	public static final int LEVEL_1_1_TIME = 15;
 	
 	public static final int D = 40;
 	public static final int TILE_ACTION_NONE = 0;
