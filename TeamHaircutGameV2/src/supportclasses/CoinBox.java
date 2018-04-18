@@ -54,6 +54,7 @@ public class CoinBox extends Tile{
 			item.render(gc, sbg, g);
 			if(	((HiddenCoin) item).isAvailable()) {
 				HeroState.incrementCoins();
+				HeroState.incrementScore(Ints.COIN_VALUE);
 				((HiddenCoin) item).setAvailable(false);
 			}
 		}
