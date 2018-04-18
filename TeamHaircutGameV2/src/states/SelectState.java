@@ -18,7 +18,7 @@ public class SelectState extends BasicGameState{
 	private Image damianImage, danImage;
 	
 	public SelectState() {
-		name = "DAMIAN";//DAMIAN
+		name = "Cpt. Safety";//DAMIAN
 	}
    
    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
@@ -53,9 +53,9 @@ public class SelectState extends BasicGameState{
    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
 	   Input input = gc.getInput();
 	   if(input.isKeyDown(Input.KEY_RIGHT)){x = (ScrRes.getWidth(2))+(danImage.getWidth()/2); 
-	   y =  (ScrRes.getHeight(2))-(damianImage.getHeight()/2)-(100); HeroState.setIndex(HeroState.DAN); name = "DAN";}
+	   y =  (ScrRes.getHeight(2))-(damianImage.getHeight()/2)-(100); HeroState.setIndex(HeroState.DAN); name = "Cpt. Amerika";}
 	   if(input.isKeyDown(Input.KEY_LEFT)){x = (ScrRes.getWidth(2))-(damianImage.getWidth())-(damianImage.getWidth()/2);
-	   y = (ScrRes.getHeight(2))-(danImage.getHeight()/2)-(100); HeroState.setIndex(HeroState.DAMIAN); name = "DAMIAN";}
+	   y = (ScrRes.getHeight(2))-(danImage.getHeight()/2)-(100); HeroState.setIndex(HeroState.DAMIAN); name = "Cpt. Safety";}
 	   if(input.isKeyPressed(Input.KEY_ENTER)){HeroState.setLives(3); sbg.enterState(GameState.STARTSTATE, new EmptyTransition(), 
 			   new EmptyTransition());}
 	}
