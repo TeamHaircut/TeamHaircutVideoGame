@@ -30,6 +30,7 @@ public class HeroState {
 	
 	private static int lives = 3;
 	private static int coins = 0;
+	private static int score = 0;
 
 	public static int getIndex() {
 		return index;
@@ -97,6 +98,18 @@ public class HeroState {
 	
 	public static void incrementCoins() {
 		HeroState.coins++;
+	}
+
+	public static int getScore() {
+		return score;
+	}
+
+	public static void setScore(int score) {
+		HeroState.score = score;
+	}
+	
+	public static void incrementScore(int value) {
+		HeroState.score+=value;
 	}
 	
 }//[end HeroState]
