@@ -41,7 +41,7 @@ public class Header{
    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
    {
 	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49), 0, getName() + "                        WORLD           TIME", Color.white);
-	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49),25,HeroState.getScoreString()+"  "+ "           x "+HeroState.getCoinsString() + "         " +" 1-1"+"            "+" "+String.valueOf(screenTime/1000), Color.white); 
+	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49),25,HeroState.getScoreString()+"  "+ "           x "+HeroState.getCoinsString() + "         " +" 1-1"+"            "+" "+timeToString(screenTime/1000), Color.white); 
 
 	   g.drawImage(new Image(Strings.ICON_COIN), (ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*49)+(13*Ints.FONTSIZE)+85, 25); 
 	 }
@@ -61,5 +61,21 @@ public class Header{
    private String getName() {
 	   return name;
    }
+   
+   private static String timeString;
+   
+   public static String getTimeString() {
+		return timeString;
+	}
+
+	public static String timeToString(int input) {
+		timeString = Integer.toString(input);
+		int stringLength = timeString.length();
+		for(int i = stringLength; i < 3; i++) {
+			timeString = "0"+timeString;
+		}
+		return timeString;
+		
+	}
    
  }
