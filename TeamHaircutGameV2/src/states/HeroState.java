@@ -29,8 +29,8 @@ public class HeroState {
 	private static int state = 1;
 	
 	private static int lives = 3;
-	private static int coins = 98;
-	private static String coinsString = "98";
+	private static int coins = 0;
+	private static String coinsString = "00";
 	private static int score = 0;
 	private static String scoreString = "000000";
 
