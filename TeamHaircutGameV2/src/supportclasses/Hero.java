@@ -63,11 +63,6 @@ public class Hero {
 	private int lastAction;
 	private int lastEffect;
 	
-	//
-	//public static Rectangle vrec;
-	//public static float vheight;
-	//
-	
 	public Hero() {
 		HeroState.setDirection(HeroState.RIGHT);
 		HeroState.setAction(HeroState.ACTION_NONE);
@@ -79,7 +74,8 @@ public class Hero {
 		isJumping = true;
 		dY = 0;
 		dX = 6*Ints.D;
-		yo = 6*Ints.D;
+		Hero.yo = 6*Ints.D;
+
 		Ints.NX = dX;
 		
 		vo = 0;
@@ -96,7 +92,6 @@ public class Hero {
 		AnimationLoader.getAniMap();
 		rec = new Rectangle(dX,dY,Ints.D,(Ints.D*2)-20);
 		bottomRec = new Rectangle(dX+10, dY+60, 20,20);
-		//vrec = new Rectangle(dX,dY+(Ints.D*2),Ints.D,vheight);
 		
 		leftHigh = new Point(dX+Ints.D,dY+1); leftHighPercept = new Point(dX+Ints.D+1,dY+1);
 		leftMid = new Point(dX+Ints.D,dY+Ints.D); leftMidPercept = new Point(dX+Ints.D+1, dY+Ints.D);
@@ -155,9 +150,6 @@ public class Hero {
 		bottomRec.setX(dX+10);
 		bottomRec.setY(dY+60);
 		
-		//vrec.setX(dX);
-		//vrec.setY(dY+(Ints.D*2));
-		//vrec.setHeight(vheight);
 		
 		
 		if(	lastDirection != HeroState.getDirection() || 
