@@ -238,8 +238,8 @@ public class Level_1_1 extends BasicGameState {
 	
 				/*
 				 * BREAK BLOCKS
-				 */																		//5
-				new BreakBox(20,5),new BreakBox(22,5),new BreakBox(24,5),new BreakBox(78,6),new BreakBox(80,5),
+				 */																		
+				new BreakBox(20,5),new BreakBox(22,5),new BreakBox(24,5),new BreakBox(78,5),new BreakBox(80,5),
 				new BreakBox(82,9),new BreakBox(83,9),new BreakBox(84,9),new BreakBox(85,9),new BreakBox(86,9),
 				new BreakBox(87,9),new BreakBox(88,9),new BreakBox(89,9),new BreakBox(90,9),new BreakBox(91,9),
 				new BreakBox(94,9),new BreakBox(95,9),new BreakBox(96,9),new BreakBox(97,9),new BreakBox(102,5),
@@ -274,7 +274,8 @@ public class Level_1_1 extends BasicGameState {
 				/*
 				 * STARMAN		
 				 */
-				new HiddenBox(103,5),//starman
+				new HiddenBox(6,5,Ints.ITEM_STARMAN),//starman 103
+				
 
 								
 		});
