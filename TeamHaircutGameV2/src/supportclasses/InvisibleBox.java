@@ -62,7 +62,7 @@ public class InvisibleBox extends Tile{
 		if(super.isHit()  && item instanceof OneUp) {
 			item.render(gc, sbg, g);
 			if(isAvailable) {
-				item.vox = 0.1f;
+				item.vox = 0.2f;
 				isAvailable = false;
 			}
 			
