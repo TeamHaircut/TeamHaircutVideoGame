@@ -39,6 +39,8 @@ public class Strings {
 	public static final String ITEM_POWERUP = "res/objects/powerups/spiderMan.png";
 	public static final String ITEM_1UP = "res/objects/powerups/oneup/oneUp.png";
 	public static final String ITEM_1UP_POST = "res/objects/powerups/oneup/oneUpPost.png";
+	public static final String ITEM_STARMAN1 = "res/objects/powerups/starman/starman1.png";
+	public static final String ITEM_STARMAN2 = "res/objects/powerups/starman/starman2.png";
 	
 	public static final String ICON_COIN = "res/setupImages/duckcoinicon.png";
 	
