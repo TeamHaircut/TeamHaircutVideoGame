@@ -22,6 +22,8 @@ public class ImageArrays{
 	public static Image[] OneUp;
 	public static Image[] OneUpPost;
 	
+	public static Image[] Starman;
+	
 	public static Image[] BasicBadGuyL;
 	public static Image[] BasicBadGuyR;
 	public static Image[] BasicBadGuyPost;
@@ -95,6 +97,13 @@ public class ImageArrays{
 				new Image(Strings.ITEM_1UP_POST),
 				new Image(Strings.TILE_BLANK)};
 		return OneUpPost;
+	}
+	
+	public static Image[] getStarman() throws SlickException {
+		Starman = new Image[]{ 
+				new Image(Strings.ITEM_STARMAN1),
+				new Image(Strings.ITEM_STARMAN2)};
+		return Starman;
 	}
 	
 	public static Image[] getBasicBadGuyL() throws SlickException {
