@@ -2,6 +2,7 @@
 package states;
 
 import strings.Strings;
+import supportclasses.Hero;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
@@ -42,7 +43,7 @@ public class StartState extends BasicGameState{
    
    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
 	   counter += delta;
-	   if (counter >= 1000) {//1000
+	   if (counter >= 1000) {
 		   counter = 0;
 		   switch(GameState.getCurrentState()) {
 		   	case GameState.LEVEL_1_1:
