@@ -274,7 +274,7 @@ public class Level_1_1 extends BasicGameState {
 				/*
 				 * STARMAN		
 				 */
-				new HiddenBox(6,5,Ints.ITEM_STARMAN),//starman 103
+				new HiddenBox(103,5,Ints.ITEM_STARMAN),//starman 103
 				
 
 								
