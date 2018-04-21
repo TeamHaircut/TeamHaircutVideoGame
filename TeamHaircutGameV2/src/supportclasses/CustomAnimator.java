@@ -54,5 +54,4 @@ public class CustomAnimator {
 	private void setColor(Color color) {
 		this.color = color;
 	}
-
-}
+}//[end CustomAnimator]
