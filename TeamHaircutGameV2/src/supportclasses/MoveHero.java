@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package supportclasses;
 
 import org.newdawn.slick.GameContainer;
@@ -326,6 +327,4 @@ public class MoveHero {
 		if (oldYo > 600 && oldYo < 640) {Hero.yo = 600;}
 		if (oldYo > 640 && oldYo < 680) {Hero.yo = 640;}
 	}
-	
-	
-}
+}//[end MoveHero]
