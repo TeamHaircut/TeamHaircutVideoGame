@@ -70,4 +70,4 @@ public class AnimationLoader {
 		AnimationLoader.aniMap = aniMap;
 	}
 
-}
+}//[end AnimationLoader]
