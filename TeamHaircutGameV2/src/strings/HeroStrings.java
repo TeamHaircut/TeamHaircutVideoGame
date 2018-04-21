@@ -50,6 +50,4 @@ public class HeroStrings {
 	public static final String DS_JUMP_R_N = "res/dan/new/DSjumpRn.png";
 	public static final String DS_JUMP_R_B = "res/dan/new/DSjumpRb.png";
 	public static final String DS_JUMP_R_S = "res/dan/new/DSjumpRs.png";
-
-	
-}
+}//[end HeroStrings]
