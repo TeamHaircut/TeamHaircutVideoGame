@@ -136,8 +136,10 @@ public class BasicBadGuy extends Item{
 		
 		if(GameFunc.isHitCheck(super.getRec(), Ints.COLLISION_FULL, false)){
 			
+			if(HeroState.getEffect() != HeroState.EFFECT_STARMAN) {
 			   HeroState.decrementLives();
 			   HeroState.setState(HeroState.STATE_DEAD);
+			}
 
 			   if(HeroState.getState() == HeroState.STATE_DEAD) {
 				   if(HeroState.getLives() <= 0) {
