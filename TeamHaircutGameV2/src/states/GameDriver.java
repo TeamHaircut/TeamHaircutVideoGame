@@ -19,9 +19,8 @@ public class GameDriver extends StateBasedGame{
       this.addState(new StartState());
       this.addState(new GameOverState());
       
-      
-//      this.addState(new Level2());
       this.addState(new Level_1_1());
+//      this.addState(new Level_1_2());
 //      this.addState(new Level_Test());
    }
    
@@ -32,8 +31,8 @@ public class GameDriver extends StateBasedGame{
       this.getState(GameState.STARTSTATE).init(gc, this);
       this.getState(GameState.GAMEOVERSTATE).init(gc, this);
       this.getState(GameState.LEVEL_1_1).init(gc, this);
+//      this.getState(GameState.LEVEL_1_2).init(gc, this);
 //      this.getState(GameState.LEVEL_Test).init(gc, this);
-
 
       /*
        * use GameState.INTROSTATE, to start at beginning
@@ -43,6 +42,7 @@ public class GameDriver extends StateBasedGame{
 //      this.enterState(GameState.SELECTSTATE);
 //      this.enterState(GameState.STARTSTATE);
       this.enterState(GameState.LEVEL_1_1);
+//      this.enterState(GameState.LEVEL_1_2);
 //      this.enterState(GameState.LEVEL_Test);
    }
    
@@ -56,7 +56,7 @@ public class GameDriver extends StateBasedGame{
          
 //       alt-tab to exit fullscreen
          appgc.setFullscreen(true);//uncomment for full screen
-         appgc.setShowFPS(false);//true
+         appgc.setShowFPS(false);//Frames per second
          appgc.start();
       }catch(SlickException e){
          e.printStackTrace();
