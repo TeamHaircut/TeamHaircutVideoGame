@@ -6,7 +6,7 @@ public class HeroState {
 	public static final int DAMIAN = 0;
 	public static final int DAN = 1;
 	
-	public static final int LEFT = 0;
+	public static final int LEFT = -1;
 	public static final int RIGHT = 1;
 	
 	public static final int ACTION_NONE = 0;
