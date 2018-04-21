@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package supportclasses;
 
 import supportclasses.Hero;
@@ -187,5 +188,4 @@ public class Tile {
 	public void setNx(float nx) {
 		this.nx = nx;
 	}
-	
-}
+}//[end Tile]
