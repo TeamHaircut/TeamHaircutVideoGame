@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package supportclasses;
 
 import org.newdawn.slick.Animation;
@@ -58,5 +59,4 @@ public class PowerUp extends Item{
 	public void setAvailable(boolean isAvailable) {
 		this.isAvailable = isAvailable;
 	}
-
-}
+}//[end PowerUp]
