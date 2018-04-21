@@ -201,4 +201,4 @@ public class AnimateHero {
 	   	}
 	   	return HeroAni;
 	}
-}
+}//[end AnimateHero]
