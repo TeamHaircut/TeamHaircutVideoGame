@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package supportclasses;
 
 import org.newdawn.slick.Animation;
@@ -208,4 +209,4 @@ public class OneUp extends Item{
 		if (oldYo > 640 && oldYo < 680) {yo = 640;}
 	}
 	
-}//end class
+}//[end OneUp]
