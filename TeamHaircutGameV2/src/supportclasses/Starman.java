@@ -130,7 +130,7 @@ public class Starman extends Item{
 					vox = 0.0f;
 					dX = -2000;
 					//postAni.restart();
-					HeroState.incrementLives();
+					HeroState.setEffect(HeroState.EFFECT_STARMAN);
 					isAvailable = false;
 
 				}
