@@ -69,9 +69,6 @@ public class Starman extends Item{
 	{
 		super.init(gc, sbg);
 		ani = new CustomAnimation(ImageArrays.getStarman(),200).getAni();
-		//postAni = new CustomAnimation(ImageArrays.getOneUpPost(),1500).getAni();
-		//postAni.setLooping(false);
-		//postAni.stop();
 
 		ani.setLooping(true);
 		leftHigh = new Point(x+Ints.D,y+1); leftHighPercept = new Point(x+Ints.D+1,y+1);
@@ -100,12 +97,10 @@ public class Starman extends Item{
 		
 		if(!isAvailable) {
 			ani.draw(-2000, super.getY());
-			//postAni.draw(super.getX()+dX,super.getY());
 			super.getRec().setX(-2000);
 		}
 		if(isAvailable) {
 			ani.draw(super.getX(), super.getY());
-			//postAni.draw(-2000,super.getY());
 			super.getRec().setX(super.getX());
 		}
 	}
@@ -129,18 +124,18 @@ public class Starman extends Item{
 				if(isAvailable) {
 					vox = 0.0f;
 					dX = -2000;
-					//postAni.restart();
 					HeroState.setEffect(HeroState.EFFECT_STARMAN);
+					counter = 0;
 					isAvailable = false;
 
 				}
-				else {
-					y = y-((voy)*delta);
-					System.out.println(y);
-					dX = (float) (20*Math.sin(y/10));
-
-				}
-			}
+		}
+		 
+		 if(HeroState.getEffect() == HeroState.EFFECT_STARMAN) {
+			 counter += delta;
+			   if (counter >= 20000){HeroState.setEffect(HeroState.EFFECT_BIGMAN);}
+			   System.out.println("Debug Starman line 142");
+		 }
 		
 		leftHigh.setLocation(x+Ints.D,y+1); leftHighPercept.setLocation(x+Ints.D+1,y+1);
 		leftMid.setLocation(x+Ints.D,y+Ints.D-10); leftMidPercept.setLocation(x+Ints.D+1, y+Ints.D-10);
