@@ -1,4 +1,5 @@
- package supportclasses;
+//	www.teamhaircut.org
+package supportclasses;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
@@ -39,7 +40,4 @@ public class LevelPlatformBuilder{
 			myArray[i].update(gc, sbg, delta);
 		}
 	}
-
-
 }//[end LevelPlatformBuilder]
-
