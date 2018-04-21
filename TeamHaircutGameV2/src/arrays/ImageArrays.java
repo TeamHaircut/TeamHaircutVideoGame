@@ -27,6 +27,8 @@ public class ImageArrays{
 	public static Image[] BasicBadGuyR;
 	public static Image[] BasicBadGuyPost;
 	
+	public static Image[] Bullet;
+	
 	
 	public static Image[] getCoinBox() throws SlickException {
 		CoinBox = new Image[]{ 
@@ -124,5 +126,11 @@ public class ImageArrays{
 				new Image(Strings.BAD_POST1_BASIC),
 				new Image(Strings.BAD_POST2_BASIC)};
 		return BasicBadGuyPost;
+	}	
+	
+	public static Image[] getBullet() throws SlickException {
+		Bullet = new Image[]{ 
+				new Image(Strings.BULLET1)};
+		return Bullet;
 	}	
 }//[end ImageArrays]
