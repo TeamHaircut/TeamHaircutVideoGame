@@ -18,7 +18,7 @@ public class SelectState extends BasicGameState{
 	private Image damianImage, danImage;
 	
 	public SelectState() {
-		name = "Cpt. Safety";//DAMIAN
+		name = "Cpt. Safety";
 	}
    
    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
