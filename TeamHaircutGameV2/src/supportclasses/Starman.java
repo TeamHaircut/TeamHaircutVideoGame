@@ -1,8 +1,4 @@
-
-//	   Image[] preImageArray = {new Image("res/objects/powerups/starman/starmanV2.png")};
-//	   Image[] postImageArray = {new Image("res/objects/powerups/starman/starmanPost.png"), new Image("res/objects/powerups/starman/starmanPost2.png")};
-//	   Image[] postImageArray2 = {new Image("res/objects/powerups/starman/starmanPost.png"), new Image("res/objects/powerups/starman/starmanPost2.png")};
-
+//	www.teamhaircut.org
 package supportclasses;
 
 import org.newdawn.slick.Animation;
@@ -43,7 +39,6 @@ public class Starman extends Item{
 	private float jumpCounter;
 	
 	private Animation ani;
-	//private Animation postAni;
 	private boolean isAvailable;
 	
 	public Starman(float x, int y) {
@@ -54,7 +49,6 @@ public class Starman extends Item{
 		counter = 0;
 		coll = new ObjectCollision();
 		this.ani = new Animation();
-		//this.postAni = new Animation();
 		this.isAvailable = true;
 		dY = 0;
 		yo = this.y-30;
@@ -207,4 +201,4 @@ public class Starman extends Item{
 		if (oldYo > 640 && oldYo < 680) {yo = 640;}
 	}
 	
-}//end class
+}//[end Starman]
