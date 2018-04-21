@@ -1,5 +1,4 @@
 //	www.teamhaircut.org
-
 package dimensions;
 
 public class Ints {
@@ -26,12 +25,11 @@ public class Ints {
 	public static final int PLATFORM = 0;
 	public static final int TUBE = 1;
 	
+	public static final int WALL = 0;
+	public static float NX = 0;
+	
 	//SCORE VALUES
 	public static final int COIN_VALUE = 50;
 	public static final int BREAK_BOX_VALUE = 10;
 	
-	//temp
-	public static final int WALL = 0;
-	public static float NX = 0;
-
 }//[end Ints]
