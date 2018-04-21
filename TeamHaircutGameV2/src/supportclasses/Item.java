@@ -29,8 +29,8 @@ public class Item{
 		
 		nx = -((x*Ints.D)-350);
 		this.isHit = false;
-		this.x = -2000;
-		//this.x = (x*Ints.D);
+		//this.x = -2000;
+		this.x = (x*Ints.D);
 		this.y = (toFloor(y)*Ints.D)-Ints.D;
 	}
 	
@@ -61,6 +61,9 @@ public class Item{
 
 		}
 		x = GameFunc.scrollImage(x, nx, Ints.WALL, Ints.NX);
+		
+		if(this instanceof Bullet)
+			x = x+350;
 	}
 	
 	public float getX() {
