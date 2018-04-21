@@ -65,12 +65,6 @@ public class Collision {
 				setFlagBottomFull(true);
 			}
 			
-//			if(r[i].intersects(Hero.vrec)) {
-//				Hero.vheight = r[i].getY()-(Hero.dY+(Ints.D*2));
-//				if(Hero.vheight < 0) { Hero.vheight = 0;}
-//			}
-	
-
 			if(	(r[i].contains(Hero.leftHigh) || r[i].contains(Hero.leftMid) || r[i].contains(Hero.leftLow)) &&
 				(r[i].contains(Hero.leftHighPercept) || r[i].contains(Hero.leftMidPercept) || r[i].contains(Hero.leftLowPercept))
 			) {
@@ -176,9 +170,4 @@ public class Collision {
 	{
 		return flagBadGuy;
 	}
-	
-	
-	
-	
-
-}
+}//[end Collision]
