@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package supportclasses;
 
 import org.newdawn.slick.Animation;
@@ -162,5 +163,4 @@ public class Hero {
 		}
 		
 	}
-	
-}
+}//[end Hero]
