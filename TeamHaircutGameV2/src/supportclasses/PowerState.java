@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package supportclasses;
 
 import states.HeroState;
@@ -30,5 +31,4 @@ public class PowerState {
 	{
 		HeroState.setEffect(HeroState.EFFECT_NONE);
 	}
-
-}
+}//[end PowerState]
