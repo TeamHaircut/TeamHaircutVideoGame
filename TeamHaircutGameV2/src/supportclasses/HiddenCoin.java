@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package supportclasses;
 
 import org.newdawn.slick.Animation;
@@ -45,4 +46,4 @@ public class HiddenCoin extends Item{
 		this.isAvailable = isAvailable;
 	}
 
-}
+}//[end HiddenCoin]
