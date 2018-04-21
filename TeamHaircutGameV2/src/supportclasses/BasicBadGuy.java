@@ -1,5 +1,5 @@
+//	www.teamhaircut.org
 package supportclasses;
-
 
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Color;
@@ -94,7 +94,6 @@ public class BasicBadGuy extends Item{
 		
 		vox = 0.0f;
 		voy = 0.05f;
-		
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
@@ -254,4 +253,4 @@ public class BasicBadGuy extends Item{
 		if (oldYo > 640 && oldYo < 680) {yo = 640;}
 	}
 	
-}//end class
+}//[end BasicBadGuy]
