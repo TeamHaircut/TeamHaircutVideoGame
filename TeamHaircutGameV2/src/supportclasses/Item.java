@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package supportclasses;
 
 import org.newdawn.slick.Color;
@@ -122,5 +123,4 @@ public class Item{
 	public boolean getJumpTrigger() {
 		return jumpTriggerIsSet;
 	}
-
-}
+}//[end Item]
