@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package supportclasses;
 
 import org.newdawn.slick.GameContainer;
@@ -39,5 +40,4 @@ public class LevelTileBuilder {
 			myArray[i].update(gc, sbg, delta);
 		}
 	}
-	
 }//[end LevelTileBuilder]
