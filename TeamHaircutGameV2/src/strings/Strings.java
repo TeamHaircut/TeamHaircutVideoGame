@@ -52,5 +52,4 @@ public class Strings {
 	
 	public static final String BAD_POST1_BASIC = "res/badguys/basic/aboboD5R.png";
 	public static final String BAD_POST2_BASIC ="res/badguys/basic/aboboD1R.png";
-	
-}
+}//[end Strings]
