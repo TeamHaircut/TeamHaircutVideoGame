@@ -1,5 +1,4 @@
 //	www.teamhaircut.org
-
 package arrays;
 
 import org.newdawn.slick.Image;
@@ -292,4 +291,4 @@ public class HeroArrays {
 				new Image(HeroStrings.DS_JUMP_R_S)
 				};
 	}
-}
+}//[end HeroArrays]
