@@ -64,7 +64,10 @@ public class Hero {
 	private int lastAction;
 	private int lastEffect;
 	
+	public static Item item;
+	
 	public Hero() {
+		
 		HeroState.setDirection(HeroState.RIGHT);
 		HeroState.setAction(HeroState.ACTION_NONE);
 		HeroState.setEffect(HeroState.EFFECT_NONE);
@@ -85,6 +88,8 @@ public class Hero {
 		jumpCounter = 0;
 		
 		jumpTrigger = false;
+		
+		item = new Bullet(0,0);
 		
 	}
 	
@@ -109,6 +114,8 @@ public class Hero {
 		topRight = new Point(dX+Ints.D-1,dY); topRightPercept = new Point(dX+Ints.D-1,dY-1);
 		
 		ani = new CustomAnimation(HeroArrays.getDHnoneRn(),1000).getAni();
+		
+		item.init(gc, sbg);
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
@@ -119,6 +126,8 @@ public class Hero {
 //		g.fill(rec);
 //		g.setColor(Color.red);
 //		g.fill(bottomRec);
+		
+		item.render(gc, sbg, g);
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
@@ -129,6 +138,9 @@ public class Hero {
 		MoveHero.moveLeft(gc,delta);
 		MoveHero.bounceDown();
 		MoveHero.bounceUp();
+		MoveHero.spawnBullet(gc, delta);
+		
+		item.update(gc, sbg, delta);
 		
 		
 		leftHigh.setLocation(dX+Ints.D,dY+1); leftHighPercept.setLocation(dX+Ints.D+1,dY+1);
