@@ -30,7 +30,6 @@ public class Header{
        			setName("C.SAFETY");
        			break;
        		case HeroState.DAN:
-//       			setName("DAN   ");
        			setName("C.AMERIKA");
        			break;
        		default:
@@ -78,4 +77,4 @@ public class Header{
 		
 	}
    
- }
+ }//[end Header]
