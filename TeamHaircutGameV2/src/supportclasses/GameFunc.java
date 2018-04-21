@@ -1,3 +1,4 @@
+//	www.teamhaircut.org
 package supportclasses;
 
 import org.newdawn.slick.Animation;
@@ -9,7 +10,7 @@ public class GameFunc {
 	
 	public static float scrollImage(float xPos, float xShift, float wall, float heroShift ){
 		   
-		   xPos = wall-(xShift-heroShift);
+		xPos = wall-(xShift-heroShift);
 		return xPos;
 	   }
 	
@@ -17,11 +18,6 @@ public class GameFunc {
 		   if (REC.intersects(Hrec)){wH = 1;}
 		   return wH;
 		}
-	
-//	public static boolean isHitCheck(Rectangle REC, Rectangle Hrec, boolean isHit){
-//		   if (REC.intersects(Hrec)){isHit = true;}
-//		   return isHit;
-//		}
 	
 	public static boolean isHitCheck(Rectangle REC, int collisionType, boolean isHit){
 	   
@@ -147,7 +143,4 @@ public class GameFunc {
 			nx[i] = -(xo[i]-350);
 			main[i] = setting[i];
 	   }
-	
-	
-
-}
+}//[end GameFunc]
