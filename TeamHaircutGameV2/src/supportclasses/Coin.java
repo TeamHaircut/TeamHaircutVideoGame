@@ -14,12 +14,14 @@ import arrays.ImageArrays;
 
 public class Coin extends Item{
 
+	public static int count;
+	
 	private Animation ani;
 	private boolean isAvailable;
 	
 	public Coin(float x, int y) {
 		super(x,y);
-		
+		count++;
 		this.ani = new Animation();
 		this.isAvailable = true;
 	}
