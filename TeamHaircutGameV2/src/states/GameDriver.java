@@ -52,10 +52,10 @@ public class GameDriver extends StateBasedGame{
          appgc = new AppGameContainer(new GameDriver(Strings.GAMENAME));
          ScrRes.setHeight(appgc.getScreenHeight());
          ScrRes.setWidth(appgc.getScreenWidth());
-         appgc.setDisplayMode(ScrRes.getWidth(), ScrRes.getHeight(), true);
+         appgc.setDisplayMode(ScrRes.getWidth(), ScrRes.getHeight(), false);//true
          
 //       alt-tab to exit fullscreen
-         appgc.setFullscreen(true);//uncomment for full screen
+         //appgc.setFullscreen(true);//uncomment for full screen
          appgc.setShowFPS(false);//Frames per second
          appgc.start();
       }catch(SlickException e){
