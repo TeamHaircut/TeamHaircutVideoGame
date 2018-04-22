@@ -26,6 +26,10 @@ public class Item{
 	private boolean jumpTriggerIsSet;
 	
 	public Item(float x, int y) {
+		//if(!(this instanceof Coin))
+		//{
+			count++;
+		//}
 		
 		nx = -((x*Ints.D)-350);
 		this.isHit = false;
@@ -39,6 +43,9 @@ public class Item{
 	{
 		if(this instanceof OneUp || this instanceof BasicBadGuy ) {
 			rec = new Rectangle(x,y,Ints.D,(Ints.D*2));
+		}
+		else if(this instanceof Bullet) {
+			rec = new Rectangle(x,y,10,10);
 		}
 		else {
 			rec = new Rectangle(x,y,Ints.D,Ints.D);
@@ -55,6 +62,9 @@ public class Item{
 	{
 		if (this instanceof BasicBadGuy ) {
 			isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_BOTTOM, isHit);
+		}
+		else if(this instanceof Bullet) {
+			
 		}
 		else {
 			isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_FULL, isHit);
