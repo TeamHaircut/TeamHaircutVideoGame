@@ -280,18 +280,10 @@ public class Level_1_1 extends BasicGameState {
 								
 		});
 		
+		Item.count = 0;
+		Coin.count = 0;
 		level1_Items = new LevelItemBuilder(new Item[] {
 				
-				new Coin(87,4),
-				new Coin(89,9),
-				new Coin(199,9),
-				new Coin(200,8),
-				new Coin(200,7),
-				new Coin(200,6),
-				new Coin(201,5),
-				new Coin(201,4),
-				new Coin(201,3),
-
 				new BasicBadGuy(25,2),
 				new BasicBadGuy(42,2),
 				new BasicBadGuy(50,2),
@@ -307,18 +299,34 @@ public class Level_1_1 extends BasicGameState {
 				new BasicBadGuy(127,2),
 				new BasicBadGuy(174,2),
 				new BasicBadGuy(175,2),
+				
+				/*
+				 * non-rigidbodies
+				 */
+				new Coin(87,4),
+				new Coin(89,9),
+				new Coin(199,9),
+				new Coin(200,8),
+				new Coin(200,7),
+				new Coin(200,6),
+				new Coin(201,5),
+				new Coin(201,4),
+				new Coin(201,3),
+
+				
 
 		});
 		
 		
         
 		//mySolids = new RectangleList(Platform.count + Tile.count);
-		RectangleList.createNewList(Platform.count+Tile.count);
+		RectangleList.createNewList(Platform.count+Tile.count+Item.count);
 		level1_Platforms.init(gc, sbg);
 		level1_Tiles.init(gc, sbg);
 		level1_Items.init(gc, sbg);
 		RectangleList.addSolid(level1_Platforms.rec);
 		RectangleList.addSolid(level1_Tiles.rec);
+		RectangleList.addSolid(level1_Items.rec);
 			//mySolids.addSolid(level1_Platforms.rec);
 			//mySolids.addSolid(level1_Tiles.rec);
 //			myBounds.addSolid(myPlatforms.rec);
