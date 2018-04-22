@@ -45,7 +45,7 @@ public class Collision {
 		setFlagBottomPartial(false);
 		setFlagRight(false);
 		setFlagLeft(false);
-		for(int i = 0; i < r.length; i++)
+		for(int i = 0; i < r.length-Item.count; i++)
 		{
 			if(	r[i].contains(Hero.bottomLeft)) {
 				setFlagBottomLeft(true);
