@@ -15,6 +15,8 @@ public class Collision {
 	private static boolean flagLeft;
 	private static boolean flagBadGuy;
 	
+	private static boolean flagBullet;
+	
 	public Collision()
 	{
 //		setFlagTop(false);
@@ -93,8 +95,18 @@ public class Collision {
 	}
 	
 	public static void checkCollisionBadguy(Rectangle r) {
+		//setFlagBadGuy(false);
 		if (r.intersects(Hero.bottomRec)) {
 			setFlagBadGuy(true);
+		}
+	}
+	
+	public static void checkBulletCollisionBadguy(Rectangle r) {
+		setFlagBullet(false);
+		if(!BulletList.getList().isEmpty()) {
+			if (r.intersects(BulletList.getList().get(0).getRec())) {
+				setFlagBullet(true);
+			}
 		}
 	}
 	
@@ -169,5 +181,13 @@ public class Collision {
 	public static boolean getFlagBadGuy()
 	{
 		return flagBadGuy;
+	}
+
+	public static boolean isFlagBullet() {
+		return flagBullet;
+	}
+
+	public static void setFlagBullet(boolean flagBullet) {
+		Collision.flagBullet = flagBullet;
 	}
 }//[end Collision]
