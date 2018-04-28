@@ -313,12 +313,8 @@ public class Level_1_1 extends BasicGameState {
 				new Coin(201,4),
 				new Coin(201,3),
 
-				
-
 		});
 		
-		
-        
 		//mySolids = new RectangleList(Platform.count + Tile.count);
 		RectangleList.createNewList(Platform.count+Tile.count+Item.count);
 		level1_Platforms.init(gc, sbg);
