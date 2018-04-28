@@ -26,14 +26,10 @@ public class Item{
 	private boolean jumpTriggerIsSet;
 	
 	public Item(float x, int y) {
-		//if(!(this instanceof Coin))
-		//{
-			count++;
-		//}
+		count++;
 		
 		nx = -((x*Ints.D)-350);
 		this.isHit = false;
-		//this.x = -2000;
 		this.x = (x*Ints.D);
 		this.y = (toFloor(y)*Ints.D)-Ints.D;
 	}
@@ -64,16 +60,13 @@ public class Item{
 			isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_BOTTOM, isHit);
 		}
 		else if(this instanceof Bullet) {
-			
 		}
 		else {
 			isHit = GameFunc.isHitCheck(rec, Ints.COLLISION_FULL, isHit);
 
 		}
 		x = GameFunc.scrollImage(x, nx, Ints.WALL, Ints.NX);
-		
-		if(this instanceof Bullet)
-			x = x+350;
+			
 	}
 	
 	public float getX() {
