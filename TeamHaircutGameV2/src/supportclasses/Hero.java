@@ -1,6 +1,8 @@
 //	www.teamhaircut.org
 package supportclasses;
 
+import java.util.ArrayList;
+
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
