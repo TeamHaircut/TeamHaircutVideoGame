@@ -22,6 +22,8 @@ public class BasicBadGuy extends Item{
 	public int dir;
 	public int counter;
 	
+	public int deathDelay;
+	
 	public Point leftHigh, leftMid, leftLow;
 	public Point leftHighPercept, leftMidPercept, leftLowPercept;
 	public Point rightHigh, rightMid, rightLow;
@@ -53,6 +55,7 @@ public class BasicBadGuy extends Item{
 		dir = 1;
 		dX=-2000;
 		counter = 0;
+		deathDelay = 0;
 		coll = new ObjectCollision();
 		this.aniL = new Animation();
 		this.aniR = new Animation();
@@ -151,6 +154,24 @@ public class BasicBadGuy extends Item{
 		}
 		
 		Collision.checkCollisionBadguy(super.getRec());
+		Collision.checkBulletCollisionBadguy(super.getRec());
+		
+		
+		if(Collision.isFlagBullet()) {
+			Thread bulletThread = new Thread(() -> {
+				try {
+					Thread.sleep(67);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				super.setHit(true);
+				
+			});
+			bulletThread.start();
+				 
+		}
+		
+		
 		
 		 jump(gc,delta);
 		 if ((x < ScrRes.getWidth()+200) && vox == 0){
