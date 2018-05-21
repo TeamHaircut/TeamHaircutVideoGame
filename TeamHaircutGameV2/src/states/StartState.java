@@ -1,7 +1,11 @@
 //	www.teamhaircut.org
 package states;
 
+import java.util.ArrayList;
+
 import strings.Strings;
+import supportclasses.Bullet;
+import supportclasses.BulletList;
 import supportclasses.Hero;
 
 import org.newdawn.slick.*;
@@ -42,6 +46,7 @@ public class StartState extends BasicGameState{
    }
    
    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
+	   BulletList.setList( new ArrayList<Bullet>());
 	   counter += delta;
 	   if (counter >= 1000) {
 		   counter = 0;
