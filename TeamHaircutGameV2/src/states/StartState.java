@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import strings.Strings;
 import supportclasses.Bullet;
 import supportclasses.BulletList;
-import supportclasses.Hero;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
