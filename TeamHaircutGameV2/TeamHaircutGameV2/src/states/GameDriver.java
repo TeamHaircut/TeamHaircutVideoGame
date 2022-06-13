@@ -4,6 +4,8 @@ package states;
 import levels.Level_1_1;
 import levels.Level_Test;
 
+import java.awt.Toolkit;
+
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
