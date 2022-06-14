@@ -35,7 +35,7 @@ public class IntroState extends BasicGameState{
    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
 	   java.awt.Font f;
 	try {
-		f = java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, new File("EMULOGIC.TTF"));
+		f = java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, new File(Strings.TTF_PATHNAME));
 		   GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		   ge.registerFont(f);
 	} catch (FontFormatException e) {
@@ -48,10 +48,8 @@ public class IntroState extends BasicGameState{
    
    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
 	   g.setBackground(Color.black);
-	   font.drawString((ScrRes.getWidth(2))-(((Ints.FONTSIZE+12)/2)*15), 
-			   ScrRes.getHeight(2), "WWW.TEAMHAIRCUT.ORG", ca.getColor());//TEAMHAIRCUT.ORG 
-	   font.drawString((ScrRes.getWidth(2))-(((Ints.FONTSIZE+12)/2)*10), 
-			   (ScrRes.getHeight(2))+(Ints.FONTSIZE+12)+1, " PRESENTS ", ca.getColor());
+	   font.drawString(ScrRes.getWidth(2)-(((Ints.FONTSIZE+12)/2)*19), ScrRes.getHeight(2), "WWW.TEAMHAIRCUT.ORG", ca.getColor()); 
+	   font.drawString(ScrRes.getWidth(2)-(((Ints.FONTSIZE+12)/2)*10), (ScrRes.getHeight(2))+(Ints.FONTSIZE+12)+1, " PRESENTS ", ca.getColor());
    }
    
    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
