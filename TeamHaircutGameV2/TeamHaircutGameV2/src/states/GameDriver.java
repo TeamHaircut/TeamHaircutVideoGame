@@ -42,8 +42,8 @@ public class GameDriver extends StateBasedGame{
 //      this.enterState(GameState.INTROSTATE);
 //      this.enterState(GameState.TITLESTATE);
 //      this.enterState(GameState.SELECTSTATE);
-      this.enterState(GameState.STARTSTATE);
-//      this.enterState(GameState.LEVEL_1_1);
+//      this.enterState(GameState.STARTSTATE);
+      this.enterState(GameState.LEVEL_1_1);
 //      this.enterState(GameState.LEVEL_1_2);
 //      this.enterState(GameState.LEVEL_Test);
    }

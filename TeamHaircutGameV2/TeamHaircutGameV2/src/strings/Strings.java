@@ -17,7 +17,7 @@ public class Strings {
 	public static final String SELECT_STATE_IMAGE_2 = "res/setupImages/selectorA.png";
 	public static final String SELECT_STATE_IMAGE_3 = "res/setupImages/selectorB.png";
 
-	public static final String LEVEL1_BI = "res/objects/backdrops/backdrop1.png";
+	public static final String LEVEL1_BI = "res/objects/backdrops/backdrop4.png";//1
 	public static final String PLATFORM_BRICK = "res/objects/floors/brick.png";
 	public static final String PLATFORM_BLOCK ="res/objects/floors/block.png";
 	public static final String PLATFORM_TELE = "res/objects/floors/teleportbrick.png";
