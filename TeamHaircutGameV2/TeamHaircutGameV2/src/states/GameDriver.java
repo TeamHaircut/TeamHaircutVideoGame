@@ -39,8 +39,8 @@ public class GameDriver extends StateBasedGame{
       /*
        * use GameState.INTROSTATE, to start at beginning
        */
-//      this.enterState(GameState.INTROSTATE);
-      this.enterState(GameState.TITLESTATE);
+      this.enterState(GameState.INTROSTATE);
+//      this.enterState(GameState.TITLESTATE);
 //      this.enterState(GameState.SELECTSTATE);
 //      this.enterState(GameState.STARTSTATE);
 //      this.enterState(GameState.LEVEL_1_1);
