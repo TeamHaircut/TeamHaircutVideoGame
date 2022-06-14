@@ -36,15 +36,15 @@ public class TitleState extends BasicGameState{
 	   Image menuImage = new Image(Strings.TITLE_STATE_IMAGE_3);
 	   
 	   g.drawImage(menuImage, (ScrRes.getWidth(2))-(menuImage.getWidth()/2), 
-			   (ScrRes.getHeight(2))-(menuImage.getHeight()/2));
+			   (270)-(menuImage.getHeight()/2));
 	   
 	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*11), 
 			   ScrRes.getHeight(2)+ScrRes.getHeight(3) , "PRESS ENTER",
 			   ca.getColor());
 	   font.drawString((ScrRes.getWidth(2))-((Ints.FONTSIZE/2)*27),
-			   ScrRes.getHeight()-75, "\u00a9 2022 WWW.TeamHaircut.org", Color.white);
+			   ScrRes.getHeight()-55, "\u00a9 2022 WWW.TeamHaircut.org", Color.white);
 	   
-	   titleAnimation.draw((ScrRes.getWidth(2)-280),(ScrRes.getHeight(5))-15);
+	   titleAnimation.draw((ScrRes.getWidth(2)-280),30);
 	   
 	   titleAnimation.setPingPong(true);
    }
