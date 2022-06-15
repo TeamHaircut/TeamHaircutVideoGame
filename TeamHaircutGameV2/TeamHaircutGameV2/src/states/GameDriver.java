@@ -2,6 +2,7 @@
 package states;
 
 import levels.Level_1_1;
+import levels.Level_1_2;
 import levels.Level_Test;
 
 import java.awt.Toolkit;
@@ -22,7 +23,7 @@ public class GameDriver extends StateBasedGame{
       this.addState(new GameOverState());
       
       this.addState(new Level_1_1());
-//      this.addState(new Level_1_2());
+      this.addState(new Level_1_2());
 //      this.addState(new Level_Test());
    }
    
@@ -33,7 +34,7 @@ public class GameDriver extends StateBasedGame{
       this.getState(GameState.STARTSTATE).init(gc, this);
       this.getState(GameState.GAMEOVERSTATE).init(gc, this);
       this.getState(GameState.LEVEL_1_1).init(gc, this);
-//      this.getState(GameState.LEVEL_1_2).init(gc, this);
+      this.getState(GameState.LEVEL_1_2).init(gc, this);
 //      this.getState(GameState.LEVEL_Test).init(gc, this);
 
       /*
@@ -41,10 +42,10 @@ public class GameDriver extends StateBasedGame{
        */
 //      this.enterState(GameState.INTROSTATE);
 //      this.enterState(GameState.TITLESTATE);
-      this.enterState(GameState.SELECTSTATE);
+//      this.enterState(GameState.SELECTSTATE);
 //      this.enterState(GameState.STARTSTATE);
 //      this.enterState(GameState.LEVEL_1_1);
-//      this.enterState(GameState.LEVEL_1_2);
+      this.enterState(GameState.LEVEL_1_2);
 //      this.enterState(GameState.LEVEL_Test);
    }
    

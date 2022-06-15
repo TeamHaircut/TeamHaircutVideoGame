@@ -230,7 +230,7 @@ public class Level_1_1 extends BasicGameState {
 				new Platform(188,toFloor(8),1,7,Strings.PLATFORM_BLOCK),
 				new Platform(189,toFloor(9),1,8,Strings.PLATFORM_BLOCK),
 				new Platform(190,toFloor(9),1,8,Strings.PLATFORM_BLOCK),
-				new Platform(204,toFloor(1),3,2,Strings.PLATFORM_TELE),
+				new Platform(204,toFloor(1),3,2,Strings.PLATFORM_BRICK),
 				
 
 				
