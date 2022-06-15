@@ -141,22 +141,19 @@ public class Level_1_2 extends BasicGameState {
 				new CoinBox(15,5),
 				new CoinBox(16,5),
 				new CoinBox(17,5),
-				new CoinBox(32,6),
+				new CoinBox(32,6,ImageArrays.getBrickBox()),
 				
 												
 				/*
 				 * MAKE TILES
 				 */	
-				
 				new InvisibleBox(64,5,Ints.ITEM_1UP),//64
 						
 				/*
 				 * STARMAN		
 				 */
-				//new HiddenBox(20,5,Ints.ITEM_STARMAN),//starman 103
-				
-
-								
+				//new HiddenBox(32,6,Ints.ITEM_STARMAN),//starman 103
+												
 		});
 		
 		Item.count = 0;
@@ -191,6 +188,7 @@ public class Level_1_2 extends BasicGameState {
 				new Coin(201,5),
 				new Coin(201,4),
 				new Coin(201,3),
+				
 
 		});
 		
