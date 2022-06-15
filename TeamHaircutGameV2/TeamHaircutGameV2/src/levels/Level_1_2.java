@@ -91,10 +91,12 @@ public class Level_1_2 extends BasicGameState {
 				//new Platform(164,toFloor(3),Strings.PLATFORM_TUBE),
 				//new Platform(180,toFloor(3),Strings.PLATFORM_TUBE),
 				
+				new Platform(9,toFloor(13),16,1,Strings.TILE_BREAK),
+				
 				new Platform(0,toFloor(1),83,2,Strings.PLATFORM_BRICK),//_BRICK, BLOCK,TUBE
 				new Platform(87,toFloor(1),36,2,Strings.PLATFORM_BRICK),
-				new Platform(125,toFloor(1),2,2,Strings.PLATFORM_BRICK),
-				new Platform(129,toFloor(1),13,1,Strings.PLATFORM_BRICK),
+				new Platform(126,toFloor(1),2,2,Strings.PLATFORM_BRICK),
+				new Platform(130,toFloor(1),12,1,Strings.PLATFORM_BRICK),
 				new Platform(149,toFloor(1),8,2,Strings.PLATFORM_BRICK),
 				new Platform(164,toFloor(1),33,2,Strings.PLATFORM_BRICK),
 				new Platform(20,toFloor(2),1,1,Strings.PLATFORM_BLOCK),
@@ -124,14 +126,17 @@ public class Level_1_2 extends BasicGameState {
 	
 				/*
 				 * BREAK BLOCKS
-				 */																		
-				new BreakBox(78,5),new BreakBox(80,5),
-				new BreakBox(82,9),new BreakBox(83,9),new BreakBox(84,9),new BreakBox(85,9),new BreakBox(86,9),
-				new BreakBox(87,9),new BreakBox(88,9),new BreakBox(89,9),new BreakBox(90,9),new BreakBox(91,9),
-				new BreakBox(94,9),new BreakBox(95,9),new BreakBox(96,9),new BreakBox(97,9),new BreakBox(102,5),
-				new BreakBox(120,5),new BreakBox(123,9),new BreakBox(124,9),new BreakBox(125,9),new BreakBox(130,9),
-				new BreakBox(131,5),new BreakBox(132,5),new BreakBox(133,9),new BreakBox(168,5),new BreakBox(169,5),
-				new BreakBox(171,5),
+				 */
+				new BreakBox(45,7),new BreakBox(46,7),
+				new BreakBox(42,7),                   new BreakBox(44,7),new BreakBox(47,7),                   
+				new BreakBox(42,6),                   new BreakBox(44,6),new BreakBox(47,6),                   new BreakBox(49,6),
+				new BreakBox(42,5),new BreakBox(43,5),new BreakBox(44,5),new BreakBox(47,5),new BreakBox(48,5),new BreakBox(49,5),
+				new BreakBox(25,13),new BreakBox(26,13),new BreakBox(27,13),new BreakBox(28,13),new BreakBox(29,13),new BreakBox(30,13),
+				new BreakBox(31,13),new BreakBox(32,13),new BreakBox(33,13),new BreakBox(34,13),new BreakBox(35,13),new BreakBox(36,13),
+				new BreakBox(37,13),new BreakBox(38,13),new BreakBox(39,13),new BreakBox(40,13),new BreakBox(41,13),new BreakBox(42,13),
+				new BreakBox(43,13),new BreakBox(44,13),new BreakBox(45,13),new BreakBox(46,13),new BreakBox(47,13),new BreakBox(48,13),
+				new BreakBox(49,13),new BreakBox(50,13),new BreakBox(51,13),new BreakBox(52,13),new BreakBox(53,13),new BreakBox(54,13),
+				new BreakBox(55,13),new BreakBox(56,13),new BreakBox(57,13),new BreakBox(58,13),new BreakBox(59,13),new BreakBox(60,13),
 	
 				/*
 				 * CHANGE TILES		
@@ -152,7 +157,7 @@ public class Level_1_2 extends BasicGameState {
 				/*
 				 * STARMAN		
 				 */
-				//new HiddenBox(32,6,Ints.ITEM_STARMAN),//starman 103
+				new HiddenBox(49,7,Ints.ITEM_STARMAN),//starman 103
 												
 		});
 		
@@ -179,15 +184,8 @@ public class Level_1_2 extends BasicGameState {
 				/*
 				 * non-rigidbodies
 				 */
-				new Coin(87,4),
-				new Coin(89,9),
-				new Coin(199,9),
-				new Coin(200,8),
-				new Coin(200,7),
-				new Coin(200,6),
-				new Coin(201,5),
-				new Coin(201,4),
-				new Coin(201,3),
+				new Coin(44,8),new Coin(45,8),new Coin(46,8),new Coin(47,8),
+				new Coin(43,5),new Coin(48,5),
 				
 
 		});

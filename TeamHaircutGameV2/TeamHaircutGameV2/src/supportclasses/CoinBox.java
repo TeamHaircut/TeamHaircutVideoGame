@@ -36,7 +36,6 @@ public class CoinBox extends Tile{
 		case Ints.ITEM_POWERUP:
 			item = new PowerUp(x,y);
 			break;
-			
 		default:
 			item = new HiddenCoin(x,y);
 			break;
@@ -50,6 +49,23 @@ public class CoinBox extends Tile{
 		super.setLooping(false);
 		super.setAction(Ints.TILE_ACTION_NONE);
 		item = new HiddenCoin(x,y);
+	}
+	
+	public CoinBox(float x, int y, Image[] imageArray, int itemType) throws SlickException {
+		super(x,y);
+		super.setAnin(new CustomAnimation(imageArray,200).getAni());
+		super.setPost(new CustomAnimation(ImageArrays.getEmptyBox(),1000).getAni());
+		super.setLooping(false);
+		super.setAction(Ints.TILE_ACTION_NONE);
+		System.out.println(itemType);
+		switch(itemType) {
+		case Ints.ITEM_POWERUP:
+			item = new PowerUp(x,y);
+			break;		
+		default:
+			item = new HiddenCoin(x,y);
+			break;
+		}	
 	}
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
