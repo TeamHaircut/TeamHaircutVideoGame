@@ -113,7 +113,7 @@ public class Level_1_2 extends BasicGameState {
 				new Platform(140,toFloor(5),1,4,Strings.PLATFORM_BLOCK),
 				new Platform(141,toFloor(5),1,4,Strings.PLATFORM_BLOCK),
 				
-				new Platform(2,toFloor(12),2,11,Strings.TILE_BREAK),
+				new Platform(2,toFloor(13),2,12,Strings.TILE_BREAK),
 				
 
 				
@@ -137,7 +137,37 @@ public class Level_1_2 extends BasicGameState {
 				new BreakBox(43,13),new BreakBox(44,13),new BreakBox(45,13),new BreakBox(46,13),new BreakBox(47,13),new BreakBox(48,13),
 				new BreakBox(49,13),new BreakBox(50,13),new BreakBox(51,13),new BreakBox(52,13),new BreakBox(53,13),new BreakBox(54,13),
 				new BreakBox(55,13),new BreakBox(56,13),new BreakBox(57,13),new BreakBox(58,13),new BreakBox(59,13),new BreakBox(60,13),
-	
+				
+				new BreakBox(55,5),new BreakBox(55,6),new BreakBox(55,7),new BreakBox(55,8),new BreakBox(55,9),new BreakBox(57,10),
+				new BreakBox(56,5),new BreakBox(56,6),new BreakBox(56,7),new BreakBox(56,8),new BreakBox(56,9),new BreakBox(58,10),
+				new BreakBox(57,5),new BreakBox(58,5),new BreakBox(57,4),new BreakBox(58,4),new BreakBox(57,3),new BreakBox(58,3),
+				new BreakBox(57,11),new BreakBox(58,11),new BreakBox(57,12),new BreakBox(58,12),
+				
+				new BreakBox(61,5),new BreakBox(62,5),new BreakBox(63,5),new BreakBox(64,5),new BreakBox(65,5),new BreakBox(66,5),
+				new BreakBox(65,6),new BreakBox(66,6),new BreakBox(65,7),new BreakBox(66,7),new BreakBox(65,8),new BreakBox(66,8),
+				new BreakBox(65,9),new BreakBox(66,9),new BreakBox(65,10),new BreakBox(66,10),new BreakBox(65,11),new BreakBox(66,11),
+				new BreakBox(65,12),new BreakBox(66,12),new BreakBox(65,13),new BreakBox(66,13),
+				new BreakBox(61,10),new BreakBox(62,10),new BreakBox(63,10),new BreakBox(64,10),
+				new BreakBox(61,11),new BreakBox(62,11),new BreakBox(63,11),new BreakBox(64,11),
+				new BreakBox(61,12),new BreakBox(62,12),new BreakBox(63,12),new BreakBox(64,12),
+				new BreakBox(61,13),new BreakBox(62,13),new BreakBox(63,13),new BreakBox(64,13),
+				new BreakBox(67,13),new BreakBox(68,13),
+				new BreakBox(69,13),new BreakBox(70,13),new BreakBox(71,13),new BreakBox(72,13),
+				new BreakBox(69,12),new BreakBox(70,12),new BreakBox(71,12),new BreakBox(72,12),
+				new BreakBox(69,11),new BreakBox(70,11),new BreakBox(71,11),new BreakBox(72,11),
+				new BreakBox(69,10),new BreakBox(70,10),new BreakBox(71,10),new BreakBox(72,10),
+				new BreakBox(70,9),
+				new BreakBox(70,8),
+				new BreakBox(70,7),
+				new BreakBox(70,6),new BreakBox(72,6),//
+				new BreakBox(70,5),new BreakBox(71,5),new BreakBox(72,5),
+				
+				new BreakBox(73,13),new BreakBox(74,13),new BreakBox(75,13),new BreakBox(76,13),new BreakBox(77,13),new BreakBox(78,13),
+				new BreakBox(75,9),new BreakBox(76,9),
+				new BreakBox(75,8),new BreakBox(76,8),
+				new BreakBox(75,7),new BreakBox(76,7),
+				new BreakBox(75,6),new BreakBox(76,6),
+				new BreakBox(75,5),new BreakBox(76,5),
 				/*
 				 * CHANGE TILES		
 				 */
@@ -147,12 +177,13 @@ public class Level_1_2 extends BasicGameState {
 				new CoinBox(16,5),
 				new CoinBox(17,5),
 				new CoinBox(32,6,ImageArrays.getBrickBox()),
+				new CoinBox(72,6,ImageArrays.getBrickBox(), Ints.ITEM_POWERUP),
 				
 												
 				/*
 				 * MAKE TILES
 				 */	
-				new InvisibleBox(64,5,Ints.ITEM_1UP),//64
+				//new InvisibleBox(64,5,Ints.ITEM_1UP),//64
 						
 				/*
 				 * STARMAN		
@@ -186,6 +217,7 @@ public class Level_1_2 extends BasicGameState {
 				 */
 				new Coin(44,8),new Coin(45,8),new Coin(46,8),new Coin(47,8),
 				new Coin(43,5),new Coin(48,5),
+				new Coin(61,5),new Coin(62,5),new Coin(63,5),new Coin(64,5),
 				
 
 		});
