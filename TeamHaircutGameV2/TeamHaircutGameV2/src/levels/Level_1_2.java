@@ -84,21 +84,29 @@ public class Level_1_2 extends BasicGameState {
 		Platform.count = 0;
 		level2_Platforms = new LevelPlatformBuilder(new Platform[]{
 				
-				//new Platform(29,toFloor(3),Strings.PLATFORM_TUBE),
-				//new Platform(39,toFloor(4),Strings.PLATFORM_TUBE),
-				//new Platform(47,toFloor(5),Strings.PLATFORM_TUBE),
-				//new Platform(58,toFloor(5),Strings.PLATFORM_TUBE),
-				//new Platform(164,toFloor(3),Strings.PLATFORM_TUBE),
-				//new Platform(180,toFloor(3),Strings.PLATFORM_TUBE),
+				new Platform(106,toFloor(4),Strings.PLATFORM_TUBE),
+				new Platform(112,toFloor(5),Strings.PLATFORM_TUBE),
+				new Platform(118,toFloor(3),Strings.PLATFORM_TUBE),
+				new Platform(182,toFloor(4),Strings.PLATFORM_TUBE),
+				new Platform(186,toFloor(4),Strings.PLATFORM_TUBE),
+				new Platform(190,toFloor(4),Strings.PLATFORM_TUBE),
 				
 				new Platform(9,toFloor(13),16,1,Strings.TILE_BREAK),
+				new Platform(100,toFloor(13),42,1,Strings.TILE_BREAK),
+				new Platform(126,toFloor(2),2,2,Strings.TILE_BREAK),
+				new Platform(126,toFloor(3),2,2,Strings.TILE_BREAK),
+				new Platform(126,toFloor(4),2,2,Strings.TILE_BREAK),
+				new Platform(164,toFloor(4),17,3,Strings.TILE_BREAK),//
+				new Platform(174,toFloor(13),7,9,Strings.TILE_BREAK),
+				new Platform(181,toFloor(13),10,1,Strings.TILE_BREAK),
+				new Platform(194,toFloor(15),13,14,Strings.TILE_BREAK),
 				
 				new Platform(0,toFloor(1),83,2,Strings.PLATFORM_BRICK),//_BRICK, BLOCK,TUBE
 				new Platform(87,toFloor(1),36,2,Strings.PLATFORM_BRICK),
 				new Platform(126,toFloor(1),2,2,Strings.PLATFORM_BRICK),
 				new Platform(130,toFloor(1),12,1,Strings.PLATFORM_BRICK),
 				new Platform(149,toFloor(1),8,2,Strings.PLATFORM_BRICK),
-				new Platform(164,toFloor(1),33,2,Strings.PLATFORM_BRICK),
+				new Platform(164,toFloor(1),50,2,Strings.PLATFORM_BRICK),
 				new Platform(20,toFloor(2),1,1,Strings.PLATFORM_BLOCK),
 				new Platform(22,toFloor(3),1,2,Strings.PLATFORM_BLOCK),
 				new Platform(24,toFloor(4),1,3,Strings.PLATFORM_BLOCK),
@@ -159,15 +167,34 @@ public class Level_1_2 extends BasicGameState {
 				new BreakBox(70,9),
 				new BreakBox(70,8),
 				new BreakBox(70,7),
-				new BreakBox(70,6),new BreakBox(72,6),//
+				new BreakBox(70,6),
 				new BreakBox(70,5),new BreakBox(71,5),new BreakBox(72,5),
 				
 				new BreakBox(73,13),new BreakBox(74,13),new BreakBox(75,13),new BreakBox(76,13),new BreakBox(77,13),new BreakBox(78,13),
 				new BreakBox(75,9),new BreakBox(76,9),
 				new BreakBox(75,8),new BreakBox(76,8),
 				new BreakBox(75,7),new BreakBox(76,7),
-				new BreakBox(75,6),new BreakBox(76,6),
+				new BreakBox(75,6),
 				new BreakBox(75,5),new BreakBox(76,5),
+				
+				new BreakBox(79,5),new BreakBox(80,5),new BreakBox(81,5),new BreakBox(82,5),
+				new BreakBox(79,13),new BreakBox(80,13),new BreakBox(81,13),new BreakBox(82,13),
+				new BreakBox(79,12),new BreakBox(80,12),new BreakBox(81,12),new BreakBox(82,12),
+				new BreakBox(79,11),new BreakBox(80,11),new BreakBox(81,11),new BreakBox(82,11),
+				new BreakBox(79,10),new BreakBox(80,10),new BreakBox(81,10),new BreakBox(82,10),
+				
+				new BreakBox(83,13),new BreakBox(84,13),new BreakBox(85,13),new BreakBox(86,13),new BreakBox(87,13),new BreakBox(88,13),new BreakBox(89,13),new BreakBox(90,13),
+				new BreakBox(91,13),
+				
+				new BreakBox(87,7),new BreakBox(88,7),new BreakBox(89,7),new BreakBox(90,7),new BreakBox(91,7),new BreakBox(92,7),
+				new BreakBox(87,6),new BreakBox(88,6),new BreakBox(89,6),new BreakBox(90,6),new BreakBox(91,6),new BreakBox(92,6),
+				new BreakBox(93,13),new BreakBox(94,13),new BreakBox(95,13),new BreakBox(96,13),new BreakBox(97,13),new BreakBox(98,13),new BreakBox(99,13),
+				new BreakBox(148,6),new BreakBox(149,6),new BreakBox(150,6),new BreakBox(151,6),new BreakBox(152,6),
+				new BreakBox(158,4),//remove this block in production
+				
+				new BreakBox(165,13),new BreakBox(166,13),new BreakBox(167,13),new BreakBox(168,13),new BreakBox(169,13),new BreakBox(170,13),new BreakBox(171,13),
+				
+				
 				/*
 				 * CHANGE TILES		
 				 */
@@ -178,17 +205,21 @@ public class Level_1_2 extends BasicGameState {
 				new CoinBox(17,5),
 				new CoinBox(32,6,ImageArrays.getBrickBox()),
 				new CoinBox(72,6,ImageArrays.getBrickBox(), Ints.ITEM_POWERUP),
+				new CoinBox(76,6,ImageArrays.getBrickBox()),
+				new CoinBox(153,6,ImageArrays.getBrickBox(), Ints.ITEM_POWERUP),
+
 				
 												
 				/*
 				 * MAKE TILES
 				 */	
-				//new InvisibleBox(64,5,Ints.ITEM_1UP),//64
+				//new InvisibleBox(92,6,Ints.ITEM_1UP),//64
 						
 				/*
 				 * STARMAN		
 				 */
 				new HiddenBox(49,7,Ints.ITEM_STARMAN),//starman 103
+				new HiddenBox(92,13,Ints.ITEM_1UP),
 												
 		});
 		
@@ -196,20 +227,20 @@ public class Level_1_2 extends BasicGameState {
 		Coin.count = 0;
 		level2_Items = new LevelItemBuilder(new Item[] {
 				
-				//new BasicBadGuy(25,2),
-				//new BasicBadGuy(42,2),
-				//new BasicBadGuy(50,2),
-				//new BasicBadGuy(52,2),
-				//new BasicBadGuy(83,9),
-				//new BasicBadGuy(85,2),
-				//new BasicBadGuy(99,2),
-				//new BasicBadGuy(100,2),
-				//new BasicBadGuy(123,2),
-				//new BasicBadGuy(124,2),
-				//new BasicBadGuy(125,2),
-				//new BasicBadGuy(126,2),
-				//new BasicBadGuy(127,2),
-				//new BasicBadGuy(174,2),
+				new BasicBadGuy(19,2),
+				new BasicBadGuy(20,3),
+				new BasicBadGuy(32,2),
+				new BasicBadGuy(65,2),
+				new BasicBadGuy(67,2),
+				new BasicBadGuy(76,10),
+				new BasicBadGuy(79,6),
+				new BasicBadGuy(81,6),
+				new BasicBadGuy(101,2),
+				new BasicBadGuy(103,2),
+				new BasicBadGuy(105,2),
+				new BasicBadGuy(116,2),
+				new BasicBadGuy(140,6),
+				new BasicBadGuy(138,5),
 				//new BasicBadGuy(175,2),
 				
 				/*
@@ -217,8 +248,8 @@ public class Level_1_2 extends BasicGameState {
 				 */
 				new Coin(44,8),new Coin(45,8),new Coin(46,8),new Coin(47,8),
 				new Coin(43,5),new Coin(48,5),
-				new Coin(61,5),new Coin(62,5),new Coin(63,5),new Coin(64,5),
-				
+				new Coin(61,5),new Coin(62,5),new Coin(63,5),new Coin(64,5),new Coin(71,5),
+				new Coin(87,8),new Coin(88,8),new Coin(89,8),new Coin(90,8),new Coin(91,8),new Coin(92,8),				
 
 		});
 		
