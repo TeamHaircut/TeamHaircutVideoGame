@@ -123,6 +123,10 @@ public class Level_1_2 extends BasicGameState {
 				
 				new Platform(2,toFloor(13),2,12,Strings.TILE_BREAK),
 				
+				//new FloatingPlatform(144, 3 tiles long),
+				//new FloatingPlatform(158, 3 tiles long),
+				//new hor tube at 169, 9 tiles tall
+				
 
 				
 				});
@@ -241,7 +245,16 @@ public class Level_1_2 extends BasicGameState {
 				new BasicBadGuy(116,2),
 				new BasicBadGuy(140,6),
 				new BasicBadGuy(138,5),
-				//new BasicBadGuy(175,2),
+				
+				//new DoubleBadGuy(46,2),
+				//new DoubleBadGuy(48,2),
+				//new DoubleBadGuy(61,2),
+				//new DoubleBadGuy(149,2),
+				
+				//new piranaBadGuy(106,4),
+				//new piranaBadGuy(112,5),
+				//new piranaBadGuy(118,3),
+				
 				
 				/*
 				 * non-rigidbodies
