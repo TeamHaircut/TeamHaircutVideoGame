@@ -20,11 +20,14 @@ public class Strings {
 	public static final String LEVEL1_BI = "res/objects/backdrops/backdrop4.png";//1
 	public static final String LEVEL2_BI = "res/objects/backdrops/backdrop_1_2.png";//1
 	public static final String PLATFORM_BRICK = "res/objects/floors/brick.png";
+	public static final String PLATFORM_BRICK_U = "res/objects/floors/brick_u.png";
 	public static final String PLATFORM_BLOCK ="res/objects/floors/block.png";
+	public static final String PLATFORM_BLOCK_U ="res/objects/floors/block_u.png";
 	public static final String PLATFORM_TELE = "res/objects/floors/teleportbrick.png";
 	public static final String PLATFORM_TUBE = "res/objects/barriers/tube/tube.png";
 	
 	public static final String TILE_BREAK = "res/objects/breakblocks/breakBlock.png";
+	public static final String TILE_BREAK_U = "res/objects/breakblocks/breakBlock_u.png";
 	public static final String TILE_BOX = "res/specialItems/emptyBox.png";
 	public static final String TILE_BLANK = "res/specialItems/40x40blank.png";
 	public static final String TILE_COIN1 = "res/objects/boxes/coinbox/coinbox1.png";
