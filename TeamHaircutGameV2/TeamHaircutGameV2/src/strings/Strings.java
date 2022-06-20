@@ -39,6 +39,11 @@ public class Strings {
 	public static final String TILE_BREAK3 = "res/objects/breakblocks/postBreak3.png";
 	public static final String TILE_BREAK4 = "res/objects/breakblocks/postBreak4.png";
 	
+	public static final String TILE_BREAK1_U = "res/objects/breakblocks/postBreak1_u.png";
+	public static final String TILE_BREAK2_U = "res/objects/breakblocks/postBreak2_u.png";
+	public static final String TILE_BREAK3_U = "res/objects/breakblocks/postBreak3_u.png";
+	public static final String TILE_BREAK4_U = "res/objects/breakblocks/postBreak4_u.png";
+	
 	public static final String ITEM_COIN1 = "res/objects/duckcoins/duckcoin1.png";
 	public static final String ITEM_COIN2 = "res/objects/duckcoins/duckcoin2.png";
 	public static final String ITEM_POWERUP = "res/objects/powerups/spiderMan.png";
